@@ -1,0 +1,521 @@
+<!doctype html>
+<html lang="en">
+
+{{ partial "header.html" . }}
+
+<body>
+    
+    {{ partial "navbar.html" . }}
+
+    <div class="content">
+		<div class="container-fluid">
+		    <div class="container">
+		        <div class="row">
+		            <div class="col-xs-12 text-center rocket-animation-holder hidden-xs">
+		                <div class="rocket-animation">
+		                    <div class="rocket">
+		                        <img alt="peak" width="136" height="190" src="data:image/png;base64,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">
+		                        <span class="rocket-line rline1"></span>
+		                        <span class="rocket-line rline2"></span>
+		                        <span class="rocket-line rline3"></span>
+		                    </div>
+		                    <div class="cloud cloud1">          	
+								<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="60" height="40">
+									<path d="M537.585 226.56C541.725 215.836 544 204.184 544 192c0-53.019-42.981-96-96-96-19.729 0-38.065 5.954-53.316 16.159C367.042 64.248 315.288 32 256 32c-88.366 0-160 71.634-160 160 0 2.728.07 5.439.204 8.133C40.171 219.845 0 273.227 0 336c0 79.529 64.471 144 144 144h368c70.692 0 128-57.308 128-128 0-61.93-43.983-113.586-102.415-125.44z"></path>
+								</svg>
+	                    	</div>
+		                    <div class="cloud cloud2">
+								<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="60" height="40">
+									<path d="M537.585 226.56C541.725 215.836 544 204.184 544 192c0-53.019-42.981-96-96-96-19.729 0-38.065 5.954-53.316 16.159C367.042 64.248 315.288 32 256 32c-88.366 0-160 71.634-160 160 0 2.728.07 5.439.204 8.133C40.171 219.845 0 273.227 0 336c0 79.529 64.471 144 144 144h368c70.692 0 128-57.308 128-128 0-61.93-43.983-113.586-102.415-125.44z"></path>
+								</svg>
+	                    	</div>
+		                    <div class="cloud cloud3">
+								<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="60" height="40">
+									<path d="M537.585 226.56C541.725 215.836 544 204.184 544 192c0-53.019-42.981-96-96-96-19.729 0-38.065 5.954-53.316 16.159C367.042 64.248 315.288 32 256 32c-88.366 0-160 71.634-160 160 0 2.728.07 5.439.204 8.133C40.171 219.845 0 273.227 0 336c0 79.529 64.471 144 144 144h368c70.692 0 128-57.308 128-128 0-61.93-43.983-113.586-102.415-125.44z"></path>
+								</svg>
+	                    	</div>
+		                </div>
+		                <h1>
+		                    ironPeak<br>
+		                    services
+		                </h1>
+		                <h4>
+		                    belgian cybersecurity consulting
+		                </h4>
+		                <div class="domain-form-holder">
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+		<div id="info" class="container-fluid">
+		    <div class="container">
+		        <div class="row">
+		            <div class="col-xs-12 row-title" id="services">
+		                <h4>
+		                	Competences
+		                </h4>
+		            </div>
+		        </div>
+		        <div class="row">
+		            <div class="col-xs-12 col-md-3">
+		                <div id="info-box1" class="info-box opened-info">
+		                    <div class="info-icon">       
+		                    	<div class="link">          	
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+										<path class="fill" d="M278.9 511.5l-61-17.7c-6.4-1.8-10-8.5-8.2-14.9L346.2 8.7c1.8-6.4 8.5-10 14.9-8.2l61 17.7c6.4 1.8 10 8.5 8.2 14.9L293.8 503.3c-1.9 6.4-8.5 10.1-14.9 8.2zm-114-112.2l43.5-46.4c4.6-4.9 4.3-12.7-.8-17.2L117 256l90.6-79.7c5.1-4.5 5.5-12.3.8-17.2l-43.5-46.4c-4.5-4.8-12.1-5.1-17-.5L3.8 247.2c-5.1 4.7-5.1 12.8 0 17.5l144.1 135.1c4.9 4.6 12.5 4.4 17-.5zm327.2.6l144.1-135.1c5.1-4.7 5.1-12.8 0-17.5L492.1 112.1c-4.8-4.5-12.4-4.3-17 .5L431.6 159c-4.6 4.9-4.3 12.7.8 17.2L523 256l-90.6 79.7c-5.1 4.5-5.5 12.3-.8 17.2l43.5 46.4c4.5 4.9 12.1 5.1 17 .6z"></path>
+									</svg>
+								</div>
+	                    	</div>
+		                    <div class="info-title">
+		                    	Code Security
+	                    	</div>
+		                    <div class="info-circle">
+		                    	<div class="circle-icon"></div>
+	                    	</div>
+		                </div>
+		            </div>
+		            <div class="col-xs-12 col-md-3">
+		                <div id="info-box2" class="info-box">
+		                    <div class="info-icon">
+		                    	<div class="link">	
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+										<path class="fill" d="M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z"></path>
+									</svg>
+	                    		</div>
+	                    	</div>
+		                    <div class="info-title">
+		                    	App Security
+	                    	</div>
+		                    <div class="info-circle">
+		                    	<div class="circle-icon"></div>
+	                    	</div>
+		                </div>
+		            </div>
+		            <div class="col-xs-12 col-md-3">
+		                <div id="info-box3" class="info-box">
+		                    <div class="info-icon">
+								<div class="link">
+								<svg version="1.1" viewBox="0 0 466 423.891" enable-background="new 0 0 466 423.891" xml:space="preserve">
+								    <rect height="" width="" x="-43.5" y="37.005" opacity="1"></rect>
+								    <g>
+								        <path class="fill" id="outline_7_" fill-rule="evenodd" clip-rule="evenodd" d="M242.133,168.481h47.146v48.194h23.837   c11.008,0,22.33-1.962,32.755-5.494c5.123-1.736,10.872-4.154,15.926-7.193c-6.656-8.689-10.053-19.661-11.054-30.476   c-1.358-14.71,1.609-33.855,11.564-45.368l4.956-5.732l5.905,4.747c14.867,11.946,27.372,28.638,29.577,47.665   c17.901-5.266,38.921-4.02,54.701,5.088l6.475,3.734l-3.408,6.652c-13.345,26.046-41.246,34.113-68.524,32.687   c-40.817,101.663-129.68,149.794-237.428,149.794c-55.666,0-106.738-20.81-135.821-70.197l-0.477-0.807l-4.238-8.621   C4.195,271.415,0.93,247.6,3.145,223.803l0.664-7.127h40.315v-48.194h47.143v-47.145h94.292V74.191h56.574V168.481z"
+								        ></path>
+								        <g display="none">
+								            <path class="fill" display="inline" fill="#5a7392" d="M61.093,319.89c6.023,0,11.763-0.157,17.219-0.464c0.476-0.026,0.932-0.063,1.402-0.092    c0.005-0.002,0.008-0.002,0.012-0.002c13.872-0.855,25.876-2.708,35.902-5.57c0.002-0.002,0.004-0.002,0.006-0.002    c1.823-0.521,3.588-1.07,5.282-1.656c1.894-0.657,2.896-2.725,2.241-4.618c-0.656-1.895-2.722-2.899-4.618-2.24    c-12.734,4.412-29.535,6.842-50.125,7.298c-0.002,0-0.004,0-0.005,0c-10.477,0.232-21.93-0.044-34.352-0.843c0,0,0,0-0.001,0    c-0.635-0.038-1.259-0.075-1.9-0.118c-1.995-0.128-3.731,1.374-3.869,3.375c-0.136,1.999,1.376,3.73,3.375,3.866    c2.537,0.173,5.03,0.321,7.49,0.453c0.392,0.021,0.77,0.034,1.158,0.054l0,0C47.566,319.697,54.504,319.89,61.093,319.89z"
+								            ></path>
+								        </g>
+								        <g id="Containers_8_">
+								            <path class="fill" fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M86.209,179.744h3.227v34.052h-3.227V179.744z M80.02,179.744    h3.354v34.052H80.02V179.744z M73.828,179.744h3.354v34.052h-3.354V179.744z M67.636,179.744h3.354v34.052h-3.354V179.744z     M61.446,179.744H64.8v34.052h-3.354V179.744z M55.384,179.744h3.224v34.052h-3.224V179.744z M51.981,176.338h40.858v40.86H51.981    V176.338z"
+								            ></path>
+								            <path class="fill" fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M133.354,132.598h3.229v34.051h-3.229V132.598z M127.165,132.598    h3.354v34.051h-3.354V132.598z M120.973,132.598h3.354v34.051h-3.354V132.598z M114.781,132.598h3.354v34.051h-3.354V132.598z     M108.593,132.598h3.352v34.051h-3.352V132.598z M102.531,132.598h3.222v34.051h-3.222V132.598z M99.124,129.193h40.863v40.859    H99.124V129.193z"
+								            ></path>
+								            <path class="fill" fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M133.354,179.744h3.229v34.052h-3.229V179.744z M127.165,179.744    h3.354v34.052h-3.354V179.744z M120.973,179.744h3.354v34.052h-3.354V179.744z M114.781,179.744h3.354v34.052h-3.354V179.744z     M108.593,179.744h3.352v34.052h-3.352V179.744z M102.531,179.744h3.222v34.052h-3.222V179.744z M99.124,176.338h40.863v40.86    H99.124V176.338z"
+								            ></path>
+								            <path class="fill" fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M180.501,179.744h3.225v34.052h-3.225V179.744z M174.31,179.744    h3.355v34.052h-3.355V179.744z M168.12,179.744h3.354v34.052h-3.354V179.744z M161.928,179.744h3.354v34.052h-3.354V179.744z     M155.736,179.744h3.354v34.052h-3.354V179.744z M149.676,179.744h3.222v34.052h-3.222V179.744z M146.271,176.338h40.861v40.86    h-40.861V176.338z"
+								            ></path>
+								            <path class="fill" fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M180.501,132.598h3.225v34.051h-3.225V132.598z M174.31,132.598    h3.355v34.051h-3.355V132.598z M168.12,132.598h3.354v34.051h-3.354V132.598z M161.928,132.598h3.354v34.051h-3.354V132.598z     M155.736,132.598h3.354v34.051h-3.354V132.598z M149.676,132.598h3.222v34.051h-3.222V132.598z M146.271,129.193h40.861v40.859    h-40.861V129.193z"
+								            ></path>
+								            <path class="fill" fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M227.647,179.744h3.226v34.052h-3.226V179.744z M221.457,179.744    h3.354v34.052h-3.354V179.744z M215.265,179.744h3.354v34.052h-3.354V179.744z M209.073,179.744h3.354v34.052h-3.354V179.744z     M202.884,179.744h3.354v34.052h-3.354V179.744z M196.821,179.744h3.224v34.052h-3.224V179.744z M193.416,176.338h40.861v40.86    h-40.861V176.338z"
+								            ></path>
+								            <path class="fill" fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M227.647,132.598h3.226v34.051h-3.226V132.598z M221.457,132.598    h3.354v34.051h-3.354V132.598z M215.265,132.598h3.354v34.051h-3.354V132.598z M209.073,132.598h3.354v34.051h-3.354V132.598z     M202.884,132.598h3.354v34.051h-3.354V132.598z M196.821,132.598h3.224v34.051h-3.224V132.598z M193.416,129.193h40.861v40.859    h-40.861V129.193z"
+								            ></path>
+								            <path class="fill" fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M227.647,85.451h3.226v34.053h-3.226V85.451z M221.457,85.451    h3.354v34.053h-3.354V85.451z M215.265,85.451h3.354v34.053h-3.354V85.451z M209.073,85.451h3.354v34.053h-3.354V85.451z     M202.884,85.451h3.354v34.053h-3.354V85.451z M196.821,85.451h3.224v34.053h-3.224V85.451z M193.416,82.048h40.861v40.86h-40.861    V82.048z"
+								            ></path>
+								            <path class="fill" fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M274.792,179.744h3.224v34.052h-3.224V179.744z M268.602,179.744    h3.352v34.052h-3.352V179.744z M262.408,179.744h3.354v34.052h-3.354V179.744z M256.218,179.744h3.354v34.052h-3.354V179.744z     M250.026,179.744h3.354v34.052h-3.354V179.744z M243.964,179.744h3.227v34.052h-3.227V179.744z M240.561,176.338h40.86v40.86    h-40.86V176.338z"
+								            ></path>
+								        </g>
+								        <path class="fill" fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M137.428,283.445c6.225,0,11.271,5.049,11.271,11.272   c0,6.225-5.046,11.271-11.271,11.271c-6.226,0-11.272-5.046-11.272-11.271C126.156,288.494,131.202,283.445,137.428,283.445"></path>
+								        <path class="fill" fill-rule="evenodd" clip-rule="evenodd" d="M137.428,286.644c1.031,0,2.015,0.194,2.923,0.546   c-0.984,0.569-1.65,1.635-1.65,2.854c0,1.82,1.476,3.293,3.296,3.293c1.247,0,2.329-0.693,2.89-1.715   c0.395,0.953,0.615,1.999,0.615,3.097c0,4.458-3.615,8.073-8.073,8.073c-4.458,0-8.074-3.615-8.074-8.073   C129.354,290.258,132.971,286.644,137.428,286.644"
+								        ></path>
+								        <path class="fill" fill="#FFFFFF" d="M167.394,364.677c-27.916-13.247-43.239-31.256-51.765-50.915c-10.37,2.961-22.835,4.852-37.317,5.664   c-5.457,0.307-11.196,0.464-17.219,0.464c-6.942,0-14.26-0.205-21.94-0.613c25.6,25.585,57.094,45.283,115.408,45.645   C158.866,364.921,163.14,364.837,167.394,364.677z"
+								        ></path>
+								    </g>
+								</svg>
+								</div>
+	                    	</div>
+		                    <div class="info-title">
+		                    	System Hardening
+	                    	</div>
+		                    <div class="info-circle">
+		                    	<div class="circle-icon"></div>
+	                    	</div>
+		                </div>
+		            </div>
+		            <div class="col-xs-12 col-md-3">
+		                <div id="info-box4" class="info-box">
+		                    <div class="info-icon">
+		                    	<div class="link">
+								<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 653.000000 600.000000" preserveAspectRatio="xMidYMid meet">
+								<g transform="translate(0.000000,600.000000) scale(0.100000,-0.100000)">
+								<path class="fill" d="M2795 5980 c-1023 -70 -1932 -664 -2418 -1580 -151 -285 -259 -622
+								-309 -965 -26 -180 -32 -571 -10 -745 32 -254 100 -526 189 -750 84 -213 255
+								-524 363 -660 l29 -37 61 8 c70 10 115 30 130 60 9 15 6 83 -9 267 -50 592
+								-65 977 -59 1453 l5 357 -36 -4 c-75 -8 -365 -24 -369 -20 -4 5 17 339 23 344
+								1 2 94 12 206 23 111 11 204 20 205 22 1 1 8 67 14 147 18 228 48 348 126 488
+								136 247 405 472 761 632 213 97 453 163 723 200 160 22 410 12 493 -19 29 -11
+								373 -272 395 -299 6 -9 12 -24 12 -33 0 -27 -177 -235 -212 -250 -40 -16 -71
+								-5 -313 109 -304 143 -404 175 -551 176 -84 1 -94 -1 -139 -29 -57 -36 -110
+								-108 -130 -179 -9 -32 -20 -168 -29 -371 -9 -176 -19 -362 -22 -414 l-7 -94
+								507 7 506 8 0 -117 0 -116 -167 -82 -168 -81 -336 -4 -336 -4 -6 -272 c-3
+								-149 -1 -501 4 -783 14 -820 32 -1106 74 -1169 45 -68 185 -109 473 -136 l132
+								-12 0 -103 0 -104 -122 6 c-519 25 -726 39 -1013 71 -160 17 -540 71 -600 84
+								-39 9 -38 7 85 -113 437 -427 995 -703 1615 -799 169 -26 524 -35 702 -19
+								1158 109 2145 881 2527 1978 179 516 210 1083 90 1622 -66 295 -178 577 -336
+								849 -65 110 -88 140 -88 112 0 -27 -72 -416 -78 -421 -4 -4 -54 0 -112 7 -244
+								30 -881 80 -1292 100 l-137 7 -12 -29 c-6 -16 -40 -117 -74 -225 l-62 -196 91
+								-7 c210 -16 534 -67 711 -112 617 -158 1034 -489 1184 -940 90 -269 87 -622
+								-9 -913 -120 -368 -376 -656 -753 -850 -195 -99 -451 -182 -662 -213 -144 -21
+								-516 -16 -713 10 -253 34 -485 88 -535 124 -15 12 -168 349 -241 531 -23 58
+								-26 73 -16 101 13 40 269 306 318 330 18 10 43 16 55 14 23 -3 85 -92 300
+								-428 176 -276 284 -371 489 -431 54 -16 112 -23 219 -26 176 -6 262 11 408 83
+								167 82 305 243 355 413 20 70 21 218 1 296 -106 417 -621 692 -1536 820 -96
+								13 -230 29 -299 36 -69 6 -126 12 -128 14 -7 7 656 1994 758 2273 12 31 13 32
+								74 32 35 0 161 -7 282 -15 360 -25 669 -62 1037 -125 127 -22 232 -38 233 -37
+								4 4 -88 111 -169 197 -609 644 -1468 980 -2352 920z"></path>
+								<path class="fill" d="M6062 1389 c-193 -98 -141 -392 74 -417 98 -11 205 54 234 143 32 95
+								-7 206 -91 262 -58 38 -155 44 -217 12z m186 -36 c70 -33 112 -128 91 -205
+								-24 -89 -87 -138 -180 -138 -103 0 -179 75 -179 179 0 145 134 227 268 164z"></path>
+								<path class="fill" d="M6090 1180 c0 -91 3 -110 15 -110 11 0 15 12 15 50 0 28 4 50 9 50
+								30 0 59 -23 76 -59 10 -23 24 -41 32 -41 7 0 13 2 13 5 0 12 -40 84 -49 90 -6
+								3 -1 15 10 26 15 15 19 28 14 47 -9 38 -32 52 -87 52 l-48 0 0 -110z"></path>
+								</g>
+								</svg>
+								</div>
+	                    	</div>
+		                    <div class="info-title">
+		                    	F5 BIG-IP
+	                    	</div>
+		                    <div class="info-circle">
+		                    	<div class="circle-icon"></div>
+	                    	</div>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+		<div id="info-text1" class="container-fluid info-text-holder">
+		    <div class="container">
+		        <div class="row">
+		            <div class="col-xs-12">
+		                <div class="info-title-icon">
+		                    <i class="fa fa-code"></i>
+		                    <div>
+		                    	Code Security
+		                    </div>
+		                </div>
+		                <div class="info-text">
+		                Scripting (Bash/Shell, Python), Web (HTML/CSS, JS), PHP, Java or Golang.
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+		<div id="info-text2" class="container-fluid info-text-holder info-closed">
+		    <div class="container">
+		        <div class="row">
+		            <div class="col-xs-12">
+		                <div class="info-title-icon">
+		                    <i class="fa fa-lock"></i>
+		                    <div>
+		                    	App Security
+		                    </div>
+		                </div>
+		                <div class="info-text">
+		                Mobile, Web, Penetration testing, Incident Response, Code Review, SDLC, Threat Modelling
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+		<div id="info-text3" class="container-fluid info-text-holder info-closed">
+		    <div class="container">
+		        <div class="row">
+		            <div class="col-xs-12">
+		                <div class="info-title-icon">
+		                    <i class="fa fa-ship"></i>
+		                    <div>
+		                    	System Hardening
+		                    </div>
+		                </div>
+		                <div class="info-text">
+		                Docker (Swarm), linux (debian, red hat, ...), FreeBSD, macOS, ...
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+		<div id="info-text4" class="container-fluid info-text-holder info-closed">
+		    <div class="container">
+		        <div class="row">
+		            <div class="col-xs-12">
+		                <div class="info-title-icon">
+		                    <i class="fa fa-server"></i>
+		                    <div>
+		                    	F5 BIG-IP
+		                    </div>
+		                </div>
+		                <div class="info-text">
+		                Certified Trainer &amp; experienced in ADM, LTM, iRules, iControl, ASM, GTM, APM.
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+		<div id="reasons" class="container-fluid">
+		    <div class="container">
+		        <div class="row">
+		            <div class="col-xs-12 row-title">
+		                <h4>
+		                	So far I've helped..
+		                </h4>
+		            </div>
+		        </div>
+
+		        <div class="row">
+					<div class="col-sm-5 m-t-sm">
+						<div class="col-md-3">
+							<div class="in-block">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="client-svg">
+									<path d="M496 128v16a8 8 0 0 1-8 8h-24v12c0 6.627-5.373 12-12 12H60c-6.627 0-12-5.373-12-12v-12H24a8 8 0 0 1-8-8v-16a8 8 0 0 1 4.941-7.392l232-88a7.996 7.996 0 0 1 6.118 0l232 88A8 8 0 0 1 496 128zm-24 304H40c-13.255 0-24 10.745-24 24v16a8 8 0 0 0 8 8h464a8 8 0 0 0 8-8v-16c0-13.255-10.745-24-24-24zM96 192v192H60c-6.627 0-12 5.373-12 12v20h416v-20c0-6.627-5.373-12-12-12h-36V192h-64v192h-64V192h-64v192h-64V192H96z"></path>
+								</svg>
+							</div>
+						</div>
+						<div class="col-md-9">
+							<h5>
+								National University
+							</h5>
+							<p>
+								Cross-platform web-based cognitive 	experiment environment.
+							</p>
+						</div>
+					</div>
+
+					<div class="col-sm-5 m-t-sm col-sm-offset-2">
+						<div class="col-md-3">
+							<div class="in-block">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="client-svg">
+									<path d="M436 480h-20V24c0-13.255-10.745-24-24-24H56C42.745 0 32 10.745 32 24v456H12c-6.627 0-12 5.373-12 12v20h448v-20c0-6.627-5.373-12-12-12zM128 76c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12V76zm0 96c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40zm52 148h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12zm76 160h-64v-84c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v84zm64-172c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40zm0-96c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40zm0-96c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12V76c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40z"></path>
+								</svg>
+							</div>
+						</div>
+						<div class="col-md-9">
+							<h5>
+								Technology Firm
+							</h5>
+							<p>
+								PHP development &amp; architecture, web design, code review.
+							</p>
+						</div>
+					</div>
+                </div>
+
+                <div class="row">
+					<div class="col-sm-5 m-t-sm">
+						<div class="col-md-3">
+							<div class="in-block">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="client-svg">
+									<path d="M364.215 192h131.43c5.439 20.419 8.354 41.868 8.354 64s-2.915 43.581-8.354 64h-131.43c5.154-43.049 4.939-86.746 0-128zM185.214 352c10.678 53.68 33.173 112.514 70.125 151.992.221.001.44.008.661.008s.44-.008.661-.008c37.012-39.543 59.467-98.414 70.125-151.992H185.214zm174.13-192h125.385C452.802 84.024 384.128 27.305 300.95 12.075c30.238 43.12 48.821 96.332 58.394 147.925zm-27.35 32H180.006c-5.339 41.914-5.345 86.037 0 128h151.989c5.339-41.915 5.345-86.037-.001-128zM152.656 352H27.271c31.926 75.976 100.6 132.695 183.778 147.925-30.246-43.136-48.823-96.35-58.393-147.925zm206.688 0c-9.575 51.605-28.163 104.814-58.394 147.925 83.178-15.23 151.852-71.949 183.778-147.925H359.344zm-32.558-192c-10.678-53.68-33.174-112.514-70.125-151.992-.221 0-.44-.008-.661-.008s-.44.008-.661.008C218.327 47.551 195.872 106.422 185.214 160h141.572zM16.355 192C10.915 212.419 8 233.868 8 256s2.915 43.581 8.355 64h131.43c-4.939-41.254-5.154-84.951 0-128H16.355zm136.301-32c9.575-51.602 28.161-104.81 58.394-147.925C127.872 27.305 59.198 84.024 27.271 160h125.385z"></path>
+								</svg>
+							</div>
+						</div>
+						<div class="col-md-9">
+							<h5>
+								Government Agency
+							</h5>
+							<p>
+								F5 BIG-IP LTM/ASM/APM implementation.
+							</p>
+						</div>
+					</div>
+
+					<div class="col-sm-5 m-t-sm col-sm-offset-2">
+						<div class="col-md-3">
+							<div class="in-block">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="client-svg-sm">
+									<path d="M434.7 64h-85.9c-8 0-15.7 3-21.6 8.4l-98.3 90c-.1.1-.2.3-.3.4-16.6 15.6-16.3 40.5-2.1 56 12.7 13.9 39.4 17.6 56.1 2.7.1-.1.3-.1.4-.2l79.9-73.2c6.5-5.9 16.7-5.5 22.6 1 6 6.5 5.5 16.6-1 22.6l-26.1 23.9L504 313.8c2.9 2.4 5.5 5 7.9 7.7V128l-54.6-54.6c-5.9-6-14.1-9.4-22.6-9.4zM544 128.2v223.9c0 17.7 14.3 32 32 32h64V128.2h-96zm48 223.9c-8.8 0-16-7.2-16-16s7.2-16 16-16 16 7.2 16 16-7.2 16-16 16zM0 384h64c17.7 0 32-14.3 32-32V128.2H0V384zm48-63.9c8.8 0 16 7.2 16 16s-7.2 16-16 16-16-7.2-16-16c0-8.9 7.2-16 16-16zm435.9 18.6L334.6 217.5l-30 27.5c-29.7 27.1-75.2 24.5-101.7-4.4-26.9-29.4-24.8-74.9 4.4-101.7L289.1 64h-83.8c-8.5 0-16.6 3.4-22.6 9.4L128 128v223.9h18.3l90.5 81.9c27.4 22.3 67.7 18.1 90-9.3l.2-.2 17.9 15.5c15.9 13 39.4 10.5 52.3-5.4l31.4-38.6 5.4 4.4c13.7 11.1 33.9 9.1 45-4.7l9.5-11.7c11.2-13.8 9.1-33.9-4.6-45.1z"></path>
+								</svg>
+							</div>
+						</div>
+						<div class="col-md-9">
+							<h5>
+								IT Freelance Firm
+							</h5>
+							<p>
+								Python middleware code for reading out industrial scales.
+							</p>
+						</div>
+					</div>
+                </div>
+
+                <div class="row">
+					<div class="col-sm-5 m-t-sm">
+						<div class="col-md-3">
+							<div class="in-block">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="client-svg-sm">
+									<path d="M621.3 237.3l-58.5-58.5c-12-12-28.3-18.7-45.3-18.7H480V64c0-17.7-14.3-32-32-32H32C14.3 32 0 46.3 0 64v336c0 44.2 35.8 80 80 80 26.3 0 49.4-12.9 64-32.4 14.6 19.6 37.7 32.4 64 32.4 44.2 0 80-35.8 80-80 0-5.5-.6-10.8-1.6-16h163.2c-1.1 5.2-1.6 10.5-1.6 16 0 44.2 35.8 80 80 80s80-35.8 80-80c0-5.5-.6-10.8-1.6-16H624c8.8 0 16-7.2 16-16v-85.5c0-17-6.7-33.2-18.7-45.2zM80 432c-17.6 0-32-14.4-32-32s14.4-32 32-32 32 14.4 32 32-14.4 32-32 32zm128 0c-17.6 0-32-14.4-32-32s14.4-32 32-32 32 14.4 32 32-14.4 32-32 32zm272-224h37.5c4.3 0 8.3 1.7 11.3 4.7l43.3 43.3H480v-48zm48 224c-17.6 0-32-14.4-32-32s14.4-32 32-32 32 14.4 32 32-14.4 32-32 32z"></path>
+								</svg>
+							</div>
+						</div>
+						<div class="col-md-9">
+							<h5>
+								International Logistics Company
+							</h5>
+							<p>
+								F5 LTM/ASM, Code Review, Incident Response, SDLC.
+							</p>
+						</div>
+					</div>
+
+                    <div class="col-sm-5 m-t-sm col-sm-offset-2">
+                        <div class="col-md-3">
+							<div class="in-block">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="client-svg-sm">
+									<path d="M560 224h-29.5c-8.8-20-21.6-37.7-37.4-52.5L512 96h-32c-29.4 0-55.4 13.5-73 34.3-7.6-1.1-15.1-2.3-23-2.3H256c-77.4 0-141.9 55-156.8 128H56c-14.8 0-26.5-13.5-23.5-28.8C34.7 215.8 45.4 208 57 208h1c3.3 0 6-2.7 6-6v-20c0-3.3-2.7-6-6-6-28.5 0-53.9 20.4-57.5 48.6C-3.9 258.8 22.7 288 56 288h40c0 52.2 25.4 98.1 64 127.3V496c0 8.8 7.2 16 16 16h64c8.8 0 16-7.2 16-16v-48h128v48c0 8.8 7.2 16 16 16h64c8.8 0 16-7.2 16-16v-80.7c11.8-8.9 22.3-19.4 31.3-31.3H560c8.8 0 16-7.2 16-16V240c0-8.8-7.2-16-16-16zm-128 64c-8.8 0-16-7.2-16-16s7.2-16 16-16 16 7.2 16 16-7.2 16-16 16zM256 96h128c5.4 0 10.7.4 15.9.8 0-.3.1-.5.1-.8 0-53-43-96-96-96s-96 43-96 96c0 2.1.5 4.1.6 6.2 15.2-3.9 31-6.2 47.4-6.2z"/>
+								</svg>
+							</div>
+                        </div>
+                        <div class="col-md-9">
+							<h5>
+								National Bank
+							</h5>
+							<p>
+								SDLC, Security Assessment, Code Review, Threat modeling.
+							</p>
+                        </div>
+                    </div>
+                </div>
+
+		    </div>
+		</div>
+		<div id="footer" class="container-fluid">
+		    <div class="container">
+		        <div class="row">
+		            <div class="col-xs-12 row-title">
+		                <h4>
+		                	Get in touch
+	                	</h4>
+		                <h5>
+		                	You’re one step further to making better decisions
+	                	</h5>
+		            </div>
+		        </div>
+		        <div class="row">	
+		            <div class="col-xs-12 col-md-4">
+		                <div class="contact-box">
+                            <div class="row">
+                                <a target="_blank" title="Get Resume" rel="noopener" href="cv-nielshofmans.pdf">
+                                    <div class="in-block">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"  class="height-ch">
+                                            <path class="fill" d="M288 136V0H88C74.7 0 64 10.7 64 24v232H8c-4.4 0-8 3.6-8 8v16c0 4.4 3.6 8 8 8h140.9c3 0 5.8 1.7 7.2 4.4l19.9 39.8 56.8-113.7c2.9-5.9 11.4-5.9 14.3 0l34.7 69.5H352c8.8 0 16 7.2 16 16s-7.2 16-16 16h-89.9L240 275.8l-56.8 113.7c-2.9 5.9-11.4 5.9-14.3 0L134.1 320H64v168c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H312c-13.2 0-24-10.8-24-24zm153-31L343.1 7c-4.5-4.5-10.6-7-17-7H320v128h128v-6.1c0-6.3-2.5-12.4-7-16.9z"></path>
+                                        </svg>
+                                    </div>
+                                    Resume
+                                </a>
+                            </div>
+
+		                    <div class="row">
+								<a target="_blank" title="Linkedin" rel="noopener" href="https://www.linkedin.com/in/nielshofmans/">
+									<div class="in-block">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"  class="height-ch">
+											<path class="fill" d="M100.3 480H7.4V180.9h92.9V480zM53.8 140.1C24.1 140.1 0 115.5 0 85.8 0 56.1 24.1 32 53.8 32c29.7 0 53.8 24.1 53.8 53.8 0 29.7-24.1 54.3-53.8 54.3zM448 480h-92.7V334.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V480h-92.8V180.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V480z"></path>
+										</svg>
+									</div>
+									LinkedIn
+								</a>
+							</div>
+
+                            <div class="row">
+                                <a target="_blank" title="GitHub" rel="noopener" href="https://github.com/HazCod/">
+                                    <div class="in-block">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" class="height-ch">
+                                            <path class="fill" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path>
+                                        </svg>
+                                    </div>
+                                    GitHub
+                                </a>
+                            </div>
+		                </div>
+		            </div>
+		            <div class="col-xs-12 col-md-4">
+		                <div class="contact-box">
+		                    <a title="Mail" href="mailto:hello@ironpeak.be" rel="noopener">
+		                    	<div class="in-block">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"  class="height-ch">
+										<path class="fill" d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"></path>
+									</svg>
+	                    		</div>
+		                    	hello&#64;ironpeak.be
+	                    	</a>
+		                </div>
+		            </div>
+		            <div class="col-xs-12 col-md-4 contact-box pull-left">
+	            		<span>
+	            			ironPeak Services GCV
+	            		</span>
+		            	<div class="row">
+		                    <a title="VAT number" href='javascript:window.prompt("Copy to clipboard: Ctrl+C, Enter", "BE0694785660");'>
+		                    	<div class="in-block">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"  class="height-ch">
+										<path class="fill" d="M436 480h-20V24c0-13.255-10.745-24-24-24H56C42.745 0 32 10.745 32 24v456H12c-6.627 0-12 5.373-12 12v20h448v-20c0-6.627-5.373-12-12-12zM128 76c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12V76zm0 96c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40zm52 148h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12zm76 160h-64v-84c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v84zm64-172c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40zm0-96c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40zm0-96c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12V76c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40z"></path>
+									</svg>
+	                    		</div>
+		                    	BE.0694.785.660
+		                    </a>
+	                    </div>
+		            	<div class="row">
+		                    <a title="Bank account" href='javascript:window.prompt("Copy to clipboard: Ctrl+C, Enter", "BE76068909740795");'>
+		                    	<div class="in-block">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"  class="height-ch">
+										<path class="fill" d="M0 432c0 26.5 21.5 48 48 48h480c26.5 0 48-21.5 48-48V256H0v176zm192-68c0-6.6 5.4-12 12-12h136c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H204c-6.6 0-12-5.4-12-12v-40zm-128 0c0-6.6 5.4-12 12-12h72c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H76c-6.6 0-12-5.4-12-12v-40zM576 80v48H0V80c0-26.5 21.5-48 48-48h480c26.5 0 48 21.5 48 48z"></path>
+									</svg>
+	                    		</div>
+		                    	BE76 0689 0974 0795
+		                    </a>
+	                    </div>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+    </div>
+
+	<script>
+		window.onload = function()
+		{
+	        var boxes = [
+	            document.getElementById('info-box1'),
+	            document.getElementById('info-box2'),
+	            document.getElementById('info-box3'),
+	            document.getElementById('info-box4')
+	        ];
+
+	        var texts = [
+	            document.getElementById('info-text1'),
+	            document.getElementById('info-text2'),
+	            document.getElementById('info-text3'),
+	            document.getElementById('info-text4')
+	        ];
+
+	        boxes.forEach(function(box, index)
+	        {
+	            box.addEventListener('click', function(){
+	                // remove boxes class
+	                boxes.forEach(function(b){
+	                   b.classList.remove('opened-info');
+	                });
+
+	                // remove text class
+	                texts.forEach(function(t){
+	                   t.classList.add('info-closed');
+	                });
+
+	                // set right classes
+	                texts[index].classList.remove('info-closed');
+	                this.classList.add('opened-info');
+	            });
+	        });
+		};
+	</script>
+	
+</body>
+</html>

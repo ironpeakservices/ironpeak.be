@@ -1,0 +1,14 @@
+staticDir:
+    - static
+
+assetDir: static
+
+publishDir: generated
+
+outputFormats:
+    - html:
+        minify:true
+
+minificationOptions:
+    KeepConditionalComments: true
+    KeepEndTags: false
