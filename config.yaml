@@ -6,6 +6,7 @@ assetDir: static
 publishDir: generated
 
 disableHugoGeneratorInject: true
+#disableLiveReload: true
 
 outputFormats:
     - html:
