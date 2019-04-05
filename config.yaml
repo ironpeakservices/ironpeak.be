@@ -5,6 +5,8 @@ assetDir: static
 
 publishDir: generated
 
+disableHugoGeneratorInject: true
+
 outputFormats:
     - html:
         minify:true
