@@ -36,19 +36,21 @@
 					<span class="pull-right">
 						{{ .Date.Format "Mon Jan 2, 2006" }}
 					</span>
-				</h4>
+                </h4>
+                
 				<hr>
 				<br/>
 			</div>
 
-			{{ .Content }}
+            {{ .Content }}
+            
+            <br/>
+            <br/>
+            <br/>
         </div>
+
+        {{ partial "footer.html" . }}
     </div>
-
-	<br/>
-	<br/>
-
-    {{ partial "footer.html" . }}
 
 </body>
 </html>
