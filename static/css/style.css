@@ -307,6 +307,9 @@
     padding-top:40px;
     padding-bottom:40px;
 }
+.text-center {
+    text-align: center;
+}
 #info .row-title h4{
     font-family:'Montserrat-SemiBold',sans-serif;
     color:#fff;
