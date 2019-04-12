@@ -92,4 +92,4 @@
 </div>
 
 {{ $cloudsJs := resources.Get "js/clouds.js" | minify | fingerprint }}
-<script type="text/javascript" src="{{ $cloudsJs.Permalink }}" integrity="{{ $cloudsJs.Data.Integrity }}"></script>
+<script src="{{ $cloudsJs.Permalink }}" integrity="{{ $cloudsJs.Data.Integrity }}"></script>
