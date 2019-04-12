@@ -496,6 +496,7 @@
 }
 .in-block {
     margin-right: 2px;
+    vertical-align: middle;
 }
 #starting .price-holder .number .num-big{
     display:inline-block;
