@@ -494,6 +494,9 @@
 #starting .price-holder .number,.in-block{
     display:inline-block
 }
+.in-block {
+    margin-right: 2px;
+}
 #starting .price-holder .number .num-big{
     display:inline-block;
     font-family:'Montserrat-Bold',sans-serif;
