@@ -8,6 +8,9 @@ publishDir: generated
 disableHugoGeneratorInject: true
 #disableLiveReload: true
 
+permalinks:
+  posts: /:year/:month/:title/
+
 outputFormats:
     - html:
         minify:true

@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+
+{{ partial "header.html" . }}
+    
+<body>
+
+    {{ partial "navbar-blog.html" . }}
+
+    <div id="pricing" class="container-fluid">
+        <div class="container">
+            {{ range .Pages }}
+            <a href="{{.Permalink}}">
+                <div class="col-md-4 pt-30">
+                <div class="plan-box">
+                    <div class="plan-box-header color-bg1">
+                        <div class="plan-title">
+                            {{ .Date.Format "2006-01-02" }}
+                        </div>
+                        
+                        <div class="price-holder">
+                            <div class="number">
+                                <div class="num-small-holder">
+                                <div class="num-small">
+                                    {{ .Title }}
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="plan-box-content summary">
+                        {{ if gt (len .Summary) 200 }}
+                        {{ slicestr .Summary 0 250 }}...
+                        {{ else }}
+                        {{ .Summary }}
+                        {{ end }}
+                    </div>
+                </div>
+                </div>  
+            </a>
+            {{ end }}
+        </div>
+
+        <br/>
+    </div>
+
+	<br/>
+	<br/>
+
+    {{ partial "footer.html" . }}
+
+</body>
+</html>

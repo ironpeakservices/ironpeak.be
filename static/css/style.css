@@ -306,7 +306,6 @@
     background-color:#374b63;
     padding-top:40px;
     padding-bottom:40px;
-    text-align:center
 }
 #info .row-title h4{
     font-family:'Montserrat-SemiBold',sans-serif;
@@ -405,9 +404,6 @@
 }
 #features .feature-row{
     padding-bottom:30px
-}
-#features .row-title{
-    text-align:center
 }
 #features .row-title h4{
     font-family:'Montserrat-SemiBold',sans-serif;
@@ -684,8 +680,6 @@
     padding-top:10px;
     padding-bottom:10px
 }
-#pricing .plan-box .plan-box-button a:hover{
-}
 #reasons{
     background-color:#374b63;
     padding-top:50px;
@@ -912,7 +906,10 @@
     height:100vh;
     min-height:100%
 }
-.link{
+.light-link {
+    opacity: 0.5;
+}
+.link, .light-link {
     color:#fff
 }
 .inforow{
@@ -980,4 +977,10 @@ path.fill{
 }
 .m-t-sm{
     margin-top:10px
+}
+.pt-30 {
+    padding-top: 30px;
+}
+.summary {
+    color: #8da3b9;
 }
