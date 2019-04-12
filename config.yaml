@@ -8,6 +8,8 @@ publishDir: generated
 disableHugoGeneratorInject: true
 #disableLiveReload: true
 
+enableRobotsTXT: true
+
 permalinks:
   posts: /:year/:month/:title/
 
