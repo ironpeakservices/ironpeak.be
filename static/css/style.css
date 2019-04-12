@@ -496,7 +496,6 @@
 }
 .in-block {
     margin-right: 2px;
-    vertical-align: middle;
 }
 #starting .price-holder .number .num-big{
     display:inline-block;
@@ -990,4 +989,7 @@ path.fill{
 }
 .summary {
     color: #8da3b9;
+}
+.v-align {
+    vertical-align: middle;
 }
