@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+
+{{ partial "header.html" . }}
+    
+<body>
+
+    {{ partial "navbar-blog.html" . }}
+
+    <div id="info" class="container-fluid">
+        <div class="container">
+            <div class="col-md-12 row-title">
+                <h4>
+                    <br>
+                    <span class="in-block v-align">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" width="25" height="20">
+                            <path fill="currentColor" d="M448 0H64C28.7 0 0 28.7 0 64v288c0 35.3 28.7 64 64 64h96v84c0 7.1 5.8 12 12 12 2.4 0 4.9-.7 7.1-2.4L304 416h144c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64zm16 352c0 8.8-7.2 16-16 16H288l-12.8 9.6L208 428v-60H64c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h384c8.8 0 16 7.2 16 16v288z"></path>
+                        </svg>
+					</span>
+					
+					{{ .Title }}
+
+					<span class="light-link pull-right">
+					{{ .Date.Format "Mon Jan 2, 2006" }}
+					</span>
+                </h4>
+            </div>
+        </div>
+    </div>
+
+    <div id="features" class="container-fluid">
+        <div class="container">
+			<div class="hidden-md hidden-lg">
+				<h4>
+					{{ .Title }}
+					<span class="pull-right">
+						{{ .Date.Format "Mon Jan 2, 2006" }}
+					</span>
+                </h4>
+                
+				<hr>
+				<br/>
+			</div>
+
+            {{ .Content }}
+            
+            <br/>
+            <br/>
+            <br/>
+        </div>
+
+        {{ partial "footer.html" . }}
+    </div>
+
+</body>
+</html>
