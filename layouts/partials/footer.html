@@ -66,7 +66,7 @@
                 ironPeak Services GCV
             </span>
             <div class="row">
-                <a title="VAT number" href='javascript:window.prompt("Copy to clipboard: Ctrl+C, Enter", "BE0694785660");'>
+                <a title="VAT number" href='#' id='lnk-vat' data-raw="BE0694785660">
                     <div class="in-block">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"  class="height-ch">
                             <path class="fill" d="M436 480h-20V24c0-13.255-10.745-24-24-24H56C42.745 0 32 10.745 32 24v456H12c-6.627 0-12 5.373-12 12v20h448v-20c0-6.627-5.373-12-12-12zM128 76c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12V76zm0 96c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40zm52 148h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12zm76 160h-64v-84c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v84zm64-172c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40zm0-96c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40zm0-96c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12V76c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40z"></path>
@@ -76,7 +76,7 @@
                 </a>
             </div>
             <div class="row">
-                <a title="Bank account" href='javascript:window.prompt("Copy to clipboard: Ctrl+C, Enter", "BE76068909740795");'>
+                <a title="Bank account" href='#' id='lnk-bank' data-raw="BE76068909740795">
                     <div class="in-block">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"  class="height-ch">
                             <path class="fill" d="M0 432c0 26.5 21.5 48 48 48h480c26.5 0 48-21.5 48-48V256H0v176zm192-68c0-6.6 5.4-12 12-12h136c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H204c-6.6 0-12-5.4-12-12v-40zm-128 0c0-6.6 5.4-12 12-12h72c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H76c-6.6 0-12-5.4-12-12v-40zM576 80v48H0V80c0-26.5 21.5-48 48-48h480c26.5 0 48 21.5 48 48z"></path>
@@ -89,5 +89,5 @@
     </div>
 </div>
 
-{{ $cloudsJs := resources.Get "js/clouds.js" | minify | fingerprint }}
-<script src="{{ $cloudsJs.Permalink }}" integrity="{{ $cloudsJs.Data.Integrity }}"></script>
+{{ $appJs := resources.Get "js/app.js" | minify | fingerprint }}
+<script src="{{ $appJs.Permalink }}" integrity="{{ $appJs.Data.Integrity }}"></script>

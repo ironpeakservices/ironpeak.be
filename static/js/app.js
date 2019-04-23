@@ -1,5 +1,6 @@
 window.onload = function()
 {
+    // when clicking on the boxes, show the appropriate field
     var boxes = [
         document.getElementById('info-box1'),
         document.getElementById('info-box2'),
@@ -31,5 +32,16 @@ window.onload = function()
             texts[index].classList.remove('info-closed');
             this.classList.add('opened-info');
         });
+    });
+
+    // when the user clicks on the link, show a text box for easy copying
+    var lnkVat = document.getElementById('lnk-vat');
+    lnkVat.addEventListener('click', function() {
+        window.prompt("Copy to clipboard: CTRL+C, Enter", lnkVat.getAttribute('data-raw'));
+    });
+
+    var lnkBank = document.getElementById('lnk-bank');
+    lnkBank.addEventListener('click', function() {
+        window.prompt("Copy to clipboard: CTRL+C, Enter", lnkBank.getAttribute('data-raw'));
     });
 };
