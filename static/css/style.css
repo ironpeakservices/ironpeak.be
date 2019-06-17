@@ -1,6 +1,4 @@
 @charset "UTF-8";
-@import "/fonts/montserrat/font.css";
-@import "/fonts/roboto/font.css";
 *,body{
     font-family:'Montserrat-Regular',sans-serif;
     transition:all .3s ease 0;
