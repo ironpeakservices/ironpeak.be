@@ -8,7 +8,7 @@ Current build status: [![Netlify Status](https://api.netlify.com/api/v1/badges/5
 
 Slides
 -------
-If you are looking for the presentation slides I gave somwhere, look in the [static/slides/ directory](static/slides/).
+If you are looking for the presentation slides I gave somewhere, look in the [static/slides/](static/slides/) directory.
 
 CI / CD
 -------
