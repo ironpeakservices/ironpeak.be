@@ -3,12 +3,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="author" content="ironPeak services">
 	<meta name="keywords" content="belgium,ironpeak,services,freelance,consulting,consultant,network,system,admin,sysadmin,f5,bigip,engineer,security,hardening,penetration,pentest,tester,testing,remote,contract">
-	<meta name="description" content="Belgium consulting for security, development or sysadmin related matters.">
+	<meta name="description" content="Belgian CyberSecurity Consulting.">
 	<meta name="robots" content="index, nofollow">
 	<meta name="Cache-Control" content="public">
 
 	{{ with .OutputFormats.Get "rss" -}}
-		{{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+	{{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
 	{{ end -}}
 
 	<title>ironPeak services</title>
