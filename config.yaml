@@ -5,6 +5,7 @@ assetDir: static
 
 publishDir: generated
 
+DefaultContentLanguage: en
 disableHugoGeneratorInject: true
 #disableLiveReload: true
 
