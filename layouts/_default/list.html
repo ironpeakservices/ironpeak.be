@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="{{ .Language }}">
 
 {{ partial "header.html" . }}
 
@@ -36,14 +36,13 @@
 	                    	</div>
 		                </div>
 		                <h1>
-		                    ironPeak<br>
-		                    services
+		                    {{ i18n "main_ironpeak" }}<br>
+		                    {{i18n "main_services" }}
 		                </h1>
 		                <h4>
-		                    belgian cybersecurity consulting
+		                    {{ i18n "main_slogan" }}
 		                </h4>
-		                <div class="domain-form-holder">
-		                </div>
+		                <div class="domain-form-holder"></div>
 		            </div>
 		        </div>
 		    </div>
@@ -53,7 +52,7 @@
 		        <div class="row">
 		            <div class="col-xs-12 row-title" id="services">
 		                <h4>
-		                	Competences
+		                	{{ i18n "main_competences" }}
 		                </h4>
 		            </div>
 		        </div>
@@ -68,7 +67,7 @@
 								</div>
 	                    	</div>
 		                    <div class="info-title">
-		                    	Code Security
+		                    	{{ i18n "main_codesecurity" }}
 	                    	</div>
 		                    <div class="info-circle">
 		                    	<div class="circle-icon"></div>
@@ -85,7 +84,7 @@
 	                    		</div>
 	                    	</div>
 		                    <div class="info-title">
-		                    	App Security
+		                    	{{ i18n "main_appsecurity" }}
 	                    	</div>
 		                    <div class="info-circle">
 		                    	<div class="circle-icon"></div>
@@ -135,7 +134,7 @@
 								</div>
 	                    	</div>
 		                    <div class="info-title">
-		                    	System Security
+		                    	{{ i18n "main_systemsecurity" }}
 	                    	</div>
 		                    <div class="info-circle">
 		                    	<div class="circle-icon"></div>
@@ -184,7 +183,7 @@
 								</div>
 	                    	</div>
 		                    <div class="info-title">
-		                    	F5 BIG-IP
+		                    	{{ i18n "main_f5bigip" }}
 	                    	</div>
 		                    <div class="info-circle">
 		                    	<div class="circle-icon"></div>
@@ -201,11 +200,11 @@
 		                <div class="info-title-icon">
 		                    <i class="fa fa-code"></i>
 		                    <div>
-		                    	Code Security
+		                    	{{ i18n "main_codesecurity" }}
 		                    </div>
 		                </div>
 		                <div class="info-text">
-		                Scripting (Bash/Shell, Python), Web (HTML/CSS, JS), PHP, Java or Golang.
+		                	{{ i18n "main_codesecurity_desc" }}
 		                </div>
 		            </div>
 		        </div>
@@ -218,11 +217,11 @@
 		                <div class="info-title-icon">
 		                    <i class="fa fa-lock"></i>
 		                    <div>
-		                    	App Security
+		                    	{{ i18n "main_appsecurity" }}
 		                    </div>
 		                </div>
 		                <div class="info-text">
-		                Mobile, Web, Penetration testing, Incident Response, Code Review, SDLC, Threat Modelling
+		                	{{ i18n "main_appsecurity_desc" }}
 		                </div>
 		            </div>
 		        </div>
@@ -235,11 +234,11 @@
 		                <div class="info-title-icon">
 		                    <i class="fa fa-ship"></i>
 		                    <div>
-		                    	System Security
+		                    	{{ i18n "main_systemsecurity" }}
 		                    </div>
 		                </div>
 		                <div class="info-text">
-		                Docker (Swarm), linux/unix, httpd/nginx, tomcat, macOS, Penetration Testing, ...
+		                	{{ i18n "main_systemsecurity_desc" }}
 		                </div>
 		            </div>
 		        </div>
@@ -252,11 +251,11 @@
 		                <div class="info-title-icon">
 		                    <i class="fa fa-server"></i>
 		                    <div>
-		                    	F5 BIG-IP
+		                    	{{ i18n "main_f5bigip" }}
 		                    </div>
 		                </div>
 		                <div class="info-text">
-		                Certified Trainer &amp; experienced in ADM, LTM, iRules, iControl, ASM, GTM, APM.
+		                	{{ i18n "main_f5bigip_desc" }}
 		                </div>
 		            </div>
 		        </div>
@@ -267,7 +266,7 @@
 		        <div class="row">
 		            <div class="col-xs-12 row-title">
 		                <h4>
-		                	So far I've helped..
+		                	{{ i18n "main_sofarivehelped" }}
 		                </h4>
 		            </div>
 		        </div>
@@ -283,10 +282,10 @@
 						</div>
 						<div class="col-md-9">
 							<h5>
-								National University
+								{{ i18n "main_helped_1" }}
 							</h5>
 							<p>
-								Cross-platform web-based cognitive 	experiment environment.
+								{{ i18n "main_helped_1_desc" }}
 							</p>
 						</div>
 					</div>
@@ -301,10 +300,10 @@
 						</div>
 						<div class="col-md-9">
 							<h5>
-								Technology Firm
+								{{ i18n "main_helped_2" }}
 							</h5>
 							<p>
-								PHP development &amp; architecture, web design, code review.
+								{{ i18n "main_helped_2_desc" }}
 							</p>
 						</div>
 					</div>
@@ -321,10 +320,10 @@
 						</div>
 						<div class="col-md-9">
 							<h5>
-								Government Agency
+								{{ i18n "main_helped_3" }}
 							</h5>
 							<p>
-								F5 BIG-IP LTM/ASM/APM implementation.
+								{{ i18n "main_helped_3_desc" }}
 							</p>
 						</div>
 					</div>
@@ -339,10 +338,10 @@
 						</div>
 						<div class="col-md-9">
 							<h5>
-								IT Freelance Firm
+								{{ i18n "main_helped_4" }}
 							</h5>
 							<p>
-								Python middleware code for reading out industrial scales.
+								{{ i18n "main_helped_4_desc" }}
 							</p>
 						</div>
 					</div>
@@ -359,10 +358,10 @@
 						</div>
 						<div class="col-md-9">
 							<h5>
-								International Logistics Company
+								{{ i18n "main_helped_5" }}
 							</h5>
 							<p>
-								F5 LTM/ASM, Code Review, Incident Response, SDLC.
+								{{ i18n "main_helped_5_desc" }}
 							</p>
 						</div>
 					</div>
@@ -377,10 +376,10 @@
                         </div>
                         <div class="col-md-9">
 							<h5>
-								National Bank
+								{{ i18n "main_helped_6" }}
 							</h5>
 							<p>
-								SDLC, Security Assessment, Code Review, Threat modeling, Penetration Testing, ...
+								{{ i18n "main_helped_6_desc" }}
 							</p>
                         </div>
                     </div>
