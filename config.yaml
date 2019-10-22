@@ -1,6 +1,6 @@
 assetDir: static
 publishDir: generated
-baseURL: https://ironpeak.be/
+baseURL: /
 
 DefaultContentLanguage: en
 languages:
