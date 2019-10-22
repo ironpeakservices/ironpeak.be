@@ -1,0 +1,104 @@
+[blog]
+other = "Blog"
+
+[contact]
+other = "Contacteer"
+
+[header_description]
+other = "Belgische CyberSecurity Consulting."
+
+[header_title]
+other = "ironPeak services"
+
+[main_ironpeak]
+other = "ironpeak"
+[main_services]
+other = "services"
+
+[main_slogan]
+other = "belgische cybersecurity consulting"
+
+[main_competences]
+other = "Competenties"
+
+[main_codesecurity]
+other = "Code Security"
+[main_codesecurity_desc]
+other = "Scripting (Bash/Shell, Python), Web (HTML/CSS, JS), PHP, Java of Golang."
+
+[main_appsecurity]
+other = "App Security"
+[main_appsecurity_desc]
+other = "Mobile, Web, Penetration testing, Incident Response, Code Review, SDLC, Threat Modelling."
+
+[main_systemsecurity]
+other = "System Security"
+[main_systemsecurity_desc]
+other = "Docker (Swarm), linux/unix, httpd/nginx, tomcat, macOS, Penetration Testing, ..."
+
+[main_f5bigip]
+other = "F5 BIG-IP"
+[main_f5bigip_desc]
+other = "Gecertificeerde Trainer &amp; voor ADM, LTM, iRules, iControl, ASM, GTM, APM."
+
+[main_sofarivehelped]
+other = "Wat voorbeelden.."
+
+[main_helped_1]
+other = "Nationale Universiteit"
+[main_helped_1_desc]
+other = "Cross-platform web-based cognitive experiment environment."
+
+[main_helped_2]
+other = "Technologiebedrijf"
+[main_helped_2_desc]
+other = "PHP development & architecture, web design, code review."
+
+[main_helped_3]
+other = "Overheidsinstelling"
+[main_helped_3_desc]
+other = "F5 BIG-IP LTM/ASM/APM implementation."
+
+[main_helped_4]
+other = "ICT consultancybedrijf"
+[main_helped_4_desc]
+other = "Python middleware code for reading out industrial scales."
+
+[main_helped_5]
+other = "Internationaal transportbedrijf"
+[main_helped_5_desc]
+other = "F5 LTM/ASM, Code Review, Incident Response, SDLC."
+
+[main_helped_6]
+other = "Nationale Bank"
+[main_helped_6_desc]
+other = "SDLC, Security Assessment, Code Review, Threat modeling, Penetration Testing, ..."
+
+[main_getintouch]
+other = "Neem contact op"
+[main_getintouch_full]
+other = "en wees een stap voor"
+
+[main_resume]
+other = "Curriculum"
+
+[main_linkedin]
+other = "LinkedIn"
+
+[main_github]
+other = "GitHub"
+
+[company_legalname]
+other = "ironPeak Services GCV"
+[main_mail]
+other = "email adres"
+[main_email]
+other = "hello@ironpeak.be"
+[main_vatnumber]
+other = "btw nummer"
+[company_vat]
+other = "BE.0694.785.660"
+[main_bankaccount]
+other = "rekeningnummer"
+[company_bank]
+other = "BE76 0689 0974 0795"

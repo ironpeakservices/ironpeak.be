@@ -6,7 +6,9 @@ languages:
     en:
         languageName: English
         weight: 1
-
+    nl:
+        languageName: Nederlands
+        weight: 2
 
 
 disableHugoGeneratorInject: true
