@@ -1,11 +1,14 @@
-staticDir:
-    - static
-
 assetDir: static
-
 publishDir: generated
 
 DefaultContentLanguage: en
+languages:
+    en:
+        languageName: English
+        weight: 1
+
+
+
 disableHugoGeneratorInject: true
 #disableLiveReload: true
 
