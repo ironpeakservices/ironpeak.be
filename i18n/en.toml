@@ -44,9 +44,9 @@ other = "Certified Trainer &amp; experienced in ADM, LTM, iRules, iControl, ASM,
 [main_sofarivehelped]
 other = "So far I've helped.."
 
-[main_helped_1_desc]
-other = "National University"
 [main_helped_1]
+other = "National University"
+[main_helped_1_desc]
 other = "Cross-platform web-based cognitive experiment environment."
 
 [main_helped_2]
