@@ -17,4 +17,4 @@ The pipeline runs on a free instance of [Netlify](https://www.netlify.com/), sin
 
 Building
 --------
-`hugo server` to run locally, `hugo --minify` to build minified output to `generated/`.
+`hugo server` to run locally, `hugo --gc --minify` to build minified output to `generated/`.
