@@ -30,7 +30,7 @@
                     </div>
                     <div class="plan-box-content summary">
                         {{ if gt (len .Summary) 200 }}
-                        {{ slicestr .Summary 0 250 }}...
+                        {{ slicestr .Summary 0 200 }}...
                         {{ else }}
                         {{ .Summary }}
                         {{ end }}
