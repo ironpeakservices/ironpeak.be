@@ -1,5 +1,6 @@
 assetDir: static
 publishDir: generated
+baseURL: /
 
 DefaultContentLanguage: en
 languages:
