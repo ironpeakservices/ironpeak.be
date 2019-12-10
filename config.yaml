@@ -5,11 +5,11 @@ baseURL: /
 DefaultContentLanguage: en
 languages:
     en:
-        contentDir: content/en
+        contentDir: content/blog/en
         languageName: English
         weight: 1
     nl:
-        contentDir: content/nl
+        contentDir: content/blog/nl
         languageName: Nederlands
         weight: 2
 
