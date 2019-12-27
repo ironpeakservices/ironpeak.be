@@ -2,6 +2,7 @@
 date = "2019-07-11T21:27:56+02:00"
 title = "Ironing out Docker"
 layout = "blog"
+draft = "true"
 +++
 
 **Let me take you for a deep dive into typical Docker setups and show you where we can easily trim down our attack surface drastically by looking at it from a full stack perspective. Buckle up boys!**
