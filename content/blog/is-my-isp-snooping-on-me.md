@@ -1,5 +1,6 @@
 ---
 title: "Is my ISP snooping on me?"
+description: " recent network issue with my ISP connection triggered me to delve into what my ISP could know about me, and what everyone can do about that. Let's dive into the paranoia!"
 date: 2019-12-27T09:31:14+01:00
 layout: "blog"
 draft: false
