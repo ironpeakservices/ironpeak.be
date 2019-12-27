@@ -5,19 +5,19 @@ layout: "blog"
 draft: false
 ---
 
-**A recent network issue with my ISP connection triggered me to delve into what my ISP could know about me, and what everyone can do about that. Let's dive into the paranoia! A note: this is mainly a braindump and might contain some unproven claims... so as always on the internet: YMMV.**
+**A recent network issue with my ISP connection triggered me to delve into what my ISP could know about me, and what everyone can do about that. Let's dive into the paranoia! A note: this is mainly a brain dump and might contain some unproven claims... so as always on the internet: YMMV.**
 
 ## Preface
 
 ### My Problem
 
 For the people that not know me personally: I am kind of a data hoarder. No, seriously, I am a self-proclaimed datahoarder lurking on [/r/datahoarder](https://reddit.com/r/datahoarder/). This means that I ingest huge amounts of downloadable data every month that is then consumed by several tools ran on my server at home.
-The reason why I do not currently rent or colocate this server is because this also serves as a local encrypted backup facility for all of my devices, which it can then encrypt & push to the cloud using differential backups over snapshots. It sounds techy, but I'm working on [the 3-2-1 backup rule](https://www.backblaze.com/blog/the-3-2-1-backup-strategy/). This all means that my bandwidth limit is always in the terrabytes, mostly around 4 TB per month.
+The reason why I do not currently rent or colocate this server is because this also serves as a local encrypted backup facility for all of my devices, which it can then encrypt & push to the cloud using differential backups over snapshots. It sounds techy, but I'm working on [the 3-2-1 backup rule](https://www.backblaze.com/blog/the-3-2-1-backup-strategy/). This all means that my bandwidth limit is always in the terabytes, mostly around 4 TB per month.
 
 ### My ISP Subscription
 
-This means I have to make use of a truly unlimited subscription with my ISP which is typically a business subscription, which is fine since I have my own company. (You're on the website of it, ey?) The basic gist of it is: consume anything you want, whenever you want.
-It was only a month ago that I had to take one of the more expensive subscriptions to be able to benefit from this, but thank god to commercial pressue this is now possible for every business customer. Or so it is supposed be... Before this switch, you were put on a small-band segment which basically means a capped 1Mbps/0.5Mbps which would normally trigger you to pay extra for a measly extra 50 Gigabytes download. Which is then burned through again. :-(
+This means I have to make use of a truly unlimited subscription with my ISP which is typically a business subscription, which is fine since I have my own company. (You're on the website of it, eh?) The basic gist of it is: consume anything you want, whenever you want.
+It was only a month ago that I had to take one of the more expensive subscriptions to be able to benefit from this, but thank god to commercial pressure this is now possible for every business customer. Or so it is supposed be... Before this switch, you were put on a small-band segment which basically means a capped 1Mbps/0.5Mbps which would normally trigger you to pay extra for a measly extra 50 Gigabytes download. Which is then burned through again. :-(
 A shout out to my dedicated sales person at my ISP, who I keep bombarding with queries like "when is the Video On Demand feature finally coming to Business customers?" or "This unlimited internet isn't really unlimited". I'm probably part of the noisy 5% of technical customers that they do not like at all.
 
 ### The Issue
@@ -29,7 +29,7 @@ My bandwidth limit was manually increased, but I was still in the small-band seg
 
 Let that sink in.
 
-How the hell did they know that I download from websites categorised as 'news'? And how could they be making this assumption?
+How the hell did they know that I download from websites categorized as 'news'? And how could they be making this assumption?
 
 ## Role of the ISP
 
@@ -43,7 +43,7 @@ It is the job of your ISP to connect your home to an extremely complex web of ne
 1. Your **local home network** is everything up to your router/modem. So this includes cabled (Ethernet) connections and wireless (WiFi).
 
 2. Your **home network connection**, (hopefully) coax or fiber from your router/modem to the nearest connection hub of your ISP in your street.
-Your modem/router receives a public IPv4 (and possibly IPv6) address and places your local home network behind a NAT. So in theory, none of your home devices should be available on the iternet, while they can speak to it. They often use *uPnP* (*Universal Plug & Play) to punch holes and setup *Port Forwards* on your modem/router.
+Your modem/router receives a public IPv4 (and possibly IPv6) address and places your local home network behind a NAT. So in theory, none of your home devices should be available on the internet, while they can speak to it. They often use *uPnP* (*Universal Plug & Play) to punch holes and setup *Port Forwards* on your modem/router.
 
 3. The **ISP** which (in this case) is a *Tier 2 Provider* that runs from the local connection hub over fiber to the ISP edge router.
 
@@ -58,7 +58,7 @@ So it is their duty to be able to maintain a steady internet infrastructure and 
 
 * Someone hosting a heavy traffic website
 
-* Someone downloading and sharing loads of data generating thousands of connection (P2P, e.g. Bittorrent)
+* Someone downloading and sharing loads of data generating thousands of connection (P2P, e.g. BitTorrent)
 
 * Someone launching malware/DoS/... attacks from their home network with or without their knowing
 
@@ -72,27 +72,27 @@ They want to know who is impacting the other fair use customers so they can prov
 The days of *One fits All* are gone. Content fitted to your needs is all the rage nowadays, where they track what/where/when you use their product, so they can estimate the probability of you consuming additional/better products, increasing their profits and/or margins on you. Think to yourself, have you never been called because they suggest you better switch to another product, which would be more expensive, provide better analytics or be more cost effective to them?
 This could be a bigger internet subscription, extra telephone subscriptions or to rent that new fancy movie you wanted to see but couldn't last month.
 
-This feeds nicely to another important player in the commercial field: advertisements. Despised by most technical customers & liked by all companies, personalising the ads to the customer greatly benefits both parties: you are less frustrated because of watching ads you don't care about and the company might actually sell more because of some advertisement you watched. So win-win, right? Wrong. The company can now build a profile about you which might pose a serious privacy risk. What if they sell this data to other (international?) parties? What if your customer profile is used by your future employer? It's a real-life Black Mirror episode.
+This feeds nicely to another important player in the commercial field: advertisements. Despised by most technical customers & liked by all companies, personalizing the ads to the customer greatly benefits both parties: you are less frustrated because of watching ads you don't care about and the company might actually sell more because of some advertisement you watched. So, win-win, right? Wrong. The company can now build a profile about you which might pose a serious privacy risk. What if they sell this data to other (international?) parties? What if your customer profile is used by your future employer? It's a real-life Black Mirror episode.
 
 ### Legal
 
-The ISP is also legally required to act their part to investigate legal claims & prosecutions. This means that they need to be able to provide all information they have about you to a governmental legal entity. So it's in their best interest to collect information about you and your usage to later give to the authorities, so they comply to the regulation and keep up the brand image. No ISP will survive if they don't make friends with their facilitators.
+The ISP is also legally required to act their part to investigate legal claims & prosecutions. This means that they need to be able to provide all information they have about you to a governmental legal entity. So, it's in their best interest to collect information about you and your usage to later give to the authorities, so they comply to the regulation and keep up the brand image. No ISP will survive if they don't make friends with their facilitators.
 
 ## Problem Factors
 
-So let's take a look at a summary of all the things that could be tracked about you. Be warned that I assume you are using standard best practices such as visiting websites over TLS (HTTPS). Visiting a website over HTTP to then be redirected to HTTPS still leaks the website information.
+So, let's take a look at a summary of all the things that could be tracked about you. Be warned that I assume you are using standard best practices such as visiting websites over TLS (HTTPS). Visiting a website over HTTP to then be redirected to HTTPS still leaks the website information.
 
 I call this *the naughty list*:
 
 ### Network Layer
 
-A very simple factor, but one that is often missed, is that they can simply **look up the IP adresses** that you are connecting to.
+A very simple factor, but one that is often missed, is that they can simply **look up the IP addresses** that you are connecting to.
 On one hand there are IP classification records made available on the internet (free & paid). Since this a very easy and quick method (meaning it scales well across customers), this is the minimum an ISP can do to already track what you are doing online.
 
 ### DNS
 
-Often overlooked, but they could be **snooping your [DNS](https://www.cloudflare.com/learning/dns/what-is-dns/) queries**. Since the start of the internet DNS queries have been plaintext, meaning anyone can read what website your are about to visit. (But not what page you are visiting on that website per se.)
-This is a more expensive method, since they now have to identify & parse the L7 data that is passing over the wire. There exist solutions that offload a lot of the work to hardware, to this could be scaled to ISP-level. Business customers often do this inside of a [Intrusion Detection System](https://www.varonis.com/blog/ids-vs-ips/) or even Open Surce with Snort/Suricata. Note that using DNSSEC provides integrity, but not confidentiality.
+Often overlooked, but they could be **snooping your [DNS](https://www.cloudflare.com/learning/dns/what-is-dns/) queries**. Since the start of the internet DNS queries have been plaintext, meaning anyone can read what website you are about to visit. (But not what page you are visiting on that website per se.)
+This is a more expensive method, since they now have to identify & parse the L7 data that is passing over the wire. There exist solutions that offload a lot of the work to the hardware, to this could be scaled to ISP-level. Business customers often do this inside of a [Intrusion Detection System](https://www.varonis.com/blog/ids-vs-ips/) or even Open Source with Snort/Suricata. Note that using DNSSEC provides integrity, but not confidentiality.
 
 ### HTTP over TLS (HTTPS)
 
@@ -110,7 +110,7 @@ A very practical example: loads of people watching TV through their laptops & ta
 
 ### Tracking
 
-And last but not least, what if the ISP was just **injecting tracking code** in your visited websites? This isn't true for the biggest part of Western Europe, but i've seen cases documented where the ISP injected JavaScript tracking code in plain HTTP calls or even requring you to install their own rogue [Root CA Certificate](https://en.wikipedia.org/wiki/Root_certificate), so they perform a Man-in-the-Middle Attack.
+And last but not least, what if the ISP was just **injecting tracking code** in your visited websites? This isn't true for the biggest part of Western Europe, but I’ve seen cases documented where the ISP injected JavaScript tracking code in plain HTTP calls or even requiring you to install their own rogue [Root CA Certificate](https://en.wikipedia.org/wiki/Root_certificate), so they perform a Man-in-the-Middle Attack.
 And as always, install a reputable Anti Virus and Firewall on your device.
 
 ## Factor Mitigations
@@ -126,7 +126,7 @@ But be sure to pick a reliable one that also respects your privacy or run one yo
 ### DNS
 
 Setup a DNS-over-TLS (DoT) or DNS-over-HTTPS (DoH) server that will act as a DNS forwarder on your network.
-I recently did this on my Edgerouter PoE in around 20 minutes, but you could run your own using [cloudflared](https://github.com/cloudflare/cloudflared), [DNSCrypt](https://dnscrypt.info/) or [PiHole](https://pi-hole.net/) (also blocks ads).
+I recently did this on my EdgeRouter PoE in around 20 minutes, but you could run your own using [cloudflared](https://github.com/cloudflare/cloudflared), [DNSCrypt](https://dnscrypt.info/) or [PiHole](https://pi-hole.net/) (also blocks ads).
 You would then configure this one to use a trusted DNS server, like 1.1.1.1/1.0.0.1 Cloudflare. Lots of people recommend Google DNS Servers (8.8.8.8/8.8.4.4), but those are known to use your DNS traffic for analysis purposes.
 
 ### HTTP over TLS (HTTPS)
@@ -136,15 +136,15 @@ For SNI snooping, browsers & providers are starting to work in [Encrypted SNI (E
 
 ### Protocol Fingerprinting
 
-Not much to tell here, except to use standard protocols as much as possible and prevent some well-known ones like Bittorrent.
+Not much to tell here, except to use standard protocols as much as possible and prevent some well-known ones like BitTorrent.
 e.g. it is possible to hide your SSH connections in HTTPS traffic using something like [stunnel](https://www.stunnel.org/).
-If you are using Bittorrent, either switch to Usenet newsgroups or opt for a VPN.
+If you are using BitTorrent, either switch to Usenet newsgroups or opt for a VPN.
 
 ### Customer Record
 
 First important factor is being aware that you are being tracked. Disabled unused app functions in Android or iOS.
 Prevent your app from running in the background, using data entirely or e.g. using your camera or reading your contacts.
-Secondly, set your ISP profile preferences to not receive any personalised advertisementes if applicable.
+Secondly, set your ISP profile preferences to not receive any personalized advertisements if applicable.
 Thanks to [GDPR](https://gdpr-info.eu/), companies that process your information are now legally obliged to respond to GDPR queries. e.g. You can request them to provide all information they have about you, whether technical or commercial. Do this now with your ISP!
 *I am still awaiting my enquiry...*
 
