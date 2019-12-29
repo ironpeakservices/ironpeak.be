@@ -1,0 +1,15 @@
+name: Logs for Netlify
+
+on:
+  push:
+    branches:
+      - master
+      
+jobs:
+  logs4netlify:
+    name: Netlify
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Deploy Logs
+      uses: bdougie/loglify@master
