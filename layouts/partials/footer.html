@@ -88,6 +88,3 @@
         </div>
     </div>
 </div>
-
-{{ $appJs := resources.Get "js/app.js" | minify | fingerprint }}
-<script src="{{ $appJs.Permalink }}" integrity="{{ $appJs.Data.Integrity }}"></script>

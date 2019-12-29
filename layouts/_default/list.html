@@ -393,5 +393,8 @@
 	<div class="container-fluid">
 	{{ partial "footer.html" . }}
 	</div>
+	
+	{{ $appJs := resources.Get "js/app.js" | minify | fingerprint }}
+	<script src="{{ $appJs.Permalink }}" integrity="{{ $appJs.Data.Integrity }}"></script>
 </body>
 </html>
