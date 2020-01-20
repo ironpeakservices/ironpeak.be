@@ -10,6 +10,27 @@ jobs:
     name: Netlify
     runs-on: ubuntu-latest
     steps:
+    - name: create deployment
+      uses: niklasmerz/github-deployment-action@v1.0.0
+      if: contains(github.ref, 'master')
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        args: -o ironpeakservices -r ironpeak.be -c master -e production
+    - name: set deployment in_progress
+      uses: niklasmerz/github-deployment-action@v1.0.0
+      if: contains(github.ref, 'master')
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        args: -o ironpeakservices -r ironpeak.be -s in_progress -f
     - uses: actions/checkout@master
     - name: Deploy Logs
       uses: bdougie/loglify@master
+    - name: set deployment success
+      uses: niklasmerz/github-deployment-action@v1.0.0
+      if: contains(github.ref, 'master')
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        args: -o ironpeakservices -r ironpeak.be -s success -u https://ironpeak.be -f
