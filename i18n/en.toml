@@ -24,22 +24,30 @@ other = "Competences"
 [main_codesecurity]
 other = "Code Security"
 [main_codesecurity_desc]
-other = "Scripting (Bash/Shell, Python), Web (HTML/CSS, JS), PHP, Java or Golang."
+other = "Embed security by design, raise developer awareness & harden your DevOps."
+[main_codesecurity_examples]
+other = "Scripting (Shell, Python), Web (HTML/CSS, JS), PHP, Java, Golang, ..."
 
 [main_appsecurity]
 other = "App Security"
 [main_appsecurity_desc]
-other = "Mobile, Web, Penetration testing, Incident Response, Code Review, SDLC, Threat Modelling."
+other = "Review your applications, harden your applications and help embed security in your design."
+[main_appsecurity_examples]
+other = "Mobile & Web Penetration testing, Hardening, Incident Response, Code Review, Threat Modelling."
 
 [main_systemsecurity]
 other = "System Security"
 [main_systemsecurity_desc]
+other = "Harden your infrastructure (standard + containers), application/web servers, etc..."
+[main_systemsecurity_examples]
 other = "Docker (Swarm), linux/unix, httpd/nginx, tomcat, macOS, Penetration Testing, ..."
 
-[main_f5bigip]
-other = "F5 BIG-IP"
-[main_f5bigip_desc]
-other = "Certified Trainer &amp; experienced in ADM, LTM, iRules, iControl, ASM, GTM, APM."
+[main_risk]
+other = "Risk Posture"
+[main_risk_desc]
+other = "Improve your security maturity & tackle the right risks at the right time."
+[main_risk_examples]
+other = "Implement OWASP OpenSAMM, translate technical to business risk, analyse market trends, ..."
 
 [main_sofarivehelped]
 other = "So far I've helped.."
@@ -57,12 +65,12 @@ other = "PHP development & architecture, web design, code review."
 [main_helped_3]
 other = "Government Agency"
 [main_helped_3_desc]
-other = "F5 BIG-IP LTM/ASM/APM implementation."
+other = "F5 BIG-IP L    TM/ASM/APM implementation."
 
 [main_helped_4]
-other = "IT Freelance Firm"
+other = "International Aviation Company"
 [main_helped_4_desc]
-other = "Python middleware code for reading out industrial scales."
+other = "Security architecture, penetration testing, risk management."
 
 [main_helped_5]
 other = "International Logistics Company"
