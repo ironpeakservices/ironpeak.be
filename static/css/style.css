@@ -3,6 +3,7 @@
   src: url(/fonts/montserrat/Montserrat-Black.eot) format('embedded-opentype'),url(/fonts/montserrat/Montserrat-Black.otf) format('opentype'),url(/fonts/montserrat/Montserrat-Black.woff) format('woff'),url(/fonts/montserrat/Montserrat-Black.ttf) format('truetype'),url(/fonts/montserrat/Montserrat-Black.svg) format('svg');
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -10,6 +11,7 @@
   src: url(/fonts/montserrat/Montserrat-Bold.eot) format('embedded-opentype'),url(/fonts/montserrat/Montserrat-Bold.otf) format('opentype'),url(/fonts/montserrat/Montserrat-Bold.woff) format('woff'),url(/fonts/montserrat/Montserrat-Bold.ttf) format('truetype'),url(/fonts/montserrat/Montserrat-Bold.svg) format('svg');
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -17,6 +19,7 @@
   src: url(/fonts/montserrat/Montserrat-ExtraBold.eot) format('embedded-opentype'),url(/fonts/montserrat/Montserrat-ExtraBold.otf) format('opentype'),url(/fonts/montserrat/Montserrat-ExtraBold.woff) format('woff'),url(/fonts/montserrat/Montserrat-ExtraBold.ttf) format('truetype'),url(/fonts/montserrat/Montserrat-ExtraBold.svg) format('svg');
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -24,6 +27,7 @@
   src: url(/fonts/montserrat/Montserrat-Hairline.eot) format('embedded-opentype'),url(/fonts/montserrat/Montserrat-Hairline.otf) format('opentype'),url(/fonts/montserrat/Montserrat-Hairline.woff) format('woff'),url(/fonts/montserrat/Montserrat-Hairline.ttf) format('truetype'),url(/fonts/montserrat/Montserrat-Hairline.svg) format('svg');
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -31,6 +35,7 @@
   src: url(/fonts/montserrat/Montserrat-Light.eot) format('embedded-opentype'),url(/fonts/montserrat/Montserrat-Light.otf) format('opentype'),url(/fonts/montserrat/Montserrat-Light.woff) format('woff'),url(/fonts/montserrat/Montserrat-Light.ttf) format('truetype'),url(/fonts/montserrat/Montserrat-Light.svg) format('svg');
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -38,6 +43,7 @@
   src: url(/fonts/montserrat/Montserrat-Regular.eot) format('embedded-opentype'),url(/fonts/montserrat/Montserrat-Regular.otf) format('opentype'),url(/fonts/montserrat/Montserrat-Regular.woff) format('woff'),url(/fonts/montserrat/Montserrat-Regular.ttf) format('truetype'),url(/fonts/montserrat/Montserrat-Regular.svg) format('svg');
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -45,6 +51,7 @@
   src: url(/fonts/montserrat/Montserrat-SemiBold.eot) format('embedded-opentype'),url(/fonts/montserrat/Montserrat-SemiBold.otf) format('opentype'),url(/fonts/montserrat/Montserrat-SemiBold.woff) format('woff'),url(/fonts/montserrat/Montserrat-SemiBold.ttf) format('truetype'),url(/fonts/montserrat/Montserrat-SemiBold.svg) format('svg');
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -52,6 +59,7 @@
   src: url(/fonts/montserrat/Montserrat-UltraLight.eot) format('embedded-opentype'),url(/fonts/montserrat/Montserrat-UltraLight.otf) format('opentype'),url(/fonts/montserrat/Montserrat-UltraLight.woff) format('woff'),url(/fonts/montserrat/Montserrat-UltraLight.ttf) format('truetype'),url(/fonts/montserrat/Montserrat-UltraLight.svg) format('svg');
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -60,6 +68,7 @@
   font-style: normal;
   src: url(/fonts/roboto/Roboto-100.eot);
   src: url(/fonts/roboto/Roboto-100.eot) format('embedded-opentype'),local('Roboto Thin'),local(Roboto-100),url(/fonts/roboto/Roboto-100.woff2) format('woff2'),url(/fonts/roboto/Roboto-100.woff) format('woff'),url(/fonts/roboto/Roboto-100.ttf) format('truetype'),url(/fonts/roboto/Roboto-100.svg) format('svg');
+  font-display: swap;
 }
 
 @font-face {
@@ -68,6 +77,7 @@
   font-style: normal;
   src: url(/fonts/roboto/Roboto-300.eot);
   src: url(/fonts/roboto/Roboto-300.eot) format('embedded-opentype'),local('Roboto Light'),local(Roboto-300),url(/fonts/roboto/Roboto-300.woff2) format('woff2'),url(/fonts/roboto/Roboto-300.woff) format('woff'),url(/fonts/roboto/Roboto-300.ttf) format('truetype'),url(/fonts/roboto/Roboto-300.svg) format('svg');
+  font-display: swap;
 }
 
 /*!* Bootstrap v3.3.7 (http://getbootstrap.com)
