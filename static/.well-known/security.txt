@@ -1,0 +1,3 @@
+Contact: mailto:hello@ironpeak.be
+Acknowledgments: https://ironpeak.be/.well-known/security-ack.txt
+Preferred-Languages: en
