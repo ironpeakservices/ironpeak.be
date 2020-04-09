@@ -13,6 +13,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           target: 'https://ironpeak.be/'
+          rules_file_name: .github/zap.ignore
           
   zap_scan_cluster:
     runs-on: ubuntu-latest
@@ -23,3 +24,4 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           target: 'https://cluster.ironpeak.be/'
+          rules_file_name: .github/zap.ignore
