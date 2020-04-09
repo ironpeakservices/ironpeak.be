@@ -2,9 +2,24 @@ name: vulnerability scan
 on:
   schedule:
   - cron: '0 0 * * *'
-steps:
-  - name: ZAP Scan
-    uses: zaproxy/action-baseline@v0.2.0
-    with:
-      token: ${{ secrets.GITHUB_TOKEN }}
-      target: 'https://ironpeak.be/'
+
+jobs:
+  zap_scan_public:
+    runs-on: ubuntu-latest
+    name: Scan public website
+    steps:
+      - name: ZAP Scan
+        uses: zaproxy/action-baseline@v0.2.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          target: 'https://ironpeak.be/'
+          
+  zap_scan_cluster:
+    runs-on: ubuntu-latest
+    name: Scan k8s cluster
+    steps:
+      - name: ZAP Scan
+        uses: zaproxy/action-baseline@v0.2.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          target: 'https://cluster.ironpeak.be/'
