@@ -7,4 +7,4 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "origin"
     Feature-Policy = "geolocation 'none'; midi 'none'; notifications 'none'; push 'none'; sync-xhr 'none'; microphone 'none'; camera 'none'; magnetometer 'none'; gyroscope 'none'; speaker 'none'; vibrate 'none'; fullscreen 'none'; payment 'none';"
-    Content-Security-Policy = "default-src 'none'; base-uri 'self'; manifest-src 'self'; script-src 'self'; style-src 'self'; img-src data:; font-src 'self'"
+    Content-Security-Policy = "default-src 'none'; frame-ancestor 'none'; base-uri 'self'; manifest-src 'self'; script-src 'self'; style-src 'self'; img-src data:; font-src 'self'"
