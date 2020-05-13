@@ -1,371 +1,358 @@
 <!doctype html>
 <html lang="{{ .Language }}">
 
-{{ partial "header.html" . }}
+    {{ partial "header.html" . }}
 
-<body>
-    
-    {{ partial "navbar.html" . }}
+    <body>
 
-    <div class="content">
-		<div class="container-fluid">
-		    <div class="container">
-		        <div class="row">
-		            <div class="col-xs-12 text-center rocket-animation-holder hidden-xs">
-		                <div class="rocket-animation">
-		                    <div class="rocket">
-		                        <img alt="peak" width="136" height="190" src="data:image/png;base64,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">
-		                        <span class="rocket-line rline1"></span>
-		                        <span class="rocket-line rline2"></span>
-		                        <span class="rocket-line rline3"></span>
-		                    </div>
-		                    <div class="cloud cloud1">          	
-								<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="60" height="40">
-									<path d="M537.585 226.56C541.725 215.836 544 204.184 544 192c0-53.019-42.981-96-96-96-19.729 0-38.065 5.954-53.316 16.159C367.042 64.248 315.288 32 256 32c-88.366 0-160 71.634-160 160 0 2.728.07 5.439.204 8.133C40.171 219.845 0 273.227 0 336c0 79.529 64.471 144 144 144h368c70.692 0 128-57.308 128-128 0-61.93-43.983-113.586-102.415-125.44z"></path>
-								</svg>
-	                    	</div>
-		                    <div class="cloud cloud2">
-								<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="60" height="40">
-									<path d="M537.585 226.56C541.725 215.836 544 204.184 544 192c0-53.019-42.981-96-96-96-19.729 0-38.065 5.954-53.316 16.159C367.042 64.248 315.288 32 256 32c-88.366 0-160 71.634-160 160 0 2.728.07 5.439.204 8.133C40.171 219.845 0 273.227 0 336c0 79.529 64.471 144 144 144h368c70.692 0 128-57.308 128-128 0-61.93-43.983-113.586-102.415-125.44z"></path>
-								</svg>
-	                    	</div>
-		                    <div class="cloud cloud3">
-								<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="60" height="40">
-									<path d="M537.585 226.56C541.725 215.836 544 204.184 544 192c0-53.019-42.981-96-96-96-19.729 0-38.065 5.954-53.316 16.159C367.042 64.248 315.288 32 256 32c-88.366 0-160 71.634-160 160 0 2.728.07 5.439.204 8.133C40.171 219.845 0 273.227 0 336c0 79.529 64.471 144 144 144h368c70.692 0 128-57.308 128-128 0-61.93-43.983-113.586-102.415-125.44z"></path>
-								</svg>
-	                    	</div>
-		                </div>
-		                <h1>
-		                    {{ i18n "main_ironpeak" }}<br>
-		                    {{i18n "main_services" }}
-		                </h1>
-		                <h4>
-		                    {{ i18n "main_slogan" }}
-		                </h4>
-		                <div class="domain-form-holder"></div>
-		            </div>
-		        </div>
-		    </div>
-		</div>
-		<div id="info" class="container-fluid text-center">
-		    <div class="container">
-		        <div class="row">
-		            <div class="col-xs-12 row-title" id="services">
-		                <h4>
-		                	{{ i18n "main_competences" }}
-		                </h4>
-		            </div>
-		        </div>
-		        <div class="row">
-		            <div class="col-xs-12 col-md-3">
-		                <div id="info-box1" class="info-box opened-info">
-		                    <div class="info-icon">       
-		                    	<div class="link">          	
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
-										<path class="fill" d="M278.9 511.5l-61-17.7c-6.4-1.8-10-8.5-8.2-14.9L346.2 8.7c1.8-6.4 8.5-10 14.9-8.2l61 17.7c6.4 1.8 10 8.5 8.2 14.9L293.8 503.3c-1.9 6.4-8.5 10.1-14.9 8.2zm-114-112.2l43.5-46.4c4.6-4.9 4.3-12.7-.8-17.2L117 256l90.6-79.7c5.1-4.5 5.5-12.3.8-17.2l-43.5-46.4c-4.5-4.8-12.1-5.1-17-.5L3.8 247.2c-5.1 4.7-5.1 12.8 0 17.5l144.1 135.1c4.9 4.6 12.5 4.4 17-.5zm327.2.6l144.1-135.1c5.1-4.7 5.1-12.8 0-17.5L492.1 112.1c-4.8-4.5-12.4-4.3-17 .5L431.6 159c-4.6 4.9-4.3 12.7.8 17.2L523 256l-90.6 79.7c-5.1 4.5-5.5 12.3-.8 17.2l43.5 46.4c4.5 4.9 12.1 5.1 17 .6z"></path>
-									</svg>
-								</div>
-	                    	</div>
-		                    <div class="info-title">
-		                    	{{ i18n "main_codesecurity" }}
-	                    	</div>
-		                    <div class="info-circle">
-		                    	<div class="circle-icon"></div>
-	                    	</div>
-		                </div>
-		            </div>
-		            <div class="col-xs-12 col-md-3">
-		                <div id="info-box2" class="info-box">
-		                    <div class="info-icon">
-		                    	<div class="link">	
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-										<path class="fill" d="M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z"></path>
-									</svg>
-	                    		</div>
-	                    	</div>
-		                    <div class="info-title">
-		                    	{{ i18n "main_appsecurity" }}
-	                    	</div>
-		                    <div class="info-circle">
-		                    	<div class="circle-icon"></div>
-	                    	</div>
-		                </div>
-		            </div>
-		            <div class="col-xs-12 col-md-3">
-		                <div id="info-box3" class="info-box">
-		                    <div class="info-icon">
-								<div class="link">
-								<svg version="1.1" viewBox="0 0 466 423.891" enable-background="new 0 0 466 423.891" xml:space="preserve">
-								    <rect height="" width="" x="-43.5" y="37.005" opacity="1"></rect>
-								    <g>
-								        <path class="fill" id="outline_7_" fill-rule="evenodd" clip-rule="evenodd" d="M242.133,168.481h47.146v48.194h23.837   c11.008,0,22.33-1.962,32.755-5.494c5.123-1.736,10.872-4.154,15.926-7.193c-6.656-8.689-10.053-19.661-11.054-30.476   c-1.358-14.71,1.609-33.855,11.564-45.368l4.956-5.732l5.905,4.747c14.867,11.946,27.372,28.638,29.577,47.665   c17.901-5.266,38.921-4.02,54.701,5.088l6.475,3.734l-3.408,6.652c-13.345,26.046-41.246,34.113-68.524,32.687   c-40.817,101.663-129.68,149.794-237.428,149.794c-55.666,0-106.738-20.81-135.821-70.197l-0.477-0.807l-4.238-8.621   C4.195,271.415,0.93,247.6,3.145,223.803l0.664-7.127h40.315v-48.194h47.143v-47.145h94.292V74.191h56.574V168.481z"
-								        ></path>
-								        <g display="none">
-								            <path class="fill" display="inline" fill="#5a7392" d="M61.093,319.89c6.023,0,11.763-0.157,17.219-0.464c0.476-0.026,0.932-0.063,1.402-0.092    c0.005-0.002,0.008-0.002,0.012-0.002c13.872-0.855,25.876-2.708,35.902-5.57c0.002-0.002,0.004-0.002,0.006-0.002    c1.823-0.521,3.588-1.07,5.282-1.656c1.894-0.657,2.896-2.725,2.241-4.618c-0.656-1.895-2.722-2.899-4.618-2.24    c-12.734,4.412-29.535,6.842-50.125,7.298c-0.002,0-0.004,0-0.005,0c-10.477,0.232-21.93-0.044-34.352-0.843c0,0,0,0-0.001,0    c-0.635-0.038-1.259-0.075-1.9-0.118c-1.995-0.128-3.731,1.374-3.869,3.375c-0.136,1.999,1.376,3.73,3.375,3.866    c2.537,0.173,5.03,0.321,7.49,0.453c0.392,0.021,0.77,0.034,1.158,0.054l0,0C47.566,319.697,54.504,319.89,61.093,319.89z"
-								            ></path>
-								        </g>
-								        <g id="Containers_8_">
-								            <path class="fill" fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M86.209,179.744h3.227v34.052h-3.227V179.744z M80.02,179.744    h3.354v34.052H80.02V179.744z M73.828,179.744h3.354v34.052h-3.354V179.744z M67.636,179.744h3.354v34.052h-3.354V179.744z     M61.446,179.744H64.8v34.052h-3.354V179.744z M55.384,179.744h3.224v34.052h-3.224V179.744z M51.981,176.338h40.858v40.86H51.981    V176.338z"
-								            ></path>
-								            <path class="fill" fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M133.354,132.598h3.229v34.051h-3.229V132.598z M127.165,132.598    h3.354v34.051h-3.354V132.598z M120.973,132.598h3.354v34.051h-3.354V132.598z M114.781,132.598h3.354v34.051h-3.354V132.598z     M108.593,132.598h3.352v34.051h-3.352V132.598z M102.531,132.598h3.222v34.051h-3.222V132.598z M99.124,129.193h40.863v40.859    H99.124V129.193z"
-								            ></path>
-								            <path class="fill" fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M133.354,179.744h3.229v34.052h-3.229V179.744z M127.165,179.744    h3.354v34.052h-3.354V179.744z M120.973,179.744h3.354v34.052h-3.354V179.744z M114.781,179.744h3.354v34.052h-3.354V179.744z     M108.593,179.744h3.352v34.052h-3.352V179.744z M102.531,179.744h3.222v34.052h-3.222V179.744z M99.124,176.338h40.863v40.86    H99.124V176.338z"
-								            ></path>
-								            <path class="fill" fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M180.501,179.744h3.225v34.052h-3.225V179.744z M174.31,179.744    h3.355v34.052h-3.355V179.744z M168.12,179.744h3.354v34.052h-3.354V179.744z M161.928,179.744h3.354v34.052h-3.354V179.744z     M155.736,179.744h3.354v34.052h-3.354V179.744z M149.676,179.744h3.222v34.052h-3.222V179.744z M146.271,176.338h40.861v40.86    h-40.861V176.338z"
-								            ></path>
-								            <path class="fill" fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M180.501,132.598h3.225v34.051h-3.225V132.598z M174.31,132.598    h3.355v34.051h-3.355V132.598z M168.12,132.598h3.354v34.051h-3.354V132.598z M161.928,132.598h3.354v34.051h-3.354V132.598z     M155.736,132.598h3.354v34.051h-3.354V132.598z M149.676,132.598h3.222v34.051h-3.222V132.598z M146.271,129.193h40.861v40.859    h-40.861V129.193z"
-								            ></path>
-								            <path class="fill" fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M227.647,179.744h3.226v34.052h-3.226V179.744z M221.457,179.744    h3.354v34.052h-3.354V179.744z M215.265,179.744h3.354v34.052h-3.354V179.744z M209.073,179.744h3.354v34.052h-3.354V179.744z     M202.884,179.744h3.354v34.052h-3.354V179.744z M196.821,179.744h3.224v34.052h-3.224V179.744z M193.416,176.338h40.861v40.86    h-40.861V176.338z"
-								            ></path>
-								            <path class="fill" fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M227.647,132.598h3.226v34.051h-3.226V132.598z M221.457,132.598    h3.354v34.051h-3.354V132.598z M215.265,132.598h3.354v34.051h-3.354V132.598z M209.073,132.598h3.354v34.051h-3.354V132.598z     M202.884,132.598h3.354v34.051h-3.354V132.598z M196.821,132.598h3.224v34.051h-3.224V132.598z M193.416,129.193h40.861v40.859    h-40.861V129.193z"
-								            ></path>
-								            <path class="fill" fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M227.647,85.451h3.226v34.053h-3.226V85.451z M221.457,85.451    h3.354v34.053h-3.354V85.451z M215.265,85.451h3.354v34.053h-3.354V85.451z M209.073,85.451h3.354v34.053h-3.354V85.451z     M202.884,85.451h3.354v34.053h-3.354V85.451z M196.821,85.451h3.224v34.053h-3.224V85.451z M193.416,82.048h40.861v40.86h-40.861    V82.048z"
-								            ></path>
-								            <path class="fill" fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M274.792,179.744h3.224v34.052h-3.224V179.744z M268.602,179.744    h3.352v34.052h-3.352V179.744z M262.408,179.744h3.354v34.052h-3.354V179.744z M256.218,179.744h3.354v34.052h-3.354V179.744z     M250.026,179.744h3.354v34.052h-3.354V179.744z M243.964,179.744h3.227v34.052h-3.227V179.744z M240.561,176.338h40.86v40.86    h-40.86V176.338z"
-								            ></path>
-								        </g>
-								        <path class="fill" fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M137.428,283.445c6.225,0,11.271,5.049,11.271,11.272   c0,6.225-5.046,11.271-11.271,11.271c-6.226,0-11.272-5.046-11.272-11.271C126.156,288.494,131.202,283.445,137.428,283.445"></path>
-								        <path class="fill" fill-rule="evenodd" clip-rule="evenodd" d="M137.428,286.644c1.031,0,2.015,0.194,2.923,0.546   c-0.984,0.569-1.65,1.635-1.65,2.854c0,1.82,1.476,3.293,3.296,3.293c1.247,0,2.329-0.693,2.89-1.715   c0.395,0.953,0.615,1.999,0.615,3.097c0,4.458-3.615,8.073-8.073,8.073c-4.458,0-8.074-3.615-8.074-8.073   C129.354,290.258,132.971,286.644,137.428,286.644"
-								        ></path>
-								        <path class="fill" fill="#FFFFFF" d="M167.394,364.677c-27.916-13.247-43.239-31.256-51.765-50.915c-10.37,2.961-22.835,4.852-37.317,5.664   c-5.457,0.307-11.196,0.464-17.219,0.464c-6.942,0-14.26-0.205-21.94-0.613c25.6,25.585,57.094,45.283,115.408,45.645   C158.866,364.921,163.14,364.837,167.394,364.677z"
-								        ></path>
-								    </g>
-								</svg>
-								</div>
-	                    	</div>
-		                    <div class="info-title">
-		                    	{{ i18n "main_systemsecurity" }}
-	                    	</div>
-		                    <div class="info-circle">
-		                    	<div class="circle-icon"></div>
-	                    	</div>
-		                </div>
-		            </div>
-		            <div class="col-xs-12 col-md-3">
-		                <div id="info-box4" class="info-box">
-		                    <div class="info-icon">
-		                    	<div class="link">
-								<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="shield-alt" class="svg-inline--fa fa-shield-alt fa-w-16" role="img" viewBox="0 0 512 512">
-								<path class="fill" fill="currentColor" d="M466.5 83.7l-192-80a48.15 48.15 0 0 0-36.9 0l-192 80C27.7 91.1 16 108.6 16 128c0 198.5 114.5 335.7 221.5 380.3 11.8 4.9 25.1 4.9 36.9 0C360.1 472.6 496 349.3 496 128c0-19.4-11.7-36.9-29.5-44.3zM256.1 446.3l-.1-381 175.9 73.3c-3.3 151.4-82.1 261.1-175.8 307.7z" />
-								</svg>
-								</div>
-	                    	</div>
-		                    <div class="info-title">
-		                    	{{ i18n "main_risk" }}
-	                    	</div>
-		                    <div class="info-circle">
-		                    	<div class="circle-icon"></div>
-	                    	</div>
-		                </div>
-		            </div>
-		        </div>
-		    </div>
-		</div>
-		<div id="info-text1" class="container-fluid info-text-holder">
-		    <div class="container">
-		        <div class="row">
-		            <div class="col-xs-12">
-		                <div class="info-title-icon">
-		                    <div>
-		                    	{{ i18n "main_codesecurity" }}
-		                    </div>
-		                </div>
-		                <div class="info-text">
-		                	{{ i18n "main_codesecurity_desc" }}
-							<br/>
-							{{ i18n "main_codesecurity_examples" }}
-		                </div>
-		            </div>
-		        </div>
-		    </div>
-		</div>
-		<div id="info-text2" class="container-fluid info-text-holder info-closed">
-		    <div class="container">
-		        <div class="row">
-		            <div class="col-xs-12">
-		                <div class="info-title-icon">
-		                    <div>
-		                    	{{ i18n "main_appsecurity" }}
-		                    </div>
-		                </div>
-		                <div class="info-text">
-		                	{{ i18n "main_appsecurity_desc" }}
-							<br/>
-							{{ i18n "main_appsecurity_examples" }}
-		                </div>
-		            </div>
-		        </div>
-		    </div>
-		</div>
-		<div id="info-text3" class="container-fluid info-text-holder info-closed">
-		    <div class="container">
-		        <div class="row">
-		            <div class="col-xs-12">
-		                <div class="info-title-icon">
-		                    <div>
-		                    	{{ i18n "main_systemsecurity" }}
-		                    </div>
-		                </div>
-		                <div class="info-text">
-		                	{{ i18n "main_systemsecurity_desc" }}
-							<br/>
-							{{ i18n "main_systemsecurity_examples" }}
-		                </div>
-		            </div>
-		        </div>
-		    </div>
-		</div>
-		<div id="info-text4" class="container-fluid info-text-holder info-closed">
-		    <div class="container">
-		        <div class="row">
-		            <div class="col-xs-12">
-		                <div class="info-title-icon">
-		                    <div>
-		                    	{{ i18n "main_risk" }}
-		                    </div>
-		                </div>
-		                <div class="info-text">
-		                	{{ i18n "main_risk_desc" }}
-							<br/>
-							{{ i18n "main_risk_examples" }}
-		                </div>
-		            </div>
-		        </div>
-		    </div>
-		</div>
-		<div id="reasons" class="container-fluid">
-		    <div class="container">
-		        <div class="row">
-		            <div class="col-xs-12 row-title">
-		                <h4>
-		                	{{ i18n "main_sofarivehelped" }}
-		                </h4>
-		            </div>
-		        </div>
+        {{ partial "navbar.html" . }}
 
-		        <div class="row">
-					<div class="col-sm-5 m-t-sm">
-						<div class="col-md-3 hidden-xs">
-							<div class="in-block">
-								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="client-svg">
-									<path d="M496 128v16a8 8 0 0 1-8 8h-24v12c0 6.627-5.373 12-12 12H60c-6.627 0-12-5.373-12-12v-12H24a8 8 0 0 1-8-8v-16a8 8 0 0 1 4.941-7.392l232-88a7.996 7.996 0 0 1 6.118 0l232 88A8 8 0 0 1 496 128zm-24 304H40c-13.255 0-24 10.745-24 24v16a8 8 0 0 0 8 8h464a8 8 0 0 0 8-8v-16c0-13.255-10.745-24-24-24zM96 192v192H60c-6.627 0-12 5.373-12 12v20h416v-20c0-6.627-5.373-12-12-12h-36V192h-64v192h-64V192h-64v192h-64V192H96z"></path>
-								</svg>
-							</div>
-						</div>
-						<div class="col-md-9">
-							<h5>
-								{{ i18n "main_helped_1" }}
-							</h5>
-							<p>
-								{{ i18n "main_helped_1_desc" }}
-							</p>
-						</div>
-					</div>
-
-					<div class="col-sm-5 m-t-sm col-sm-offset-2">
-						<div class="col-md-3 hidden-xs">
-							<div class="in-block">
-								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="client-svg">
-									<path d="M436 480h-20V24c0-13.255-10.745-24-24-24H56C42.745 0 32 10.745 32 24v456H12c-6.627 0-12 5.373-12 12v20h448v-20c0-6.627-5.373-12-12-12zM128 76c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12V76zm0 96c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40zm52 148h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12zm76 160h-64v-84c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v84zm64-172c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40zm0-96c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40zm0-96c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12V76c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40z"></path>
-								</svg>
-							</div>
-						</div>
-						<div class="col-md-9">
-							<h5>
-								{{ i18n "main_helped_2" }}
-							</h5>
-							<p>
-								{{ i18n "main_helped_2_desc" }}
-							</p>
-						</div>
-					</div>
-                </div>
-
-                <div class="row">
-					<div class="col-sm-5 m-t-sm">
-						<div class="col-md-3 hidden-xs">
-							<div class="in-block">
-								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="client-svg">
-									<path d="M364.215 192h131.43c5.439 20.419 8.354 41.868 8.354 64s-2.915 43.581-8.354 64h-131.43c5.154-43.049 4.939-86.746 0-128zM185.214 352c10.678 53.68 33.173 112.514 70.125 151.992.221.001.44.008.661.008s.44-.008.661-.008c37.012-39.543 59.467-98.414 70.125-151.992H185.214zm174.13-192h125.385C452.802 84.024 384.128 27.305 300.95 12.075c30.238 43.12 48.821 96.332 58.394 147.925zm-27.35 32H180.006c-5.339 41.914-5.345 86.037 0 128h151.989c5.339-41.915 5.345-86.037-.001-128zM152.656 352H27.271c31.926 75.976 100.6 132.695 183.778 147.925-30.246-43.136-48.823-96.35-58.393-147.925zm206.688 0c-9.575 51.605-28.163 104.814-58.394 147.925 83.178-15.23 151.852-71.949 183.778-147.925H359.344zm-32.558-192c-10.678-53.68-33.174-112.514-70.125-151.992-.221 0-.44-.008-.661-.008s-.44.008-.661.008C218.327 47.551 195.872 106.422 185.214 160h141.572zM16.355 192C10.915 212.419 8 233.868 8 256s2.915 43.581 8.355 64h131.43c-4.939-41.254-5.154-84.951 0-128H16.355zm136.301-32c9.575-51.602 28.161-104.81 58.394-147.925C127.872 27.305 59.198 84.024 27.271 160h125.385z"></path>
-								</svg>
-							</div>
-						</div>
-						<div class="col-md-9">
-							<h5>
-								{{ i18n "main_helped_3" }}
-							</h5>
-							<p>
-								{{ i18n "main_helped_3_desc" }}
-							</p>
-						</div>
-					</div>
-
-					<div class="col-sm-5 m-t-sm col-sm-offset-2">
-						<div class="col-md-3 hidden-xs">
-							<div class="in-block">
-								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="client-svg">
-								<path d="M544 224l-128-16-48-16h-24L227.158 44h39.509C278.333 44 288 41.375 288 38s-9.667-6-21.333-6H152v12h16v164h-48l-66.667-80H18.667L8 138.667V208h8v16h48v2.666l-64 8v42.667l64 8V288H16v16H8v69.333L18.667 384h34.667L120 304h48v164h-16v12h114.667c11.667 0 21.333-2.625 21.333-6s-9.667-6-21.333-6h-39.509L344 320h24l48-16 128-16c96-21.333 96-26.583 96-32 0-5.417 0-10.667-96-32z"></path>
-								</svg>
-							</div>
-						</div>
-						<div class="col-md-9">
-							<h5>
-								{{ i18n "main_helped_4" }}
-							</h5>
-							<p>
-								{{ i18n "main_helped_4_desc" }}
-							</p>
-						</div>
-					</div>
-                </div>
-
-                <div class="row">
-					<div class="col-sm-5 m-t-sm">
-						<div class="col-md-3 hidden-xs">
-							<div class="in-block">
-								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="client-svg-sm">
-									<path d="M621.3 237.3l-58.5-58.5c-12-12-28.3-18.7-45.3-18.7H480V64c0-17.7-14.3-32-32-32H32C14.3 32 0 46.3 0 64v336c0 44.2 35.8 80 80 80 26.3 0 49.4-12.9 64-32.4 14.6 19.6 37.7 32.4 64 32.4 44.2 0 80-35.8 80-80 0-5.5-.6-10.8-1.6-16h163.2c-1.1 5.2-1.6 10.5-1.6 16 0 44.2 35.8 80 80 80s80-35.8 80-80c0-5.5-.6-10.8-1.6-16H624c8.8 0 16-7.2 16-16v-85.5c0-17-6.7-33.2-18.7-45.2zM80 432c-17.6 0-32-14.4-32-32s14.4-32 32-32 32 14.4 32 32-14.4 32-32 32zm128 0c-17.6 0-32-14.4-32-32s14.4-32 32-32 32 14.4 32 32-14.4 32-32 32zm272-224h37.5c4.3 0 8.3 1.7 11.3 4.7l43.3 43.3H480v-48zm48 224c-17.6 0-32-14.4-32-32s14.4-32 32-32 32 14.4 32 32-14.4 32-32 32z"></path>
-								</svg>
-							</div>
-						</div>
-						<div class="col-md-9">
-							<h5>
-								{{ i18n "main_helped_5" }}
-							</h5>
-							<p>
-								{{ i18n "main_helped_5_desc" }}
-							</p>
-						</div>
-					</div>
-
-                    <div class="col-sm-5 m-t-sm col-sm-offset-2">
-                        <div class="col-md-3 hidden-xs">
-							<div class="in-block">
-								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="client-svg-sm">
-									<path d="M560 224h-29.5c-8.8-20-21.6-37.7-37.4-52.5L512 96h-32c-29.4 0-55.4 13.5-73 34.3-7.6-1.1-15.1-2.3-23-2.3H256c-77.4 0-141.9 55-156.8 128H56c-14.8 0-26.5-13.5-23.5-28.8C34.7 215.8 45.4 208 57 208h1c3.3 0 6-2.7 6-6v-20c0-3.3-2.7-6-6-6-28.5 0-53.9 20.4-57.5 48.6C-3.9 258.8 22.7 288 56 288h40c0 52.2 25.4 98.1 64 127.3V496c0 8.8 7.2 16 16 16h64c8.8 0 16-7.2 16-16v-48h128v48c0 8.8 7.2 16 16 16h64c8.8 0 16-7.2 16-16v-80.7c11.8-8.9 22.3-19.4 31.3-31.3H560c8.8 0 16-7.2 16-16V240c0-8.8-7.2-16-16-16zm-128 64c-8.8 0-16-7.2-16-16s7.2-16 16-16 16 7.2 16 16-7.2 16-16 16zM256 96h128c5.4 0 10.7.4 15.9.8 0-.3.1-.5.1-.8 0-53-43-96-96-96s-96 43-96 96c0 2.1.5 4.1.6 6.2 15.2-3.9 31-6.2 47.4-6.2z"/>
-								</svg>
-							</div>
-                        </div>
-                        <div class="col-md-9">
-							<h5>
-								{{ i18n "main_helped_6" }}
-							</h5>
-							<p>
-								{{ i18n "main_helped_6_desc" }}
-							</p>
+        <div class="content">
+            <div class="container-fluid">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 text-center rocket-animation-holder hidden-xs">
+                            <div class="rocket-animation">
+                                <div class="rocket">
+                                    <img alt="peak" width="136" height="190" src="data:image/png;base64,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">
+                                    <span class="rocket-line rline1"></span>
+                                    <span class="rocket-line rline2"></span>
+                                    <span class="rocket-line rline3"></span>
+                                </div>
+                                <div class="cloud cloud1">
+                                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 600 400" width="60" height="40">
+                                        <path d="M537.585 226.56C541.725 215.836 544 204.184 544 192c0-53.019-42.981-96-96-96-19.729 0-38.065 5.954-53.316 16.159C367.042 64.248 315.288 32 256 32c-88.366 0-160 71.634-160 160 0 2.728.07 5.439.204 8.133C40.171 219.845 0 273.227 0 336c0 79.529 64.471 144 144 144h368c70.692 0 128-57.308 128-128 0-61.93-43.983-113.586-102.415-125.44z"></path>
+                                    </svg>
+                                </div>
+                                <div class="cloud cloud2">
+                                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 600 400" width="60" height="40">
+                                        <path d="M537.585 226.56C541.725 215.836 544 204.184 544 192c0-53.019-42.981-96-96-96-19.729 0-38.065 5.954-53.316 16.159C367.042 64.248 315.288 32 256 32c-88.366 0-160 71.634-160 160 0 2.728.07 5.439.204 8.133C40.171 219.845 0 273.227 0 336c0 79.529 64.471 144 144 144h368c70.692 0 128-57.308 128-128 0-61.93-43.983-113.586-102.415-125.44z"></path>
+                                    </svg>
+                                </div>
+                                <div class="cloud cloud3">
+                                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 600 400" width="60" height="40">
+                                        <path d="M537.585 226.56C541.725 215.836 544 204.184 544 192c0-53.019-42.981-96-96-96-19.729 0-38.065 5.954-53.316 16.159C367.042 64.248 315.288 32 256 32c-88.366 0-160 71.634-160 160 0 2.728.07 5.439.204 8.133C40.171 219.845 0 273.227 0 336c0 79.529 64.471 144 144 144h368c70.692 0 128-57.308 128-128 0-61.93-43.983-113.586-102.415-125.44z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <h1>
+                                {{ i18n "main_ironpeak" }}<br>
+                                {{i18n "main_services" }}
+                            </h1>
+                            <h4>
+                                {{ i18n "main_slogan" }}
+                            </h4>
+                            <div class="domain-form-holder"></div>
                         </div>
                     </div>
                 </div>
+            </div>
+            <div id="info" class="container-fluid text-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 row-title" id="services">
+                            <h4>
+                                {{ i18n "main_competences" }}
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-3">
+                            <div id="info-box1" class="info-box opened-info">
+                                <div class="info-icon">
+                                    <div class="link">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 640 512">
+                                            <path class="fill" d="M278.9 511.5l-61-17.7c-6.4-1.8-10-8.5-8.2-14.9L346.2 8.7c1.8-6.4 8.5-10 14.9-8.2l61 17.7c6.4 1.8 10 8.5 8.2 14.9L293.8 503.3c-1.9 6.4-8.5 10.1-14.9 8.2zm-114-112.2l43.5-46.4c4.6-4.9 4.3-12.7-.8-17.2L117 256l90.6-79.7c5.1-4.5 5.5-12.3.8-17.2l-43.5-46.4c-4.5-4.8-12.1-5.1-17-.5L3.8 247.2c-5.1 4.7-5.1 12.8 0 17.5l144.1 135.1c4.9 4.6 12.5 4.4 17-.5zm327.2.6l144.1-135.1c5.1-4.7 5.1-12.8 0-17.5L492.1 112.1c-4.8-4.5-12.4-4.3-17 .5L431.6 159c-4.6 4.9-4.3 12.7.8 17.2L523 256l-90.6 79.7c-5.1 4.5-5.5 12.3-.8 17.2l43.5 46.4c4.5 4.9 12.1 5.1 17 .6z"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="info-title">
+                                    {{ i18n "main_codesecurity" }}
+                                </div>
+                                <div class="info-circle">
+                                    <div class="circle-icon"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-3">
+                            <div id="info-box2" class="info-box">
+                                <div class="info-icon">
+                                    <div class="link">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 448 512">
+                                            <path class="fill" d="M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="info-title">
+                                    {{ i18n "main_appsecurity" }}
+                                </div>
+                                <div class="info-circle">
+                                    <div class="circle-icon"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-3">
+                            <div id="info-box3" class="info-box">
+                                <div class="info-icon">
+                                    <div class="link">
+                                        <svg version="1.1" viewbox="0 0 466 423.891" enable-background="new 0 0 466 423.891" xml:space="preserve">
+                                            <rect height="" width="" x="-43.5" y="37.005" opacity="1"></rect>
+                                            <g>
+                                                <path class="fill" id="outline_7_" fill-rule="evenodd" clip-rule="evenodd" d="M242.133,168.481h47.146v48.194h23.837   c11.008,0,22.33-1.962,32.755-5.494c5.123-1.736,10.872-4.154,15.926-7.193c-6.656-8.689-10.053-19.661-11.054-30.476   c-1.358-14.71,1.609-33.855,11.564-45.368l4.956-5.732l5.905,4.747c14.867,11.946,27.372,28.638,29.577,47.665   c17.901-5.266,38.921-4.02,54.701,5.088l6.475,3.734l-3.408,6.652c-13.345,26.046-41.246,34.113-68.524,32.687   c-40.817,101.663-129.68,149.794-237.428,149.794c-55.666,0-106.738-20.81-135.821-70.197l-0.477-0.807l-4.238-8.621   C4.195,271.415,0.93,247.6,3.145,223.803l0.664-7.127h40.315v-48.194h47.143v-47.145h94.292V74.191h56.574V168.481z"></path>
+                                                <g display="none">
+                                                    <path class="fill" display="inline" fill="#5a7392" d="M61.093,319.89c6.023,0,11.763-0.157,17.219-0.464c0.476-0.026,0.932-0.063,1.402-0.092    c0.005-0.002,0.008-0.002,0.012-0.002c13.872-0.855,25.876-2.708,35.902-5.57c0.002-0.002,0.004-0.002,0.006-0.002    c1.823-0.521,3.588-1.07,5.282-1.656c1.894-0.657,2.896-2.725,2.241-4.618c-0.656-1.895-2.722-2.899-4.618-2.24    c-12.734,4.412-29.535,6.842-50.125,7.298c-0.002,0-0.004,0-0.005,0c-10.477,0.232-21.93-0.044-34.352-0.843c0,0,0,0-0.001,0    c-0.635-0.038-1.259-0.075-1.9-0.118c-1.995-0.128-3.731,1.374-3.869,3.375c-0.136,1.999,1.376,3.73,3.375,3.866    c2.537,0.173,5.03,0.321,7.49,0.453c0.392,0.021,0.77,0.034,1.158,0.054l0,0C47.566,319.697,54.504,319.89,61.093,319.89z"></path>
+                                                </g>
+                                                <g id="Containers_8_">
+                                                    <path class="fill" fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M86.209,179.744h3.227v34.052h-3.227V179.744z M80.02,179.744    h3.354v34.052H80.02V179.744z M73.828,179.744h3.354v34.052h-3.354V179.744z M67.636,179.744h3.354v34.052h-3.354V179.744z     M61.446,179.744H64.8v34.052h-3.354V179.744z M55.384,179.744h3.224v34.052h-3.224V179.744z M51.981,176.338h40.858v40.86H51.981    V176.338z"></path>
+                                                    <path class="fill" fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M133.354,132.598h3.229v34.051h-3.229V132.598z M127.165,132.598    h3.354v34.051h-3.354V132.598z M120.973,132.598h3.354v34.051h-3.354V132.598z M114.781,132.598h3.354v34.051h-3.354V132.598z     M108.593,132.598h3.352v34.051h-3.352V132.598z M102.531,132.598h3.222v34.051h-3.222V132.598z M99.124,129.193h40.863v40.859    H99.124V129.193z"></path>
+                                                    <path class="fill" fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M133.354,179.744h3.229v34.052h-3.229V179.744z M127.165,179.744    h3.354v34.052h-3.354V179.744z M120.973,179.744h3.354v34.052h-3.354V179.744z M114.781,179.744h3.354v34.052h-3.354V179.744z     M108.593,179.744h3.352v34.052h-3.352V179.744z M102.531,179.744h3.222v34.052h-3.222V179.744z M99.124,176.338h40.863v40.86    H99.124V176.338z"></path>
+                                                    <path class="fill" fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M180.501,179.744h3.225v34.052h-3.225V179.744z M174.31,179.744    h3.355v34.052h-3.355V179.744z M168.12,179.744h3.354v34.052h-3.354V179.744z M161.928,179.744h3.354v34.052h-3.354V179.744z     M155.736,179.744h3.354v34.052h-3.354V179.744z M149.676,179.744h3.222v34.052h-3.222V179.744z M146.271,176.338h40.861v40.86    h-40.861V176.338z"></path>
+                                                    <path class="fill" fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M180.501,132.598h3.225v34.051h-3.225V132.598z M174.31,132.598    h3.355v34.051h-3.355V132.598z M168.12,132.598h3.354v34.051h-3.354V132.598z M161.928,132.598h3.354v34.051h-3.354V132.598z     M155.736,132.598h3.354v34.051h-3.354V132.598z M149.676,132.598h3.222v34.051h-3.222V132.598z M146.271,129.193h40.861v40.859    h-40.861V129.193z"></path>
+                                                    <path class="fill" fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M227.647,179.744h3.226v34.052h-3.226V179.744z M221.457,179.744    h3.354v34.052h-3.354V179.744z M215.265,179.744h3.354v34.052h-3.354V179.744z M209.073,179.744h3.354v34.052h-3.354V179.744z     M202.884,179.744h3.354v34.052h-3.354V179.744z M196.821,179.744h3.224v34.052h-3.224V179.744z M193.416,176.338h40.861v40.86    h-40.861V176.338z"></path>
+                                                    <path class="fill" fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M227.647,132.598h3.226v34.051h-3.226V132.598z M221.457,132.598    h3.354v34.051h-3.354V132.598z M215.265,132.598h3.354v34.051h-3.354V132.598z M209.073,132.598h3.354v34.051h-3.354V132.598z     M202.884,132.598h3.354v34.051h-3.354V132.598z M196.821,132.598h3.224v34.051h-3.224V132.598z M193.416,129.193h40.861v40.859    h-40.861V129.193z"></path>
+                                                    <path class="fill" fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M227.647,85.451h3.226v34.053h-3.226V85.451z M221.457,85.451    h3.354v34.053h-3.354V85.451z M215.265,85.451h3.354v34.053h-3.354V85.451z M209.073,85.451h3.354v34.053h-3.354V85.451z     M202.884,85.451h3.354v34.053h-3.354V85.451z M196.821,85.451h3.224v34.053h-3.224V85.451z M193.416,82.048h40.861v40.86h-40.861    V82.048z"></path>
+                                                    <path class="fill" fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M274.792,179.744h3.224v34.052h-3.224V179.744z M268.602,179.744    h3.352v34.052h-3.352V179.744z M262.408,179.744h3.354v34.052h-3.354V179.744z M256.218,179.744h3.354v34.052h-3.354V179.744z     M250.026,179.744h3.354v34.052h-3.354V179.744z M243.964,179.744h3.227v34.052h-3.227V179.744z M240.561,176.338h40.86v40.86    h-40.86V176.338z"></path>
+                                                </g>
+                                                <path class="fill" fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M137.428,283.445c6.225,0,11.271,5.049,11.271,11.272   c0,6.225-5.046,11.271-11.271,11.271c-6.226,0-11.272-5.046-11.272-11.271C126.156,288.494,131.202,283.445,137.428,283.445"></path>
+                                                <path class="fill" fill-rule="evenodd" clip-rule="evenodd" d="M137.428,286.644c1.031,0,2.015,0.194,2.923,0.546   c-0.984,0.569-1.65,1.635-1.65,2.854c0,1.82,1.476,3.293,3.296,3.293c1.247,0,2.329-0.693,2.89-1.715   c0.395,0.953,0.615,1.999,0.615,3.097c0,4.458-3.615,8.073-8.073,8.073c-4.458,0-8.074-3.615-8.074-8.073   C129.354,290.258,132.971,286.644,137.428,286.644"></path>
+                                                <path class="fill" fill="#FFFFFF" d="M167.394,364.677c-27.916-13.247-43.239-31.256-51.765-50.915c-10.37,2.961-22.835,4.852-37.317,5.664   c-5.457,0.307-11.196,0.464-17.219,0.464c-6.942,0-14.26-0.205-21.94-0.613c25.6,25.585,57.094,45.283,115.408,45.645   C158.866,364.921,163.14,364.837,167.394,364.677z"></path>
+                                            </g>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="info-title">
+                                    {{ i18n "main_systemsecurity" }}
+                                </div>
+                                <div class="info-circle">
+                                    <div class="circle-icon"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-3">
+                            <div id="info-box4" class="info-box">
+                                <div class="info-icon">
+                                    <div class="link">
+                                        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="shield-alt" class="svg-inline--fa fa-shield-alt fa-w-16" role="img" viewbox="0 0 512 512">
+                                            <path class="fill" fill="currentColor" d="M466.5 83.7l-192-80a48.15 48.15 0 0 0-36.9 0l-192 80C27.7 91.1 16 108.6 16 128c0 198.5 114.5 335.7 221.5 380.3 11.8 4.9 25.1 4.9 36.9 0C360.1 472.6 496 349.3 496 128c0-19.4-11.7-36.9-29.5-44.3zM256.1 446.3l-.1-381 175.9 73.3c-3.3 151.4-82.1 261.1-175.8 307.7z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="info-title">
+                                    {{ i18n "main_risk" }}
+                                </div>
+                                <div class="info-circle">
+                                    <div class="circle-icon"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="info-text1" class="container-fluid info-text-holder">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="info-title-icon">
+                                <div>
+                                    {{ i18n "main_codesecurity" }}
+                                </div>
+                            </div>
+                            <div class="info-text">
+                                {{ i18n "main_codesecurity_desc" }}
+                                <br/>
+                                {{ i18n "main_codesecurity_examples" }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="info-text2" class="container-fluid info-text-holder info-closed">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="info-title-icon">
+                                <div>
+                                    {{ i18n "main_appsecurity" }}
+                                </div>
+                            </div>
+                            <div class="info-text">
+                                {{ i18n "main_appsecurity_desc" }}
+                                <br/>
+                                {{ i18n "main_appsecurity_examples" }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="info-text3" class="container-fluid info-text-holder info-closed">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="info-title-icon">
+                                <div>
+                                    {{ i18n "main_systemsecurity" }}
+                                </div>
+                            </div>
+                            <div class="info-text">
+                                {{ i18n "main_systemsecurity_desc" }}
+                                <br/>
+                                {{ i18n "main_systemsecurity_examples" }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="info-text4" class="container-fluid info-text-holder info-closed">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="info-title-icon">
+                                <div>
+                                    {{ i18n "main_risk" }}
+                                </div>
+                            </div>
+                            <div class="info-text">
+                                {{ i18n "main_risk_desc" }}
+                                <br/>
+                                {{ i18n "main_risk_examples" }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="reasons" class="container-fluid">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 row-title">
+                            <h4>
+                                {{ i18n "main_sofarivehelped" }}
+                            </h4>
+                        </div>
+                    </div>
 
-		    </div>
-		</div>
-	</div>
-	
-	<div class="container-fluid">
-	{{ partial "footer.html" . }}
-	</div>
-	
-	{{ $appJs := resources.Get "js/app.js" | minify | fingerprint }}
-	<script src="{{ $appJs.Permalink }}" integrity="{{ $appJs.Data.Integrity }}"></script>
-</body>
+                    <div class="row">
+                        <div class="col-sm-5 m-t-sm">
+                            <div class="col-md-3 hidden-xs">
+                                <div class="in-block">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 448 512" class="client-svg">
+                                        <path fill="currentColor" d="M500 224h-30.364C455.724 130.325 381.675 56.276 288 42.364V12c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v30.364C130.325 56.276 56.276 130.325 42.364 224H12c-6.627 0-12 5.373-12 12v40c0 6.627 5.373 12 12 12h30.364C56.276 381.675 130.325 455.724 224 469.636V500c0 6.627 5.373 12 12 12h40c6.627 0 12-5.373 12-12v-30.364C381.675 455.724 455.724 381.675 469.636 288H500c6.627 0 12-5.373 12-12v-40c0-6.627-5.373-12-12-12zM288 404.634V364c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v40.634C165.826 392.232 119.783 346.243 107.366 288H148c6.627 0 12-5.373 12-12v-40c0-6.627-5.373-12-12-12h-40.634C119.768 165.826 165.757 119.783 224 107.366V148c0 6.627 5.373 12 12 12h40c6.627 0 12-5.373 12-12v-40.634C346.174 119.768 392.217 165.757 404.634 224H364c-6.627 0-12 5.373-12 12v40c0 6.627 5.373 12 12 12h40.634C392.232 346.174 346.243 392.217 288 404.634zM288 256c0 17.673-14.327 32-32 32s-32-14.327-32-32c0-17.673 14.327-32 32-32s32 14.327 32 32z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                                <h5>
+                                    {{ i18n "main_helped_1" }}
+                                </h5>
+                                <p>
+                                    {{ i18n "main_helped_1_desc" }}
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-5 m-t-sm col-sm-offset-2">
+                            <div class="col-md-3 hidden-xs">
+                                <div class="in-block">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 448 512" class="client-svg">
+                                        <path d="M436 480h-20V24c0-13.255-10.745-24-24-24H56C42.745 0 32 10.745 32 24v456H12c-6.627 0-12 5.373-12 12v20h448v-20c0-6.627-5.373-12-12-12zM128 76c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12V76zm0 96c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40zm52 148h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12zm76 160h-64v-84c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v84zm64-172c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40zm0-96c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40zm0-96c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12V76c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                                <h5>
+                                    {{ i18n "main_helped_2" }}
+                                </h5>
+                                <p>
+                                    {{ i18n "main_helped_2_desc" }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-5 m-t-sm">
+                            <div class="col-md-3 hidden-xs">
+                                <div class="in-block">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512" class="client-svg">
+                                        <path d="M364.215 192h131.43c5.439 20.419 8.354 41.868 8.354 64s-2.915 43.581-8.354 64h-131.43c5.154-43.049 4.939-86.746 0-128zM185.214 352c10.678 53.68 33.173 112.514 70.125 151.992.221.001.44.008.661.008s.44-.008.661-.008c37.012-39.543 59.467-98.414 70.125-151.992H185.214zm174.13-192h125.385C452.802 84.024 384.128 27.305 300.95 12.075c30.238 43.12 48.821 96.332 58.394 147.925zm-27.35 32H180.006c-5.339 41.914-5.345 86.037 0 128h151.989c5.339-41.915 5.345-86.037-.001-128zM152.656 352H27.271c31.926 75.976 100.6 132.695 183.778 147.925-30.246-43.136-48.823-96.35-58.393-147.925zm206.688 0c-9.575 51.605-28.163 104.814-58.394 147.925 83.178-15.23 151.852-71.949 183.778-147.925H359.344zm-32.558-192c-10.678-53.68-33.174-112.514-70.125-151.992-.221 0-.44-.008-.661-.008s-.44.008-.661.008C218.327 47.551 195.872 106.422 185.214 160h141.572zM16.355 192C10.915 212.419 8 233.868 8 256s2.915 43.581 8.355 64h131.43c-4.939-41.254-5.154-84.951 0-128H16.355zm136.301-32c9.575-51.602 28.161-104.81 58.394-147.925C127.872 27.305 59.198 84.024 27.271 160h125.385z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                                <h5>
+                                    {{ i18n "main_helped_3" }}
+                                </h5>
+                                <p>
+                                    {{ i18n "main_helped_3_desc" }}
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-5 m-t-sm col-sm-offset-2">
+                            <div class="col-md-3 hidden-xs">
+                                <div class="in-block">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 640 512" class="client-svg">
+                                        <path d="M544 224l-128-16-48-16h-24L227.158 44h39.509C278.333 44 288 41.375 288 38s-9.667-6-21.333-6H152v12h16v164h-48l-66.667-80H18.667L8 138.667V208h8v16h48v2.666l-64 8v42.667l64 8V288H16v16H8v69.333L18.667 384h34.667L120 304h48v164h-16v12h114.667c11.667 0 21.333-2.625 21.333-6s-9.667-6-21.333-6h-39.509L344 320h24l48-16 128-16c96-21.333 96-26.583 96-32 0-5.417 0-10.667-96-32z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                                <h5>
+                                    {{ i18n "main_helped_4" }}
+                                </h5>
+                                <p>
+                                    {{ i18n "main_helped_4_desc" }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-5 m-t-sm">
+                            <div class="col-md-3 hidden-xs">
+                                <div class="in-block">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 640 512" class="client-svg-sm">
+                                        <path d="M621.3 237.3l-58.5-58.5c-12-12-28.3-18.7-45.3-18.7H480V64c0-17.7-14.3-32-32-32H32C14.3 32 0 46.3 0 64v336c0 44.2 35.8 80 80 80 26.3 0 49.4-12.9 64-32.4 14.6 19.6 37.7 32.4 64 32.4 44.2 0 80-35.8 80-80 0-5.5-.6-10.8-1.6-16h163.2c-1.1 5.2-1.6 10.5-1.6 16 0 44.2 35.8 80 80 80s80-35.8 80-80c0-5.5-.6-10.8-1.6-16H624c8.8 0 16-7.2 16-16v-85.5c0-17-6.7-33.2-18.7-45.2zM80 432c-17.6 0-32-14.4-32-32s14.4-32 32-32 32 14.4 32 32-14.4 32-32 32zm128 0c-17.6 0-32-14.4-32-32s14.4-32 32-32 32 14.4 32 32-14.4 32-32 32zm272-224h37.5c4.3 0 8.3 1.7 11.3 4.7l43.3 43.3H480v-48zm48 224c-17.6 0-32-14.4-32-32s14.4-32 32-32 32 14.4 32 32-14.4 32-32 32z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                                <h5>
+                                    {{ i18n "main_helped_5" }}
+                                </h5>
+                                <p>
+                                    {{ i18n "main_helped_5_desc" }}
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-5 m-t-sm col-sm-offset-2">
+                            <div class="col-md-3 hidden-xs">
+                                <div class="in-block">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 640 512" class="client-svg-sm">
+                                        <path d="M560 224h-29.5c-8.8-20-21.6-37.7-37.4-52.5L512 96h-32c-29.4 0-55.4 13.5-73 34.3-7.6-1.1-15.1-2.3-23-2.3H256c-77.4 0-141.9 55-156.8 128H56c-14.8 0-26.5-13.5-23.5-28.8C34.7 215.8 45.4 208 57 208h1c3.3 0 6-2.7 6-6v-20c0-3.3-2.7-6-6-6-28.5 0-53.9 20.4-57.5 48.6C-3.9 258.8 22.7 288 56 288h40c0 52.2 25.4 98.1 64 127.3V496c0 8.8 7.2 16 16 16h64c8.8 0 16-7.2 16-16v-48h128v48c0 8.8 7.2 16 16 16h64c8.8 0 16-7.2 16-16v-80.7c11.8-8.9 22.3-19.4 31.3-31.3H560c8.8 0 16-7.2 16-16V240c0-8.8-7.2-16-16-16zm-128 64c-8.8 0-16-7.2-16-16s7.2-16 16-16 16 7.2 16 16-7.2 16-16 16zM256 96h128c5.4 0 10.7.4 15.9.8 0-.3.1-.5.1-.8 0-53-43-96-96-96s-96 43-96 96c0 2.1.5 4.1.6 6.2 15.2-3.9 31-6.2 47.4-6.2z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                                <h5>
+                                    {{ i18n "main_helped_6" }}
+                                </h5>
+                                <p>
+                                    {{ i18n "main_helped_6_desc" }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            {{ partial "footer.html" . }}
+        </div>
+
+        {{ $appJs := resources.Get "js/app.js" | minify | fingerprint }}
+        <script src="{{ $appJs.Permalink }}" integrity="{{ $appJs.Data.Integrity }}"></script>
+    </body>
 </html>
