@@ -50,9 +50,9 @@ other = "Bug Bounty Platform"
 other = "Strategic counselling & platform tooling research & development."
 
 [main_helped_2]
-other = "Technologiebedrijf"
+other = "Cloud Services Provider"
 [main_helped_2_desc]
-other = "PHP development & architecture, web design, code review."
+other = "Kubernetes & AWS security assessments, reference solution R&D."
 
 [main_helped_3]
 other = "Overheidsinstelling"
