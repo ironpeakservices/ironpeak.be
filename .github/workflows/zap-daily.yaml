@@ -9,19 +9,25 @@ jobs:
     name: Scan public website
     steps:
       - name: ZAP Scan
-        uses: zaproxy/action-baseline@v0.2.0
+        uses: zaproxy/action-full-scanv0.2.0
         with:
+          issue_title: Vulnerability Scan Results
           token: ${{ secrets.GITHUB_TOKEN }}
-          target: 'https://ironpeak.be/'
+          docker_name: owasp/zap2docker-weekly
+          target: https://ironpeak.be/
           rules_file_name: .github/zap.ignore
+          cmd_options: '-a'
           
   zap_scan_cluster:
     runs-on: ubuntu-latest
     name: Scan k8s cluster
     steps:
       - name: ZAP Scan
-        uses: zaproxy/action-baseline@v0.2.0
+        uses: zaproxy/action-full-scanv0.2.0
         with:
+          issue_title: Vulnerability Scan Results
           token: ${{ secrets.GITHUB_TOKEN }}
-          target: 'https://cluster.ironpeak.be/'
+          docker_name: owasp/zap2docker-weekly
+          target: https://cluster.ironpeak.be/
           rules_file_name: .github/zap.ignore
+          cmd_options: '-a'
