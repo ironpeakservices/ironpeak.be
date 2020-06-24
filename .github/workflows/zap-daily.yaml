@@ -1,7 +1,7 @@
 name: vulnerability scan
 on:
   schedule:
-  - cron: '0 0 * * *'
+  - cron: '30 8 * * *'
 
 jobs:
   zap_scan_public:
