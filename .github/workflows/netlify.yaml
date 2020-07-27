@@ -11,14 +11,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: create deployment
-      uses: niklasmerz/github-deployment-action@v1.0.2
+      uses: niklasmerz/github-deployment-action@v1.1.0
       if: contains(github.ref, 'master')
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         args: -o ironpeakservices -r ironpeak.be -c master -e production
     - name: set deployment success
-      uses: niklasmerz/github-deployment-action@v1.0.2
+      uses: niklasmerz/github-deployment-action@v1.1.0
       if: contains(github.ref, 'master')
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
