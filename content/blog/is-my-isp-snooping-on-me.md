@@ -97,6 +97,7 @@ This is a more expensive method, since they now have to identify & parse the L7 
 ### HTTP over TLS (HTTPS)
 
 But suppose you are encrypting your HTTPS traffic? In that case, one could still sniff the [Server Name Indicator](https://en.wikipedia.org/wiki/Server_Name_Indication) whenever you are visiting a website over HTTPS. This is basically used to indicate what website you would like to visit when there are multiple websites hosted behind the same public certificate.
+A fun note: China is now blocking TLS version 1.3 with encrypted SNI to make sure that their 'Great Firewall' can block the websites you visit.
 
 ### Protocol Fingerprinting
 
@@ -132,7 +133,8 @@ You would then configure this one to use a trusted DNS server, like 1.1.1.1/1.0.
 ### HTTP over TLS (HTTPS)
 
 To prevent snooping of HTTP traffic client-side, install an extension like HttpsAnywhere or enable [Automatic Https Upgrade on Safari](https://lavaux.lv/2019/10/25/automatic-HTTPS-upgrades-safari-ios.html).
-For SNI snooping, browsers & providers are starting to work in [Encrypted SNI (ESNI)](https://blog.cloudflare.com/esni/), but not much more to mention there i'm afraid... It's also possible to just drop traffic to :80, but that might/will break functionality on some websites & apps.
+For SNI snooping, browsers & providers are starting to work on [Encrypted SNI (ESNI)](https://blog.cloudflare.com/esni/), but not much more to mention there than to wait for TLS version 1.3 to be widely supported and used.
+It's also possible to just drop traffic to :80 on your devices & router, but that might/will break functionality on some mobile or desktop apps.
 
 ### Protocol Fingerprinting
 
