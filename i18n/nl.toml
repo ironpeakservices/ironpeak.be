@@ -10,13 +10,11 @@ other = "Belgische CyberSecurity Consulting."
 [header_title]
 other = "ironPeak services"
 
-[main_ironpeak]
-other = "ironpeak"
-[main_services]
-other = "services"
+[main_title]
+other = "Ik help u ICT beveiligen"
 
 [main_slogan]
-other = "belgische cybersecurity consulting"
+other = "via belgische cybersecurity consulting"
 
 [main_competences]
 other = "Competenties"
