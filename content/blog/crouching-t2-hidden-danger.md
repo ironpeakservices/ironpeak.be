@@ -73,7 +73,10 @@ The mini operating system on the T2 (*SepOS*) suffers from a security vulnerable
 Using the [checkm8 exploit](https://checkm8.info) originally made for iPhones, the checkra1n exploit was developed to build a semi-thetered exploit.
 This can be used to e.g. circumvent activation lock, allowing stolen iPhones or macOS devices to be reset and sold on the black market.
 
-Normally the T2 chip will exit with a fatal error if it is in DFU mode and it detects a decryption call, but thanks to the [blackbird vulnerability](https://github.com/windknown/presentations/blob/master/Attack_Secure_Boot_of_SEP.pdf) by team Pangu, we can completely circument that check and do whatever we please. 
+Normally the T2 chip will exit with a fatal error if it is in DFU mode and it detects a decryption call, but thanks to the [blackbird vulnerability](https://github.com/windknown/presentations/blob/master/Attack_Secure_Boot_of_SEP.pdf) by team Pangu, we can completely circument that check and do whatever we please.
+
+Since sepOS/BootROM is *Read-Only Memory* for security reasons, interestingly, Apple cannot patch this core vulnerability without a new hardware revision.
+This thankfully also means that this is not a persistent vulnerability, so it will require a hardware insert or other attached component such as a malicious USB-C cable.
 
 ### Debugging vulnerability
 
@@ -147,13 +150,7 @@ Raise awareness to your users to not leave their device lingering.
 Wait for a fix, keep an eye on the checkra1n team and be prepared to replace your macOS system.
 Be angry at news websites & Apple for not covering this issue, despite numerous attempts from me and others to get them to report about this.
 
-<br>
-<br>
-<br>
-<br>
 
-<br>
-<br>
 
 ## TL;DR
 
@@ -162,6 +159,7 @@ Be angry at news websites & Apple for not covering this issue, despite numerous 
 - The root of trust on macOS is inherently broken
 - They can decrypt your FileVault2 volumes
 - They can alter your macOS installation
+- Only possible on physical access
 
 
 ## References
