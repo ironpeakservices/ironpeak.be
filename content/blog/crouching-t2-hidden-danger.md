@@ -12,7 +12,6 @@ Oh, and did I mention it's unpatchable?**
 **Settle in buckaroo, we're in for a wild ride.**
 
 Skip to [#security-issues](#security-issues) for the technical mumbo-jumbo.
-Preface: this blog post is still under review and will be extended/modified.
 
 ## Preface
 
