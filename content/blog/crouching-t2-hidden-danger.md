@@ -162,6 +162,16 @@ Be angry at news websites & Apple for not covering this issue, despite numerous 
 - They can alter your macOS installation
 - Only possible on physical access
 
+## Timeline
+
+- 27/09/2019 checkm8 exploit is first released for iPhone 4S - iPhone X
+- 11/11/2019 checkra1n is released for iOS 13-13.7
+- 18/08/2020 I reached out to Apple Product Security with vulnerability details
+- 21/09/2020 iOS 14 is out of a week and checkra1n is adapted for iOS 14.x, with the sepOS DFU/decrypt mitigation.
+- 07/09/2020 I requested response, lack of feedback
+- 16/09/2020 I requested response, lack of feedback
+- 22/09/2020 I requested response, lack of feedback
+- 30/09/2020 I requested response, lack of feedback, cc Tim Cook
 
 ## References
 
