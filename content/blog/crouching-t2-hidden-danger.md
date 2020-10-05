@@ -6,8 +6,8 @@ draft: false
 ---
 
 **Let's talk about that thing nobody's talking about.
-Let's talk about that vulnerability that's completely exposing your macOS (and iPad Pro) devices while news agencies and Apple (!) are declining to act and report about the matter.
-Oh, and did I mention it's unpatcheable?**
+Let's talk about that vulnerability that's completely exposing your macOS devices while news agencies and Apple are declining to act and report about the matter.
+Oh, and did I mention it's unpatchable?**
 
 **Settle in buckaroo, we're in for a wild ride.**
 
@@ -24,35 +24,43 @@ And besides... let's hope it's fixed by then. :-)
 
 ### So about this T2 thing
 
-In case you are using a recent macOS device, you are probably using [the embedded T2 security chip](https://support.apple.com/en-us/HT208862) or *Secure Enclave Processor* (SEP).
+In case you are using a recent macOS device, you are probably using [the embedded T2 security chip](https://support.apple.com/en-us/HT208862) which contains a  *Secure Enclave Processor* (SEP).
 This is a custom ARM processor designed by Apple and based on the A10 ARM processor found in iphones.
 It performs a predefined set of tasks for macOS such as audio processing, handling I/O, functioning as a [Hardware Security Module](https://en.wikipedia.org/wiki/Hardware_security_module) for e.g. Apple KeyChain, hardware accelerating media playback & cryptographic operations and **ensuring the operating system you are booting is not tampered with**.
 The T2 chip runs its own firmware called *bridgeOS*, which can be updated when you install a new macOS version. (ever notice the screen flickering? that's the display driver being interrupted.)
+
+*Edit*: I first mentioned the iPad Pro to be impacted by the T2 vulnerability, but while it could suffer from the same debug cable vulnerability, it does not contain a T2 chip. 
+
 
 ### The macOS boot sequence
 
 So let's focus on the boot image verification on macOS. What exactly happens when you press that power button?
 [There's also a visual representation for any *conaisseurs*](https://eclecticlightdotcom.files.wordpress.com/2018/08/bootprocess.png).
 
+You could also say that [Booting Secure by mikeymikey](http://michaellynn.github.io/2018/07/27/booting-secure/) is a better summary.
+
+0. The T2 chip is fully booted and stays on even if macOS is shutdown.
+
 1. The press of the power button or the opening of the lid triggers the System Management Controlle (SMC) to boot.
 
 2. The SMC performs a Power-On-Self-Test (POST) to detect any EFI or hardware issues such as bad RAM and possibly redirect to Recovery.
 
-3. After those basic sanity checks, the T2 chip is initialized and I/O connectors are setup. (USB, SATA, NVMe, PCIe, ...)
+3. After those basic sanity checks, the T2 chip is triggered and I/O connectors are setup. (USB, NVMe, PCIe, ...) It will use NVMe and PCIe to talk to NAND storage.
 
-4. The next boot disk is selected and a disk encryption password is asked if enabled to mount [APFS](https://en.wikipedia.org/wiki/Apple_File_System) volumes.
+4. The applicable boot disk is selected and a disk encryption password is asked if enabled to mount [APFS](https://en.wikipedia.org/wiki/Apple_File_System) volumes possibly via FileVault2 disk encryption.
 
 5. `/System/Library/CoreServices/boot.efi` is located on your System APFS volume and [depending on your secure boot settings](https://support.apple.com/en-us/HT208330) is validated.
 
 6. *boot.efi* is ran which loads the Darwin kernel *(throwback to BSD)* (or Boot Camp if booting Microsoft Windows) & IODevice drivers. If a kernel cache is found in `/System/Library/PrelinkedKernels/perlinkedkernel`, it will use that.
 
-7. Any User Approved Kernel Extensions are initialized & added to the kernel space. *This will go away with System Extensions*.
+7. Any User Approved Kernel Extensions are initialized & added to the kernel space -if- they are approved by the T2 chip.
+*This will go away with System Extensions*.
 
 ### macOS security features
 
 So Apple has a couple of tricks up its sleeve to limit the attack surface of any potential security vulnerabilities. A small summary of related measures since macOS Big Sur on Intel processors:
 
-- *Signed System Volume* (SSV): a read-only `/System` partition so the base install of macOS (including the kernel) cannot be tampered with thanks to *System Integrity Protection* (SIP).
+- *System Integrity Protection* (SIP): a read-only `/System` partition so the base install of macOS (including the kernel) cannot be tampered with.
 
 - *System Extensions*: a move to away from Kernel Extensions, getting external code out of the Kernel framework-wise.
 
@@ -82,7 +90,7 @@ This thankfully also means that this is not a persistent vulnerability, so it wi
 ### Debugging vulnerability
 
 Apple left a debugging interface open in the T2 security chip shipping to customers, allowing anyone to enter Device Firmware Update (DFU) mode without authentication.
-An example cable that can be used to perform low-level CPU & T2 debugging is the JTAG/SWD debug cable found on the internet.
+An example cable that can be used to perform low-level CPU & T2 debugging is the JTAG/SWD debug cable found on the internet. Using the debug cable requires demotion however to switch it from a *production* state, which is possible via the checkm8 exploit.
 See an example of it being used [in this Twitter post](https://twitter.com/h0m3us3r/status/1280432544731860993).
 
 Using this method, it is possible to create an USB-C cable that can automatically exploit your macOS device on boot. **(!)**
@@ -101,6 +109,8 @@ I have sources that say more news is on the way coming weeks. I quote my source:
 
 ## Exploitation
 
+<to be completed>
+  
 ```
 # install devtools
 $ xcode-select --install
@@ -140,7 +150,7 @@ In hope of raising more awareness (and an official response from Apple), I am he
 
 ### ...a user
 
-If you suspect your system to be tampered with, use Apple Configurator to reinstall bridgeOS on your T2 chip described [here](https://mrmacintosh.com/how-to-restore-bridgeos-on-a-t2-mac-how-to-put-a-mac-into-dfu-mode/). If you are a potential target of state actors, verify your SMC payload integrity using .e.g. [rickmark/smcutil](https://github.com/rickmark/smcutil) and **don't** leave your device unsupervised.
+If you suspect your system to be tampered with, use Apple Configurator to reinstall bridgeOS on your T2 chip described [here](https://mrmacintosh.com/how-to-restore-bridgeos-on-a-t2-mac-how-to-put-a-mac-into-dfu-mode/). If you are a potential target of state actors, verify your SMC payload integrity and **don't** leave your device unsupervised.
 
 ### ...a mac sysadmin
 
@@ -153,13 +163,12 @@ Wait for a fix, keep an eye on the checkra1n team and be prepared to replace you
 Be angry at news websites & Apple for not covering this issue, despite numerous attempts from me and others to get them to report about this.
 
 
-
 ## TL;DR
 
-**TL;DR: all recent macOS devices & the iPad Pro are no longer safe to use if left alone, even if you have them powered down.**
+**TL;DR: all recent macOS devices are no longer safe to use if left alone, even if you have them powered down.**
 
 - The root of trust on macOS is inherently broken
-- They can decrypt your FileVault2 volumes
+- They can bruteforce your FileVault2 volume password
 - They can alter your macOS installation
 - Only possible on physical access
 
@@ -180,6 +189,5 @@ Be angry at news websites & Apple for not covering this issue, despite numerous 
 - Big thanks to the checkra1n team and specifically [Rick Mark](https://github.com/rickmark/) to bring this to light.
 - Checkra1n website: [checkra1n](https://checkra.in/)
 - checkra1n t2 OS replacement: [checkra1n/pongoOS](https://github.com/checkra1n/pongoOS)
-- smcutil: [rickmark/smcutil](https://github.com/rickmark/smcutil/)
 - [How to restore your T2 chip firmware](https://support.apple.com/guide/apple-configurator-2/revive-or-restore-mac-firmware-apdebea5be51/mac)
 - First (and only?) article about it: [yalujailbreak.net - T2 Security Chip Jailbreak](https://yalujailbreak.net/t2-security-chip-jailbreak/)
