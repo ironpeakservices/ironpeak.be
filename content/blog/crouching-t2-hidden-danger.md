@@ -94,6 +94,8 @@ Once you have access on the T2, you have full `root` access and full kernel exec
 Good news is that if you are using FileVault 2 as disk encryption, attacks still cannot decrypt your disks.
 They can however inject a keylogger in the T2 firmware since it manages keyboard access, storing your password for retrieval.
 
+The functionality of locking an Apple device remotely (e.g. via MDM or FindMy) can also be bypassed (*Activation Lock*).
+
 A firmware password does not mitigate this issue since it requires keyboard access, and thus needs the T2 chip to run first.
 
 If the attack is able to alter your hardware (or sneak in a malicious USB-C cable), it would be possible to achieve a semi-tethered exploit.
