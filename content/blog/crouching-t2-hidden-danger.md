@@ -71,8 +71,9 @@ While there have been mistakes made in the past (who can blame them?), Apple has
 
 ### The core problem
 
-The mini operating system on the T2 (*SepOS*) suffers from a security vulnerable also found in the iPhone X since it contains an A10 processor.
-Using the [checkm8 exploit](https://checkm8.info) originally made for iPhones, the checkra1n exploit was developed to build a semi-thetered exploit.
+The mini operating system on the T2 (*SepOS*) suffers from a security vulnerable also found in the iPhone X since it contains a processor based on the iOS A10 processor. Exploitation of this type of processor is very actively discussed in the [/r/jailbreak](https://reddit.com/r/jailbreak/) subreddit.
+
+So using the [checkm8 exploit](https://checkm8.info) originally made for iPhones, the checkra1n exploit was developed to build a semi-thetered exploit.
 This can be used to e.g. circumvent activation lock, allowing stolen iPhones or macOS devices to be reset and sold on the black market.
 
 Normally the T2 chip will exit with a fatal error if it is in DFU mode and it detects a decryption call, but thanks to the [blackbird vulnerability](https://github.com/windknown/presentations/blob/master/Attack_Secure_Boot_of_SEP.pdf) by team Pangu, we can completely circument that check and do whatever we please.
