@@ -97,7 +97,7 @@ If the attack is able to alter your hardware (or sneak in a malicious USB-C cabl
 
 ## Exploitation
 
-```bash
+```
 # install devtools
 $ xcode-select --install
 
