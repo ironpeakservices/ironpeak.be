@@ -98,7 +98,7 @@ Using this method, it is possible to create an USB-C cable that can automaticall
 ### Impact
 
 Once you have access on the T2, you have full `root` access and full kernel execution privileges since the kernel is rewritten before execution.
-Good news is that if you are using FileVault 2 as disk encryption, attacks still cannot decrypt your disks.
+Good news is that if you are using FileVault 2 as disk encryption, they do not have access to your data on disk *immediately*.
 They can however inject a keylogger in the T2 firmware since it manages keyboard access, storing your password for retrieval.
 
 A firmware password does not mitigate this issue since it requires keyboard access, and thus needs the T2 chip to run first.
