@@ -7,9 +7,9 @@ draft: false
 
 **Let's talk about that thing nobody's talking about.
 Let's talk about that vulnerability that's completely exposing your macOS (and iPad Pro) devices while news agencies and Apple (!) are declining to act and report about the matter.
-Oh, and did I mention it's unpatcheable?
+Oh, and did I mention it's unpatcheable?**
 
-Settle in buckaroo, we're in for a wild ride.**
+**Settle in buckaroo, we're in for a wild ride.**
 
 Skip to [#security-issues](#security-issues) for the technical mumbo-jumbo.
 
