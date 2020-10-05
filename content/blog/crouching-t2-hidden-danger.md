@@ -164,6 +164,7 @@ Be angry at news websites & Apple for not covering this issue, despite numerous 
 
 ## References
 
+- BootROM/SepOS revisions: [The iPhone Wiki - BootROM](https://www.theiphonewiki.com/wiki/Bootrom#T8012.2C_used_in_the_iMac_Pro_and_other_T2_based_Macs)
 - Big thanks to the checkra1n team and specifically [Rick Mark](https://github.com/rickmark/) to bring this to light.
 - Checkra1n website: [checkra1n](https://checkra.in/)
 - checkra1n t2 OS replacement: [checkra1n/pongoOS](https://github.com/checkra1n/pongoOS)
