@@ -93,6 +93,8 @@ They can however inject a keylogger in the T2 firmware since it manages keyboard
 
 A firmware password does not mitigate this issue since it requires keyboard access, and thus needs the T2 chip to run first.
 
+If the attack is able to alter your hardware (or sneak in a malicious USB-C cable), it would be possible to achieve a semi-tethered exploit.
+
 ## Exploitation
 
 ```bash
