@@ -12,6 +12,7 @@ Oh, and did I mention it's unpatchable?**
 **Settle in buckaroo, we're in for a wild ride.**
 
 Skip to [#security-issues](#security-issues) for the technical mumbo-jumbo.
+Preface: this blog post is still under review and will be extended/modified.
 
 ## Preface
 
@@ -78,8 +79,9 @@ While there have been mistakes made in the past (who can blame them?), Apple has
 
 ### The core problem
 
-The mini operating system on the T2 (*SepOS*) suffers from a security vulnerable also found in the iPhone X since it contains an A10 processor.
-Using the [checkm8 exploit](https://checkm8.info) originally made for iPhones, the checkra1n exploit was developed to build a semi-thetered exploit.
+The mini operating system on the T2 (*SepOS*) suffers from a security vulnerable also found in the iPhone X since it contains a processor based on the iOS A10 processor. Exploitation of this type of processor is very actively discussed in the [/r/jailbreak](https://reddit.com/r/jailbreak/) subreddit.
+
+So using the [checkm8 exploit](https://checkm8.info) originally made for iPhones, the checkra1n exploit was developed to build a semi-thetered exploit.
 This can be used to e.g. circumvent activation lock, allowing stolen iPhones or macOS devices to be reset and sold on the black market.
 
 Normally the T2 chip will exit with a fatal error if it is in DFU mode and it detects a decryption call, but thanks to the [blackbird vulnerability](https://github.com/windknown/presentations/blob/master/Attack_Secure_Boot_of_SEP.pdf) by team Pangu, we can completely circument that check and do whatever we please.
@@ -100,6 +102,8 @@ Using this method, it is possible to create an USB-C cable that can automaticall
 Once you have access on the T2, you have full `root` access and full kernel execution privileges since the kernel is rewritten before execution.
 Good news is that if you are using FileVault 2 as disk encryption, they do not have access to your data on disk *immediately*.
 They can however inject a keylogger in the T2 firmware since it manages keyboard access, storing your password for retrieval.
+
+The functionality of locking an Apple device remotely (e.g. via MDM or FindMy) can also be bypassed (*Activation Lock*).
 
 A firmware password does not mitigate this issue since it requires keyboard access, and thus needs the T2 chip to run first.
 
