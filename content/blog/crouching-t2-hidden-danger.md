@@ -95,6 +95,8 @@ A firmware password does not mitigate this issue since it requires keyboard acce
 
 If the attack is able to alter your hardware (or sneak in a malicious USB-C cable), it would be possible to achieve a semi-tethered exploit.
 
+I have sources that say more news is on the way coming weeks. I quote my source: *be afraid, be very afraid*.
+
 ## Exploitation
 
 ```
@@ -126,11 +128,7 @@ $ iproxy 2222 44 &
 $ ssh -p 2222 root@127.0.0.1
 ```
 
-## And more to come
-
-I have sources that say more news is on the way coming weeks. I quote my source: *be afraid, be very afraid*.
-
-## Reaching out
+## Responsible Disclosure
 
 I've reached out to Apple concerning this issue on numerous occasions, even doing the dreaded cc *tcook@apple.com* to get some exposure.
 Since I did not receive a response for weeks, I did the same to numerous news websites that cover Apple, but no response there as wel.
