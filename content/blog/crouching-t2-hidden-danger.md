@@ -175,13 +175,12 @@ Be angry at news websites & Apple for not covering this issue, despite attempts 
 
 ## TL;DR
 
-**TL;DR: all recent macOS devices are no longer safe to use if left alone, even if you have them powered down.**
+**TL;DR: recent Macs (2018-2020, T2 chip) are no longer safe to use if left alone and physical access was possible, even if you had them powered down.**
 
 - The root of trust on macOS is inherently broken
 - They can bruteforce your FileVault2 volume password
 - They can alter your macOS installation
 - They can load arbitrary kernel extensions
-- Only possible on physical access
 
 ## Timeline
 
