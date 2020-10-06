@@ -12,6 +12,7 @@ Oh, and did I mention it's unpatchable?**
 **Settle in buckaroo, we're in for a wild ride.**
 
 Skip to [#security-issues](#security-issues) for the technical mumbo-jumbo.
+
 Preface: this blog post is still under review and will be extended/modified.
 
 ## Preface
@@ -25,8 +26,9 @@ And besides... let's hope it's fixed by then. :-)
 
 ### So about this T2 thing
 
-In case you are using a recent macOS device, you are probably using [the embedded T2 security chip](https://support.apple.com/en-us/HT208862) which contains a  *Secure Enclave Processor* (SEP).
-This is a custom ARM processor designed by Apple and based on the A10 ARM processor found in iphones.
+In case you are using a recent macOS device, you are probably using [the embedded T2 security chip](https://support.apple.com/en-us/HT208862) which runs *bridgeOS* and is based off watchOS. This is a custom ARM processor designed by Apple and based on the A10 CPU found in the iPhone 7.
+The T2 chip contains a *Secure Enclave Processor* (SEP), much like the A-series processor in your iPhone will contain a SEP.
+
 It performs a predefined set of tasks for macOS such as audio processing, handling I/O, functioning as a [Hardware Security Module](https://en.wikipedia.org/wiki/Hardware_security_module) for e.g. Apple KeyChain, hardware accelerating media playback & cryptographic operations and **ensuring the operating system you are booting is not tampered with**.
 The T2 chip runs its own firmware called *bridgeOS*, which can be updated when you install a new macOS version. (ever notice the screen flickering? that's the display driver being interrupted.)
 
@@ -81,10 +83,9 @@ While there have been mistakes made in the past (who can blame them?), Apple has
 
 The mini operating system on the T2 (*SepOS*) suffers from a security vulnerable also found in the iPhone X since it contains a processor based on the iOS A10 processor. Exploitation of this type of processor is very actively discussed in the [/r/jailbreak](https://reddit.com/r/jailbreak/) subreddit.
 
-So using the [checkm8 exploit](https://checkm8.info) originally made for iPhones, the checkra1n exploit was developed to build a semi-thetered exploit.
-This can be used to e.g. circumvent activation lock, allowing stolen iPhones or macOS devices to be reset and sold on the black market.
+So using the [checkm8 exploit](https://checkm8.info) originally made for iPhones, the checkra1n exploit was developed to build a semi-thetered exploit for the T2 security chip, exploiting a flaw. This could be used to e.g. circumvent activation lock, allowing stolen iPhones or macOS devices to be reset and sold on the black market.
 
-Normally the T2 chip will exit with a fatal error if it is in DFU mode and it detects a decryption call, but thanks to the [blackbird vulnerability](https://github.com/windknown/presentations/blob/master/Attack_Secure_Boot_of_SEP.pdf) by team Pangu, we can completely circument that check and do whatever we please.
+Normally the T2 chip will exit with a fatal error if it is in DFU mode and it detects a decryption call, but thanks to the [blackbird vulnerability](https://github.com/windknown/presentations/blob/master/Attack_Secure_Boot_of_SEP.pdf) by team Pangu, we can completely circument that check in the SEP and do whatever we please.
 
 Since sepOS/BootROM is *Read-Only Memory* for security reasons, interestingly, Apple cannot patch this core vulnerability without a new hardware revision.
 This thankfully also means that this is not a persistent vulnerability, so it will require a hardware insert or other attached component such as a malicious USB-C cable.
