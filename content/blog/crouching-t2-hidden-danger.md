@@ -82,7 +82,7 @@ While there have been mistakes made in the past (who can blame them?), Apple has
 
 ### The core problem
 
-The mini operating system on the T2 (*SepOS*) suffers from a security vulnerable also found in the iPhone X since it contains a processor based on the iOS A10 processor. Exploitation of this type of processor is very actively discussed in the [/r/jailbreak](https://reddit.com/r/jailbreak/) subreddit.
+The mini operating system on the T2 (*SepOS*) suffers from a security vulnerable also found in the iPhone 7 since it contains a processor based on the iOS A10. Exploitation of this type of processor for the sake of installing homebrew software is very actively discussed in the [/r/jailbreak](https://reddit.com/r/jailbreak/) subreddit.
 
 So using the [checkm8 exploit](https://checkm8.info) originally made for iPhones, the checkra1n exploit was developed to build a semi-tethered exploit for the T2 security chip, exploiting a flaw. This could be used to e.g. circumvent activation lock, allowing stolen iPhones or macOS devices to be reset and sold on the black market.
 
@@ -185,7 +185,7 @@ Be angry at news websites & Apple for not covering this issue, despite attempts 
 
 ## Timeline
 
-- 27/09/2019 checkm8 exploit is first released for iPhone 4S - iPhone X
+- 27/09/2019 checkm8 exploit is first released for iPhone 4S - iPhone 7
 - 11/11/2019 checkra1n is released for iOS 13-13.7
 - 18/08/2020 I reached out to Apple Product Security with vulnerability details
 - 21/09/2020 iOS 14 is out of a week and checkra1n is adapted for iOS 14.x, with the sepOS DFU/decrypt mitigation.
