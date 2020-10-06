@@ -6,7 +6,7 @@ draft: false
 ---
 
 **Let's talk about that thing nobody's talking about.
-Let's talk about that vulnerability that's completely exposing your macOS devices while news agencies and Apple are declining to act and report about the matter.
+Let's talk about a vulnerability that's completely exposing your macOS devices while news agencies and Apple are declining to act nor report about the matter.
 Oh, and did I mention it's unpatchable?**
 
 **Settle in buckaroo, we're in for a wild ride.**
@@ -19,30 +19,30 @@ Preface: this blog post is still under review and will be extended/modified.
 
 ### Intel vs Silicon
 
-This blog post only applies to macOS systems with an Intel processor and the secondary T2 chip.
-Apple silicon systems will run completely on a set of ARM processors designed by Apple and thus will use a different boot topology.
-Because of this it's possible Apple silicon systems will not be impacted by this vulnerability, but this is yet to be seen.
-And besides... let's hope it's fixed by then. :-)
+This blog post only applies to macOS systems with an Intel processor and the embedded T2 security chip.
+Apple silicon systems will run completely on a set of Apple-designed ARM processors and thus will use a different topology.
+Because of this it's possible Apple silicon systems will not be impacted by this vulnerability, but as of yet this is to be confirmed but *is* being actively investigated. And besides... let's hope it's fixed by then. :-)
 
 ### So about this T2 thing
 
-In case you are using a recent macOS device, you are probably using [the embedded T2 security chip](https://support.apple.com/en-us/HT208862) which runs *bridgeOS* and is based off watchOS. This is a custom ARM processor designed by Apple and based on the A10 CPU found in the iPhone 7.
+In case you are using a recent macOS device, you are probably using [the embedded T2 security chip](https://support.apple.com/en-us/HT208862) which runs *bridgeOS* and is actually based of watchOS. This is a custom ARM processor designed by Apple based on the A10 CPU found in the iPhone 7.
 The T2 chip contains a *Secure Enclave Processor* (SEP), much like the A-series processor in your iPhone will contain a SEP.
 
-It performs a predefined set of tasks for macOS such as audio processing, handling I/O, functioning as a [Hardware Security Module](https://en.wikipedia.org/wiki/Hardware_security_module) for e.g. Apple KeyChain, hardware accelerating media playback & cryptographic operations and **ensuring the operating system you are booting is not tampered with**.
-The T2 chip runs its own firmware called *bridgeOS*, which can be updated when you install a new macOS version. (ever notice the screen flickering? that's the display driver being interrupted.)
+While newer Macs and/or Apple Silicon (including the dev kit) will use a more recent A-series processor such as the A12, current Macs still use the A10.
 
-*Edit*: I first mentioned the iPad Pro to be impacted by the T2 vulnerability, but while it could suffer from the same debug cable vulnerability, it does not contain a T2 chip. 
+It performs a predefined set of tasks for macOS such as audio processing, handling I/O, functioning as a [Hardware Security Module](https://en.wikipedia.org/wiki/Hardware_security_module) for e.g. Apple KeyChain or 2FA, hardware accelerating media playback, whitelisting kernel extensions, cryptographic operations and **ensuring the operating system you are booting is not tampered with**.
+The T2 chip runs its own firmware called *bridgeOS*, which can be updated when you install a new macOS version. (ever notice the screen flickering? that's the display driver being interrupted and possibly updated.)
+
+*Edit*: I first mentioned the iPad Pro to be impacted by the T2 vulnerability, but while it could suffer from the same debugging vulnerability, it does not contain a T2 chip.
 
 
 ### The macOS boot sequence
 
 So let's focus on the boot image verification on macOS. What exactly happens when you press that power button?
 [There's also a visual representation for any *conaisseurs*](https://eclecticlightdotcom.files.wordpress.com/2018/08/bootprocess.png).
+For the enthusiasts, I personally find [Booting Secure by mikeymikey](http://michaellynn.github.io/2018/07/27/booting-secure/) a more in-depth description.
 
-You could also say that [Booting Secure by mikeymikey](http://michaellynn.github.io/2018/07/27/booting-secure/) is a better summary.
-
-0. The T2 chip is fully booted and stays on even if macOS is shutdown.
+0. The T2 chip is fully booted and stays on, even if your Mac device is shutdown.
 
 1. The press of the power button or the opening of the lid triggers the System Management Controlle (SMC) to boot.
 
@@ -100,17 +100,20 @@ Using this method, it is possible to create an USB-C cable that can automaticall
 
 ### Impact
 
-Once you have access on the T2, you have full `root` access and full kernel execution privileges since the kernel is rewritten before execution.
-Good news is that if you are using FileVault 2 as disk encryption, they do not have access to your data on disk *immediately*.
-They can however inject a keylogger in the T2 firmware since it manages keyboard access, storing your password for retrieval.
+Once you have access on the T2, you have full `root` access and kernel execution privileges since the kernel is rewritten before execution.
+Good news is that if you are using FileVault2 as disk encryption, they do not have access to your data on disk *immediately*.
+They can however inject a keylogger in the T2 firmware since it manages keyboard access, storing your password for retrieval or transmitting it in the case of a malicious hardware attachment.
 
-The functionality of locking an Apple device remotely (e.g. via MDM or FindMy) can also be bypassed (*Activation Lock*).
+The functionality of locking an Apple device remotely (e.g. via MDM or FindMy) can be bypassed (*Activation Lock*).
 
 A firmware password does not mitigate this issue since it requires keyboard access, and thus needs the T2 chip to run first.
 
+Any kernel extension could be whitelisted since the T2 chip decides which one to load during boot.
+
 If the attack is able to alter your hardware (or sneak in a malicious USB-C cable), it would be possible to achieve a semi-tethered exploit.
 
-I have sources that say more news is on the way coming weeks. I quote my source: *be afraid, be very afraid*.
+While this may not sound as frightening, be aware that this is a perfectly possible attack scenario for state actors.
+I have sources that say more news is on the way in the upcoming weeks. I quote: *be afraid, be very afraid*.
 
 ## Exploitation
 
@@ -150,22 +153,23 @@ $ ssh -p 2222 root@127.0.0.1
 I've reached out to Apple concerning this issue on numerous occasions, even doing the dreaded cc *tcook@apple.com* to get some exposure.
 Since I did not receive a response for weeks, I did the same to numerous news websites that cover Apple, but no response there as wel.
 In hope of raising more awareness (and an official response from Apple), I am hereby disclosing almost all of the details.
+You could argue I'm not following responsible disclosure, but since this issue has been known since 2019, I think it's quite clear Apple is not planning on making a public statement and quietly developing a (hopefully) patched T2 in the newer Macs & Silicon.
 
 ## So what now as...
 
 ### ...a user
 
-If you suspect your system to be tampered with, use Apple Configurator to reinstall bridgeOS on your T2 chip described [here](https://mrmacintosh.com/how-to-restore-bridgeos-on-a-t2-mac-how-to-put-a-mac-into-dfu-mode/). If you are a potential target of state actors, verify your SMC payload integrity and **don't** leave your device unsupervised.
+If you suspect your system to be tampered with, use Apple Configurator to reinstall bridgeOS on your T2 chip described [here](https://mrmacintosh.com/how-to-restore-bridgeos-on-a-t2-mac-how-to-put-a-mac-into-dfu-mode/). If you are a potential target of state actors, verify your SMC payload integrity and **don't** leave your device unsupervised. You could try [resetting your SMC with a keyboard combination](https://support.apple.com/en-us/HT201295).
 
 ### ...a mac sysadmin
 
-Contact your Apple rep & wait for official news from Apple. Don't use the T2 chip for any credentials for now. (such as MFA)
-Raise awareness to your users to not leave their device lingering.
+Contact your Apple rep & wait for official news from Apple. Don't use the T2 chip for any sensitive credentials for now such as MFA.
+Raise awareness to your users to not leave their device unattended.
 
 ### ...a security professional
 
-Wait for a fix, keep an eye on the checkra1n team and be prepared to replace your macOS system.
-Be angry at news websites & Apple for not covering this issue, despite numerous attempts from me and others to get them to report about this.
+Wait for a fix, keep an eye on [the checkra1n team](https://checkra.in) and be prepared to replace your Mac.
+Be angry at news websites & Apple for not covering this issue, despite attempts from me and others to get them to report this matter.
 
 
 ## TL;DR
@@ -175,6 +179,7 @@ Be angry at news websites & Apple for not covering this issue, despite numerous 
 - The root of trust on macOS is inherently broken
 - They can bruteforce your FileVault2 volume password
 - They can alter your macOS installation
+- They can load arbitrary kernel extensions
 - Only possible on physical access
 
 ## Timeline
