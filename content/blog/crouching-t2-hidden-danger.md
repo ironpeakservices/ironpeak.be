@@ -6,7 +6,7 @@ draft: false
 ---
 
 **Let's talk about that thing nobody's talking about.
-Let's talk about a vulnerability that's completely exposing your macOS devices while news agencies and Apple are declining to act nor report about the matter.
+Let's talk about a vulnerability that's completely exposing your macOS devices while most are declining to act nor report about the matter.
 Oh, and did I mention it's unpatchable?**
 
 **Settle in buckaroo, we're in for a wild ride.**
@@ -20,8 +20,9 @@ Preface: this blog post is still under review and will be extended/modified.
 ### Intel vs Silicon
 
 This blog post only applies to macOS systems with an Intel processor and the embedded T2 security chip.
-Apple silicon systems will run completely on a set of Apple-designed ARM processors and thus will use a different topology.
-Because of this it's possible Apple silicon systems will not be impacted by this vulnerability, but as of yet this is to be confirmed but *is* being actively investigated. And besides... let's hope it's fixed by then. :-)
+Apple silicon systems will run completely on a set of Apple-designed ARM processors and thus will use a different topology based on e.g. the A12 chip.
+Since the A12 chip seems to have fixed this issue (to be confirmed), it's highly likely the new Apple Silicon machines will not be vulnerable.
+And while the new upcoming Intel Macs at the end of year will probably recieve a new hardware revision of the T2 chip (e.g. based on the A12), we are still stuck with this vulnerability on Macs between 2018 and 2020.
 
 ### So about this T2 thing
 
