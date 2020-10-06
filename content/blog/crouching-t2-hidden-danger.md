@@ -133,10 +133,10 @@ $ brew install libplist automake autoconf pkg-config openssl libtool llvm libusb
 # https://github.com/libimobiledevice/usbmuxd
 
 # Run checkra1n and wait for T2 boot. It will stall when complete.
-...
+# TODO describe the checkra1n exloitation 
 
 # Unplug and replug the usb connection. Checkra1n should now send the overlay.
-...
+# TODO describe the usb debug mode & overlay
 
 # Bring up a proxy to dropbear
 $ iproxy 2222 44 &
