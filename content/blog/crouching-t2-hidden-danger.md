@@ -202,4 +202,5 @@ Be angry at news websites & Apple for not covering this issue, despite attempts 
 - Checkra1n website: [checkra1n](https://checkra.in/)
 - checkra1n t2 OS replacement: [checkra1n/pongoOS](https://github.com/checkra1n/pongoOS)
 - [How to restore your T2 chip firmware](https://support.apple.com/guide/apple-configurator-2/revive-or-restore-mac-firmware-apdebea5be51/mac)
-- First (and only?) article about it: [yalujailbreak.net - T2 Security Chip Jailbreak](https://yalujailbreak.net/t2-security-chip-jailbreak/)
+- [ReportCyberCrime - Hackers jailbreak Apples T2 Security Chip](https://reportcybercrime.com/hackers-jailbreak-apples-t2-security-chip-powered-by-bridgeos/)
+- [yalujailbreak.net - T2 Security Chip Jailbreak](https://yalujailbreak.net/t2-security-chip-jailbreak/)
