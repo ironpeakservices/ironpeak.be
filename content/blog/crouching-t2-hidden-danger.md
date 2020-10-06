@@ -22,7 +22,7 @@ Preface: this blog post is still under review and will be extended/modified.
 This blog post only applies to macOS systems with an Intel processor and the embedded T2 security chip.
 Apple silicon systems will run completely on a set of Apple-designed ARM processors and thus will use a different topology based on e.g. the A12 chip.
 Since the A12 chip seems to have fixed this issue (to be confirmed), it's highly likely the new Apple Silicon machines will not be vulnerable.
-And while the new upcoming Intel Macs at the end of year will probably recieve a new hardware revision of the T2 chip (e.g. based on the A12), we are still stuck with this vulnerability on Macs between 2018 and 2020.
+And while the new upcoming Intel Macs at the end of year will probably receive a new hardware revision of the T2 chip (e.g. based on the A12), we are still stuck with this vulnerability on Macs between 2018 and 2020.
 
 ### So about this T2 thing
 
