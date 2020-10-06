@@ -1,0 +1,33 @@
+name: vulnerability scan
+on:
+  schedule:
+  - cron: '30 8 * * *'
+
+jobs:
+  zap_scan_public:
+    runs-on: ubuntu-latest
+    name: Scan public website
+    steps:
+      - name: ZAP Scan
+        uses: zaproxy/action-full-scan@v0.1.0
+        with:
+          issue_title: Vulnerability Scan Results
+          token: ${{ secrets.GITHUB_TOKEN }}
+          docker_name: owasp/zap2docker-weekly
+          target: https://ironpeak.be/
+          rules_file_name: .github/zap.ignore
+          cmd_options: '-a'
+          
+  zap_scan_cluster:
+    runs-on: ubuntu-latest
+    name: Scan k8s cluster
+    steps:
+      - name: ZAP Scan
+        uses: zaproxy/action-full-scan@v0.1.0
+        with:
+          issue_title: Vulnerability Scan Results
+          token: ${{ secrets.GITHUB_TOKEN }}
+          docker_name: owasp/zap2docker-weekly
+          target: https://cluster.ironpeak.be/
+          rules_file_name: .github/zap.ignore
+          cmd_options: '-a'

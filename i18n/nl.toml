@@ -10,13 +10,11 @@ other = "Belgische CyberSecurity Consulting."
 [header_title]
 other = "ironPeak services"
 
-[main_ironpeak]
-other = "ironpeak"
-[main_services]
-other = "services"
+[main_title]
+other = "Ik help u ICT beveiligen"
 
 [main_slogan]
-other = "belgische cybersecurity consulting"
+other = "via belgische cybersecurity consulting"
 
 [main_competences]
 other = "Competenties"
@@ -45,14 +43,14 @@ other = "Gecertificeerde Trainer &amp; voor ADM, LTM, iRules, iControl, ASM, GTM
 other = "Wat voorbeelden.."
 
 [main_helped_1]
-other = "Nationale Universiteit"
+other = "Bug Bounty Platform"
 [main_helped_1_desc]
-other = "Cross-platform web-based cognitive experiment environment."
+other = "Strategic counselling & platform tooling research & development."
 
 [main_helped_2]
-other = "Technologiebedrijf"
+other = "Cloud Services Provider"
 [main_helped_2_desc]
-other = "PHP development & architecture, web design, code review."
+other = "Kubernetes & AWS security assessments, reference solution R&D."
 
 [main_helped_3]
 other = "Overheidsinstelling"
@@ -78,9 +76,6 @@ other = "SDLC, Security Assessment, Code Review, Threat modeling, Penetration Te
 other = "Neem contact op"
 [main_getintouch_full]
 other = "en wees een stap voor"
-
-[main_resume]
-other = "Curriculum"
 
 [main_linkedin]
 other = "LinkedIn"

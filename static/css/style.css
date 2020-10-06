@@ -218,12 +218,6 @@ button::-moz-focus-inner {
   }
 }
 
-@font-face {
-  font-family: glyphicons halflings;
-  src: url(../fonts/glyphicons-halflings-regular.eot);
-  src: url(../fonts/glyphicons-halflings-regular.eot?#iefix) format('embedded-opentype'),url(../fonts/glyphicons-halflings-regular.woff2) format('woff2'),url(../fonts/glyphicons-halflings-regular.woff) format('woff'),url(../fonts/glyphicons-halflings-regular.ttf) format('truetype'),url(../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular) format('svg');
-}
-
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -2352,4 +2346,21 @@ path.fill {
 
 .v-align {
   vertical-align: middle;
+}
+
+pre code {
+  background: smokewhite;
+  border: 1px solid #ddd;
+  border-left: 3px solid #3a9dc2;
+  color: black;
+  page-break-inside: avoid;
+  font-family: monospace;
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 1.6em;
+  max-width: 100%;
+  overflow: auto;
+  padding: 1em 1.5em;
+  display: block;
+  word-wrap: break-word;
 }

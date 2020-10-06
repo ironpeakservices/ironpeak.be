@@ -1,0 +1,10 @@
+name: imgcmp
+on: pull_request
+jobs:
+  build:
+    name: Optimize images
+    runs-on: ubuntu-latest    
+    steps:
+    - uses: 9sako6/imgcmp@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

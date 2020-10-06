@@ -10,13 +10,11 @@ other = "Belgian CyberSecurity Consulting."
 [header_title]
 other = "ironPeak services"
 
-[main_ironpeak]
-other = "ironpeak"
-[main_services]
-other = "services"
+[main_title]
+other = "I help you secure things"
 
 [main_slogan]
-other = "belgian cybersecurity consulting"
+other = "with belgian cybersecurity consulting"
 
 [main_competences]
 other = "Competences"
@@ -53,19 +51,19 @@ other = "Implement OWASP OpenSAMM, translate technical to business risk, analyse
 other = "So far I've helped.."
 
 [main_helped_1]
-other = "National University"
+other = "Bug Bounty Platform"
 [main_helped_1_desc]
-other = "Cross-platform web-based cognitive experiment environment."
+other = "Strategic counselling & platform tooling research & development."
 
 [main_helped_2]
-other = "Technology Firm"
+other = "Cloud Services Provider"
 [main_helped_2_desc]
-other = "PHP development & architecture, web design, code review."
+other = "Kubernetes & AWS security assessments, reference solution R&D."
 
 [main_helped_3]
 other = "Government Agency"
 [main_helped_3_desc]
-other = "F5 BIG-IP L    TM/ASM/APM implementation."
+other = "F5 BIG-IP LTM/ASM/APM implementation."
 
 [main_helped_4]
 other = "International Aviation Company"
@@ -86,9 +84,6 @@ other = "SDLC, Security Assessment, Code Review, Threat modeling, Penetration Te
 other = "Get in touch"
 [main_getintouch_full]
 other = "You’re one step further to making better decisions"
-
-[main_resume]
-other = "Resume"
 
 [main_linkedin]
 other = "LinkedIn"
