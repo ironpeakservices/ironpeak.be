@@ -25,7 +25,7 @@ Because of this it's possible Apple silicon systems will not be impacted by this
 
 ### So about this T2 thing
 
-In case you are using a recent macOS device, you are probably using [the embedded T2 security chip](https://support.apple.com/en-us/HT208862) which runs *bridgeOS* and is actually based of watchOS. This is a custom ARM processor designed by Apple based on the A10 CPU found in the iPhone 7.
+In case you are using a recent macOS device, you are probably using [the embedded T2 security chip](https://support.apple.com/en-us/HT208862) which runs *bridgeOS* and is actually based on watchOS. This is a custom ARM processor designed by Apple based on the A10 CPU found in the iPhone 7.
 The T2 chip contains a *Secure Enclave Processor* (SEP), much like the A-series processor in your iPhone will contain a SEP.
 
 While newer Macs and/or Apple Silicon (including the dev kit) will use a more recent A-series processor such as the A12, current Macs still use the A10.
@@ -44,7 +44,7 @@ For the enthusiasts, I personally find [Booting Secure by mikeymikey](http://mic
 
 0. The T2 chip is fully booted and stays on, even if your Mac device is shutdown.
 
-1. The press of the power button or the opening of the lid triggers the System Management Controlle (SMC) to boot.
+1. The press of the power button or the opening of the lid triggers the System Management Controller (SMC) to boot.
 
 2. The SMC performs a Power-On-Self-Test (POST) to detect any EFI or hardware issues such as bad RAM and possibly redirect to Recovery.
 
@@ -54,7 +54,7 @@ For the enthusiasts, I personally find [Booting Secure by mikeymikey](http://mic
 
 5. `/System/Library/CoreServices/boot.efi` is located on your System APFS volume and [depending on your secure boot settings](https://support.apple.com/en-us/HT208330) is validated.
 
-6. *boot.efi* is ran which loads the Darwin kernel *(throwback to BSD)* (or Boot Camp if booting Microsoft Windows) & IODevice drivers. If a kernel cache is found in `/System/Library/PrelinkedKernels/perlinkedkernel`, it will use that.
+6. *boot.efi* is ran which loads the Darwin kernel *(throwback to BSD)* (or Boot Camp if booting Microsoft Windows) & IODevice drivers. If a kernel cache is found in `/System/Library/PrelinkedKernels/prelinkedkernel`, it will use that.
 
 7. Any User Approved Kernel Extensions are initialized & added to the kernel space -if- they are approved by the T2 chip.
 *This will go away with System Extensions*.
@@ -83,9 +83,9 @@ While there have been mistakes made in the past (who can blame them?), Apple has
 
 The mini operating system on the T2 (*SepOS*) suffers from a security vulnerable also found in the iPhone X since it contains a processor based on the iOS A10 processor. Exploitation of this type of processor is very actively discussed in the [/r/jailbreak](https://reddit.com/r/jailbreak/) subreddit.
 
-So using the [checkm8 exploit](https://checkm8.info) originally made for iPhones, the checkra1n exploit was developed to build a semi-thetered exploit for the T2 security chip, exploiting a flaw. This could be used to e.g. circumvent activation lock, allowing stolen iPhones or macOS devices to be reset and sold on the black market.
+So using the [checkm8 exploit](https://checkm8.info) originally made for iPhones, the checkra1n exploit was developed to build a semi-tethered exploit for the T2 security chip, exploiting a flaw. This could be used to e.g. circumvent activation lock, allowing stolen iPhones or macOS devices to be reset and sold on the black market.
 
-Normally the T2 chip will exit with a fatal error if it is in DFU mode and it detects a decryption call, but thanks to the [blackbird vulnerability](https://github.com/windknown/presentations/blob/master/Attack_Secure_Boot_of_SEP.pdf) by team Pangu, we can completely circument that check in the SEP and do whatever we please.
+Normally the T2 chip will exit with a fatal error if it is in DFU mode and it detects a decryption call, but thanks to the [blackbird vulnerability](https://github.com/windknown/presentations/blob/master/Attack_Secure_Boot_of_SEP.pdf) by team Pangu, we can completely circumvent that check in the SEP and do whatever we please.
 
 Since sepOS/BootROM is *Read-Only Memory* for security reasons, interestingly, Apple cannot patch this core vulnerability without a new hardware revision.
 This thankfully also means that this is not a persistent vulnerability, so it will require a hardware insert or other attached component such as a malicious USB-C cable.
@@ -136,7 +136,7 @@ $ brew install libplist automake autoconf pkg-config openssl libtool llvm libusb
 # https://github.com/libimobiledevice/usbmuxd
 
 # Run checkra1n and wait for T2 boot. It will stall when complete.
-# TODO describe the checkra1n exloitation 
+# TODO describe the checkra1n exploitation 
 
 # Unplug and replug the usb connection. Checkra1n should now send the overlay.
 # TODO describe the usb debug mode & overlay
@@ -151,7 +151,7 @@ $ ssh -p 2222 root@127.0.0.1
 ## Responsible Disclosure
 
 I've reached out to Apple concerning this issue on numerous occasions, even doing the dreaded cc *tcook@apple.com* to get some exposure.
-Since I did not receive a response for weeks, I did the same to numerous news websites that cover Apple, but no response there as wel.
+Since I did not receive a response for weeks, I did the same to numerous news websites that cover Apple, but no response there as well.
 In hope of raising more awareness (and an official response from Apple), I am hereby disclosing almost all of the details.
 You could argue I'm not following responsible disclosure, but since this issue has been known since 2019, I think it's quite clear Apple is not planning on making a public statement and quietly developing a (hopefully) patched T2 in the newer Macs & Silicon.
 
