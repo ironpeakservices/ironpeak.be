@@ -198,6 +198,8 @@ Be angry at news websites & Apple for not covering this issue, despite attempts 
 
 - BootROM/SepOS revisions: [The iPhone Wiki - BootROM](https://www.theiphonewiki.com/wiki/Bootrom#T8012.2C_used_in_the_iMac_Pro_and_other_T2_based_Macs)
 - Big thanks to the checkra1n team and specifically [Rick Mark](https://github.com/rickmark/) to bring this to light.
+- [Checkrai1n on the T2](https://twitter.com/qwertyoruiopz/status/1237400079465689088)
+- [Reddit anouncement thread on /r/jailbreak](https://www.reddit.com/r/jailbreak/comments/fgi7lo/upcoming_checkra1n_support_for_the_apple_t2/fk4ofju/)
 - Checkra1n website: [checkra1n](https://checkra.in/)
 - checkra1n t2 OS replacement: [checkra1n/pongoOS](https://github.com/checkra1n/pongoOS)
 - [How to restore your T2 chip firmware](https://support.apple.com/guide/apple-configurator-2/revive-or-restore-mac-firmware-apdebea5be51/mac)
