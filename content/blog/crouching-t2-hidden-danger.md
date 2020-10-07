@@ -206,7 +206,7 @@ Be angry at news websites & Apple for not covering this issue, despite attempts 
 - 10/03/2020 **qwertyoriop adds support for T2 into checkra1n**
 - 10/03/2020 **Rick Mark assesses how this vulnerability cannot be mitigated**
 - 22/03/2020 Rick Mark creates first writeup and analysis of T2 impact
-- 09/08/2929 Yalu releases blackbird, unpatcheable SEP vulnerability similar to checkm8
+- 09/08/2020 Yalu releases blackbird, unpatcheable SEP vulnerability similar to checkm8
 - 21/09/2020 checkra1n 0.11.0 with T2/bridgeOS support released
 - 18/08/2020 I reached out to Apple Product Security with vulnerability details
 - 21/09/2020 iOS 14 is out of a week and checkra1n is adapted for iOS 14.x, with the sepOS DFU/decrypt mitigation.
