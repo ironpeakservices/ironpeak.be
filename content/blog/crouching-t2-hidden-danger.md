@@ -6,10 +6,10 @@ draft: false
 ---
 
 **Let's talk about that thing nobody's talking about.
-Let's talk about a vulnerability that's completely exposing your macOS devices while most are declining to act nor report about the matter.
+Let's talk about a vulnerability that's exposing 2018-2020 Macs while most are declining to act nor report about the matter.
 Oh, and did I mention it's unpatchable?**
 
-**Settle in buckaroo, we're in for a wild ride.**
+**Buckle up buckaroo, we're in for a wild ride.**
 
 Skip to [#security-issues](#security-issues) for the technical mumbo-jumbo.
 
@@ -22,7 +22,7 @@ The following post is an industry analysis of the code and research performed by
 ### Intel vs Silicon
 
 This blog post only applies to macOS systems with an Intel processor and the embedded T2 security chip.
-Apple silicon systems will run completely on a set of Apple-designed ARM processors and thus will use a different topology based on e.g. the A12 chip.
+Apple silicon systems will run completely on a set of Apple-designed ARM processors and mighth have a different topology, e.g. based on the A12.
 Since the A12 chip seems to have fixed this issue (to be confirmed), it's highly likely the new Apple Silicon machines will not be vulnerable.
 And while the new upcoming Intel Macs at the end of year will probably receive a new hardware revision of the T2 chip (e.g. based on the A12), we are still stuck with this vulnerability on Macs between 2018 and 2020.
 
@@ -31,7 +31,7 @@ And while the new upcoming Intel Macs at the end of year will probably receive a
 In case you are using a recent macOS device, you are probably using [the embedded T2 security chip](https://support.apple.com/en-us/HT208862) which runs *bridgeOS* and is actually based on watchOS. This is a custom ARM processor designed by Apple based on the A10 CPU found in the iPhone 7.
 The T2 chip contains a *Secure Enclave Processor* (SEP), much like the A-series processor in your iPhone will contain a SEP.
 
-While newer Macs and/or Apple Silicon (including the dev kit) will use a more recent A-series processor such as the A12, current Macs still use the A10.
+While newer Macs and/or Apple Silicon (including the dev kit) will use a more recent A-series processor such as the one found in the recent iPhone (A12), current Macs still use the A10.
 
 It performs a predefined set of tasks for macOS such as audio processing, handling I/O, functioning as a [Hardware Security Module](https://en.wikipedia.org/wiki/Hardware_security_module) for e.g. Apple KeyChain or 2FA, hardware accelerating media playback, whitelisting kernel extensions, cryptographic operations and **ensuring the operating system you are booting is not tampered with**.
 The T2 chip runs its own firmware called *bridgeOS*, which can be updated when you install a new macOS version. (ever notice the screen flickering? that's the display driver being interrupted and possibly updated.)
