@@ -13,7 +13,7 @@ Oh, and did I mention it's unpatchable?**
 
 Skip to [#security-issues](#security-issues) for the technical mumbo-jumbo.
 
-Preface: this blog post is still under review and will be extended/modified.
+The following post is an industry analysis of the code and research performed by [twitter.com/axi0mx](https://twitter.com/axi0mx/), [twitter.com/h0m3us3r](https://twitter.com/h0m3us3r/), [twitter.com/aunali1](https://twitter.com/aunali1/), [twitter.com/mcmrarm](https://twitter.com/mcmrarm/) and [twitter.com/su_rickmark](https://twitter.com/su_rickmark/) who poured endless hours of work into this, allowing companies and users to understand their risks concerning this issue.
 
 ## Preface
 
@@ -79,6 +79,9 @@ They tout their devices as highly secure and vouch to handle your personal data 
 While there have been mistakes made in the past (who can blame them?), Apple has been generally quick to fix any security issues that were disclosed to [their responsible disclosure program](https://support.apple.com/en-gb/HT201220) or in public.
 
 ## Security issues
+
+### Jailbreaking
+
 
 ### The core problem
 
