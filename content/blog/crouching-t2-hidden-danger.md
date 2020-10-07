@@ -36,7 +36,7 @@ While newer Macs and/or Apple Silicon (including the dev kit) will use a more re
 It performs a predefined set of tasks for macOS such as audio processing, handling I/O, functioning as a [Hardware Security Module](https://en.wikipedia.org/wiki/Hardware_security_module) for e.g. Apple KeyChain or 2FA, hardware accelerating media playback, whitelisting kernel extensions, cryptographic operations and **ensuring the operating system you are booting is not tampered with**.
 The T2 chip runs its own firmware called *bridgeOS*, which can be updated when you install a new macOS version. (ever notice the screen flickering? that's the display driver being interrupted and possibly updated.)
 
-*Edit*: I first mentioned the iPad Pro to be impacted by the T2 vulnerability, but while it could suffer from the same debugging vulnerability, it does not contain a T2 chip.
+*Edit*: I first mentioned the iPad Pro to be impacted by the T2 vulnerability, but while it could suffer from the same vulnerability, it does not contain a T2 chip.
 
 
 ### The macOS boot sequence
@@ -84,7 +84,6 @@ While there have been mistakes made in the past (who can blame them?), Apple has
 
 ### Jailbreaking
 
-
 ### The core problem
 
 The mini operating system on the T2 (*SepOS*) suffers from a security vulnerable also found in the iPhone 7 since it contains a processor based on the iOS A10. Exploitation of this type of processor for the sake of installing homebrew software is very actively discussed in the [/r/jailbreak](https://reddit.com/r/jailbreak/) subreddit.
@@ -96,16 +95,13 @@ Normally the T2 chip will exit with a fatal error if it is in DFU mode and it de
 Since sepOS/BootROM is *Read-Only Memory* for security reasons, interestingly, Apple cannot patch this core vulnerability without a new hardware revision.
 This thankfully also means that this is not a persistent vulnerability, so it will require a hardware insert or other attached component such as a malicious USB-C cable.
 
-### Debugging vulnerability
+### Debugging
 
-Apple left a debugging interface open in the T2 security chip shipping to customers, allowing anyone to enter Device Firmware Update (DFU) mode without authentication. DFU is a mode the device will boot into when it cannot boot anymore.
-This is normally turned off, but the device can be demoted from *production mode* with the use of the checkm8 vulnerability.
+Every Apple iDevice (which includes the T2 and the Watch, via a port under the band) ships with a firmware recovery USB interface called Device Firmware Update (DFU), which is triggered when the device is not be able to boot or by pressing a particular set of buttons when turned on.  It is always available because it is code run from SecureROM.  This is the mode in which checkm8 runs.
 
-An example cable that can be used to perform low-level CPU & T2 debugging is the JTAG/SWD debug cable found on the internet. Using the debug cable requires demotion however to switch it from a *production* state, which is possible via the checkm8 exploit.
-See an example of it being used [in this Twitter post](https://twitter.com/h0m3us3r/status/1280432544731860993).
-
-Combining the top two methods, things start to get interesting. 
-Using this method, it is possible to create an USB-C cable that can automatically exploit your macOS device on boot. **(!)**
+Apple also leaves the ability to access various debug functionality which is disabled on production devices unless a special boot payload is used which runs in DFU.  Since Apple is the only one who can sign code for DFU, they can demote any device they like, including the most recent A14 processors.
+But since the checkm8 vulnerability runs so early in the boot process, we too can demote the T2 into DFU mode.
+Without checkm8, we would not be able to run unsigned code in DFU and thus not be able enable debug interfaces.  Once the debug interface is enabled Apple uses specialized cables with simian names (see Chimp, Kanzi, Gorilla).
 
 ### Impact
 
