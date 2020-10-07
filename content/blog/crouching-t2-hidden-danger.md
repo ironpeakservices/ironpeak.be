@@ -13,9 +13,11 @@ Oh, and did I mention it's unpatchable?**
 
 Skip to [#security-issues](#security-issues) for the technical mumbo-jumbo.
 
-The following post is an industry analysis of the code and research performed by [twitter.com/axi0mx](https://twitter.com/axi0mx/), [twitter.com/h0m3us3r](https://twitter.com/h0m3us3r/), [twitter.com/aunali1](https://twitter.com/aunali1/), [twitter.com/mcmrarm](https://twitter.com/mcmrarm/) and [twitter.com/su_rickmark](https://twitter.com/su_rickmark/) who poured endless hours of work into this, allowing companies and users to understand their risks concerning this issue.
-
 ## Preface
+
+### Attribution
+
+The following post is an industry analysis of the code and research performed by [twitter.com/axi0mx](https://twitter.com/axi0mx/), [twitter.com/h0m3us3r](https://twitter.com/h0m3us3r/), [twitter.com/aunali1](https://twitter.com/aunali1/), [twitter.com/mcmrarm](https://twitter.com/mcmrarm/) and [twitter.com/su_rickmark](https://twitter.com/su_rickmark/) who poured endless hours of work into this, allowing companies and users to understand their risks concerning this issue.
 
 ### Intel vs Silicon
 
@@ -96,10 +98,13 @@ This thankfully also means that this is not a persistent vulnerability, so it wi
 
 ### Debugging vulnerability
 
-Apple left a debugging interface open in the T2 security chip shipping to customers, allowing anyone to enter Device Firmware Update (DFU) mode without authentication.
+Apple left a debugging interface open in the T2 security chip shipping to customers, allowing anyone to enter Device Firmware Update (DFU) mode without authentication. DFU is a mode the device will boot into when it cannot boot anymore.
+This is normally turned off, but the device can be demoted from *production mode* with the use of the checkm8 vulnerability.
+
 An example cable that can be used to perform low-level CPU & T2 debugging is the JTAG/SWD debug cable found on the internet. Using the debug cable requires demotion however to switch it from a *production* state, which is possible via the checkm8 exploit.
 See an example of it being used [in this Twitter post](https://twitter.com/h0m3us3r/status/1280432544731860993).
 
+Combining the top two methods, things start to get interesting. 
 Using this method, it is possible to create an USB-C cable that can automatically exploit your macOS device on boot. **(!)**
 
 ### Impact
@@ -187,8 +192,26 @@ Be angry at news websites & Apple for not covering this issue, despite attempts 
 
 ## Timeline
 
-- 27/09/2019 checkm8 exploit is first released for iPhone 4S - iPhone 7
-- 11/11/2019 checkra1n is released for iOS 13-13.7
+- 27/10/2017 Rick Mark releases a utility to verify the integrity of T1 chips & prior Macs
+- 13/08/2018 aunali1 begins investigation in Linux support for Macs with T2 chip including T2 firmware.
+- 29/06/2019 mram begins investigating support for NVMe drives attached to the T2
+- 01/07/2019 mrarm completes PoC linux driver for T2 NVMe drives
+- 03/07/2019 mrarm begins reverse engineering Apple BCE driver and USB VHCI interface for communicating with T2
+- 04/08/2019 aunali1 packages linux kernel patches and mram's drivers into Arch Linux packages for distribution
+- 06/10/2019 **Rick Mark postulates the impact of checkm8 for the T2 and proposes support in ipwndfu**
+- 09/11/2019 Rick Mark begins research into bridgeOS
+- 17/11/2019 mrarm ports SMC linux driver to support ACPI T2 controller
+- 22/11/2019 aunali1 & mrarm begin investigating T2's SEP
+- 03/12/2019 Rick Mark creates patches for libimobiledevice to restore T2 outside of Apple Configurator
+- 15/12/2019 Rick Mark notices SecureROM/BootROM version matches iOS counterpart, indicating potentially vulnerable T2
+- 06/03/2020 First successful dump of SecureROM on T2 performed
+- 07/06/2020 hom3us3r published fork of checkm8/ipwndfu with T2 support
+- 07/07/2020 Rick Mark notices Intel Debug interfaces (PCH/DCI) are exposed as well 
+- 10/03/2020 **qwertyoriop adds support for T2 into checkra1n**
+- 10/03/2020 **Rick Mark assesses how this vulnerability cannot be mitigated**
+- 22/03/2020 Rick Mark creates first writeup and analysis of T2 impact
+- 09/08/2929 Yalu releases blackbird, unpatcheable SEP vulnerability similar to checkm8
+- 21/09/2020 checkra1n 0.11.0 with T2/bridgeOS support released
 - 18/08/2020 I reached out to Apple Product Security with vulnerability details
 - 21/09/2020 iOS 14 is out of a week and checkra1n is adapted for iOS 14.x, with the sepOS DFU/decrypt mitigation.
 - 07/09/2020 I requested response, lack of feedback
