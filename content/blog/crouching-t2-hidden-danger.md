@@ -98,10 +98,13 @@ This thankfully also means that this is not a persistent vulnerability, so it wi
 
 ### Debugging vulnerability
 
-Apple left a debugging interface open in the T2 security chip shipping to customers, allowing anyone to enter Device Firmware Update (DFU) mode without authentication.
+Apple left a debugging interface open in the T2 security chip shipping to customers, allowing anyone to enter Device Firmware Update (DFU) mode without authentication. DFU is a mode the device will boot into when it cannot boot anymore.
+This is normally turned off, but the device can be demoted from *production mode* with the use of the checkm8 vulnerability.
+
 An example cable that can be used to perform low-level CPU & T2 debugging is the JTAG/SWD debug cable found on the internet. Using the debug cable requires demotion however to switch it from a *production* state, which is possible via the checkm8 exploit.
 See an example of it being used [in this Twitter post](https://twitter.com/h0m3us3r/status/1280432544731860993).
 
+Combining the top two methods, things start to get interesting. 
 Using this method, it is possible to create an USB-C cable that can automatically exploit your macOS device on boot. **(!)**
 
 ### Impact
