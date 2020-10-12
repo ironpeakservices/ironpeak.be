@@ -1,7 +1,7 @@
 {
     "short_name": "ironPeak",
     "name": "ironPeak services",
-    "icons": [],
+    "icons": ["/img/logo.png"],
     "start_url": "/",
     "scope": "/",
     "display": "standalone",
