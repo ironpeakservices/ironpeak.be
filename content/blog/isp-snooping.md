@@ -1,5 +1,5 @@
 ---
-title: "Is my ISP snooping on me?"
+title: "ISP Snooping"
 date: 2019-12-27T09:31:14+01:00
 layout: "blog"
 draft: false

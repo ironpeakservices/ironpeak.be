@@ -84,6 +84,9 @@ While there have been mistakes made in the past (who can blame them?), Apple has
 
 ### Jailbreaking
 
+Jailbreaking has been a big thing in the iOS for a long time. The process of exploiting vulnerability flaws in your iPhone or iOS installation is a popular way of completely customizing your otherwise pretty trimmed down iPhone.
+There even are jailbreak app stores to download modified apps or a very active salesmarket for *tweaks*, to tweak your system or apps in some way.
+
 ### The core problem
 
 The mini operating system on the T2 (*SepOS*) suffers from a security vulnerable also found in the iPhone 7 since it contains a processor based on the iOS A10. Exploitation of this type of processor for the sake of installing homebrew software is very actively discussed in the [/r/jailbreak](https://reddit.com/r/jailbreak/) subreddit.
@@ -122,36 +125,7 @@ I have sources that say more news is on the way in the upcoming weeks. I quote: 
 
 ## Exploitation
 
-<to be completed>
-  
-```
-# install devtools
-$ xcode-select --install
-
-# check the script & install homebrew
-$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-
-# install packages
-$ brew install libplist automake autoconf pkg-config openssl libtool llvm libusb
-
-# git clone, autogen.sh, make & make install
-# https://github.com/sbingner/ldid
-# https://github.com/libimobiledevice/libusbmuxd
-# https://github.com/libimobiledevice/libimobiledevice
-# https://github.com/libimobiledevice/usbmuxd
-
-# Run checkra1n and wait for T2 boot. It will stall when complete.
-# TODO describe the checkra1n exploitation 
-
-# Unplug and replug the usb connection. Checkra1n should now send the overlay.
-# TODO describe the usb debug mode & overlay
-
-# Bring up a proxy to dropbear
-$ iproxy 2222 44 &
-
-# Connect to T2 & enjoy
-$ ssh -p 2222 root@127.0.0.1
-```
+See [my next blog post](/blog/t2rminator/) for the exact exploitation instructions and examples.
 
 ## Responsible Disclosure
 

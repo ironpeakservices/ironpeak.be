@@ -21,8 +21,8 @@
 	<link rel="manifest" href="/manifest.json">
 	<meta name="theme-color" content="#3a9dc2"/>
 
-	<link rel="apple-touch-icon" href="/img/logo.png"/>
-	<link rel="icon" type="image/png" href="/img/logo.png"/>
+	<link rel="apple-touch-icon" href="/img/icon.png"/>
+	<link rel="icon" type="image/png" href="/img/icon.png"/>
 
 	{{ $cssBundle := resources.Get "css/style.css" | resources.Minify | fingerprint }}
 	<link rel="stylesheet" type="text/css" href="{{ $cssBundle.Permalink }}" integrity="{{ $cssBundle.Data.Integrity }}">
