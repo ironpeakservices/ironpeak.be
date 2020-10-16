@@ -24,7 +24,7 @@ A tiny recap of what was discussed [in the previous blog post "Crouching T2, Hid
 - The T2 security chip is used for verifying your macOS installation to be safe, keep track of encryption keys, handle touchID/faceID, handle keyboard and do other stuff such as hardware decoding of media formats.
 - The T2 security chip in 2018-2020 Mac models is based on the A12 chip, which is vulnerable for the same checkm8 vulnerability.
 - The chip can be triggered in booting in DFU mode without any physical attestation (such as holding in the power button) by sending arbitrary packets of information over USB Power Delivery (called "Vendor Defined Messages" or VDMs).
-- This can be combined with checkra1n & blackbird vulnerabilties to gain **root** access to the T2 chip by restarting the T2 in DFU mode.
+- This can be combined with checkra1n & blackbird vulnerabilities to gain **root** access to the T2 chip by restarting the T2 in DFU mode.
 
 ## Exploitation
 
@@ -99,11 +99,12 @@ So now we've covered the official things, let's brainstorm for a bit what attack
 Attack Vectors:
 
 - Supply Chain Attacks: intercepting orders & installing an USB implant in your Mac  
-- Sales of malicious peripherals: buying apple peripherals via webshops is very popular
+- Malicious peripherals: using various non-Apple peripherals with Macs is very common
 - Physical access: stealing your Mac
 
 Potential Attacks:
 
+- You buy a new charger or USB adapter from AliExpress or any other market, which actually carries an implant that jailbreaks your T2 and installs kernel malware when connected.
 - Someone steals your powered down or locked MacBook and steals your data on disk and iCloud while disabling *Find My* and asks for a ransom.
 - Someone steals your Mac, replaces your macOS installation with something infected & puts it back, stealing your bank credentials or spying on you.
 - Someone sells you a malicious charger (or replaces yours) which auto-infects your macOS installation on every boot.
@@ -113,7 +114,7 @@ Potential Attacks:
 ## Mitigations
 
 1. Supply Chain Attacks : trust on Apple and other researchers to do their job? :-)
-2. Sales of malicious peripherals : buy only from official and reputable shops.
+2. Malicious peripherals : buy accessories (and Macs for that matter) only from official and reputable shops.
 3. Physical Access : keep a close eye on your Mac and[remove the device from iCloud](https://support.apple.com/guide/icloud/remove-a-device-mmfc0eeddd/icloud) in case of theft.
 4. Buy a new Mac with a T3 chip :-(
 5. Verify your EFI payload with [efivalidate](https://github.com/t8012/efivalidate).
