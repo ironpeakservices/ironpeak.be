@@ -130,11 +130,13 @@ macOS Big Sur finally brings some new security features to the masses, bringing 
 1. Installing profiles is not longer possible via CLI, requiring graphical confirmation in System Settings or a full MDM enrollment.
 This will prevent malware installing malicious profiles for persistence or security degradation like disabling the firewall.
 
-2. Signed System Volumes (SSV) on your boot disk **and the T2 with bridgeOS 5** ensure files on the filesystem are checked for integrity on boot. Only a valid *snapshot* of your system volume is mounted instead of a full copy which is mounted read-only.
+2. Signed System Volumes (SSV) on your boot disk **and the T2** ensure files on the filesystem are checked for integrity on boot. Only a valid *snapshot* of your system volume is mounted instead of a full copy which is mounted read-only.
 
-3. Kernel extensions are now supposed to be installed as System Extensions which run in user-space. Kernel & System extensions are also stored in a read-only portion in memory.
+3. bridgeOS 5 which is installed with Big Sure is based on iOS 14 and will include all security enhacements of it. Checkm8 and blackbird remain unable to be fixed, but are now scoped in damage to just that boot of the T2
 
-4. Modifications to the root certificate store now require graphical Administrator3 approval.
+4. Kernel extensions are now supposed to be installed as System Extensions which run in user-space. Kernel & System extensions are also stored in a read-only portion in memory.
+
+5. Modifications to the root certificate store now require graphical Administrator3 approval.
 
 And most probably more that didn't reach the news yet. More to come!
 
