@@ -1,15 +1,15 @@
 +++
 date = "2020-10-16T09:16:31+02:00"
-title = "The T2rminator"
+title = "macOS Big Sur, the T2rminator?"
 layout = "blog"
 draft = false
 +++
 
-**Questions raised since the last blog post are warranting a follow-up blog post. Let's prove some points.**
+**Questions raised since the last blog post and the recent release of macOS Big Sur and the M1 chip require some clarification.**
 
 ## Preface
 
-My previous blog post around the T2 vulnerabilities on Apple hardware caused a wave of news articles describing the issue, ranging from terrible copied to actually being written better. I'm glad the post triggered such a wide reaction and reached its end goal.
+My previous blog post around the T2 vulnerabilities on Apple hardware caused a wave of news articles describing the issue, ranging from terrible copied to actually being written in a better way. I'm glad the post triggered such a wide reaction and reached its end goal: awareness.
 
 A couple of interesting links if you aren't up to speed around the issue:
 
@@ -111,6 +111,8 @@ Potential Attacks:
 - A batch of Macs destined for **a government facility** are intercepted, USB-C hardware implants are inserted and data is exfiltrated over a cellular connection to another state actor. Remember [the SuperMicro hack controversy](https://www.zdnet.com/article/security-researcher-cited-in-supermicro-chip-hack-investigation-casts-doubt-on-story/)? *It's that on steroids.*
 - A bunch of malicious cables which are sold to a research facility ship keystrokes to a remote server, allowing for mass theft of intellectual property.
 
+*Fun fact: did you know that your Mac discloses its serial number to every charger connected? Your serial is not so secret after all.*
+
 ## Mitigations
 
 1. Supply Chain Attacks : trust on Apple and other researchers to do their job? :-)
@@ -118,6 +120,30 @@ Potential Attacks:
 3. Physical Access : keep a close eye on your Mac and[remove the device from iCloud](https://support.apple.com/guide/icloud/remove-a-device-mmfc0eeddd/icloud) in case of theft.
 4. Buy a new Mac with a T3 chip :-(
 5. Verify your EFI payload with [efivalidate](https://github.com/t8012/efivalidate).
+6. Update your Mac! macOS Big Sur includes a couple of mitigations described below.
+
+## Let's add big Sur!
+
+macOS Big Sur finally brings some new security features to the masses, bringing macOS more up to speed compared to its iOS kin:
+
+1. Installing profiles is not longer possible via CLI, requiring graphical confirmation in System Settings or a full MDM enrollment.
+This will prevent malware installing malicious profiles for persistence or security degradation like disabling the firewall.
+
+2. Signed System Volumes (SSV) on your boot disk **and the T2 with bridgeOS 5** ensure files on the filesystem are checked for integrity on boot. Only a valid *snapshot* of your system volume is mounted instead of a full copy which is mounted read-only.
+
+3. Kernel extensions are now supposed to be installed as System Extensions which run in user-space. Kernel & System extensions are also stored in a read-only portion in memory.
+
+4. Modifications to the root certificate store now require graphical Administrator3 approval.
+
+## So will M1 fix it all?
+
+Moving different things to the same SoC should at least remove some threat vectors such as Thunderbolt firmware attacks.
+Simplifying things (such as moving to a single architecture) will always benefit security.
+There is no news yet on what kind of T-chip is included in the M1 chip, so further research is required.
+All we can say for now: it's probably safer.
+
+*But do you -really- care tough? The new chip's a beast!* As proven by various benchmarks, the *cheapest* MacBook now outperforms the *most expensive* one.
+But if you -can- wait, I really suggest to wait for the M2 chip which will most probably blow us away like we've never seen.
 
 ## One More Thing
 
