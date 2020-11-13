@@ -123,7 +123,7 @@ Potential Attacks:
 5. Verify your EFI payload with [efivalidate](https://github.com/t8012/efivalidate).
 6. Update your Mac! macOS Big Sur includes a couple of mitigations described below.
 
-## Let's add big Sur!
+## Let's add Big Sur!
 
 macOS Big Sur finally brings some new security features to the masses, bringing macOS more up to speed compared to its iOS kin:
 
