@@ -104,6 +104,7 @@ Attack Vectors:
 
 Potential Attacks:
 
+- There is no reason not to think that state actors have been unlocking Macs & iPhones using this method for a while.
 - You buy a new charger or USB adapter from AliExpress or any other market, which actually carries an implant that jailbreaks your T2 and installs kernel malware when connected.
 - Someone steals your powered down or locked MacBook and steals your data on disk and iCloud while disabling *Find My* and asks for a ransom.
 - Someone steals your Mac, replaces your macOS installation with something infected & puts it back, stealing your bank credentials or spying on you.
@@ -117,7 +118,7 @@ Potential Attacks:
 
 1. Supply Chain Attacks : trust on Apple and other researchers to do their job? :-)
 2. Malicious peripherals : buy accessories (and Macs for that matter) only from official and reputable shops.
-3. Physical Access : keep a close eye on your Mac and[remove the device from iCloud](https://support.apple.com/guide/icloud/remove-a-device-mmfc0eeddd/icloud) in case of theft.
+3. Physical Access : keep a close eye on your Mac and [remove the device from iCloud](https://support.apple.com/guide/icloud/remove-a-device-mmfc0eeddd/icloud) in case of theft.
 4. Buy a new Mac with a T3 chip :-(
 5. Verify your EFI payload with [efivalidate](https://github.com/t8012/efivalidate).
 6. Update your Mac! macOS Big Sur includes a couple of mitigations described below.
@@ -138,9 +139,9 @@ This will prevent malware installing malicious profiles for persistence or secur
 ## So will M1 fix it all?
 
 Moving different things to the same SoC should at least remove some threat vectors such as Thunderbolt firmware attacks.
-Simplifying things (such as moving to a single architecture) will always benefit security.
-There is no news yet on what kind of T-chip is included in the M1 chip, so further research is required.
-All we can say for now: it's probably safer.
+In addition, simplifying architecture (such as moving so silicon comparable to the A mobile chips) will always benefit security.
+There is no news yet on what kind of T-chip is included in the M1 chip tough, so further research is required.
+All we can say for now: it's most probably safer than current Intel-based Macbooks.
 
 *But do you -really- care tough? The new chip's a beast!* As proven by various benchmarks, the *cheapest* MacBook now outperforms the *most expensive* one.
 But if you -can- wait, I really suggest to wait for the M2 chip which will most probably blow us away like we've never seen.
