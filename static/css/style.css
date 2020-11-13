@@ -2364,3 +2364,11 @@ pre code {
   display: block;
   word-wrap: break-word;
 }
+
+.blogcontent.container h2 {
+  margin-top: 40px;
+}
+
+.blogcontent.container h3 {
+  margin-top: 30px;
+}
