@@ -136,7 +136,11 @@ This will prevent malware installing malicious profiles for persistence or secur
 
 4. Modifications to the root certificate store now require graphical Administrator3 approval.
 
+And most probably more that didn't reach the news yet. More to come!
+
 ## So will M1 fix it all?
+
+The newer Apple Silicon Macs still sport a T-chip in the System-on-a-Chip, but we do not know yet whether this is a revised versionn (T3?).
 
 Moving different things to the same SoC should at least remove some threat vectors such as Thunderbolt firmware attacks.
 In addition, simplifying architecture (such as moving so silicon comparable to the A mobile chips) will always benefit security.
