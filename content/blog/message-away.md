@@ -129,7 +129,7 @@ So let's see how our contenders score on our various points, where we score very
 
 ### Investigating WhatsApp
 
-**ironPeak score**: 2/8
+**ironPeak score**: 2/10
 
 #### 1. Cross-Platform
 
@@ -160,9 +160,14 @@ WhatsApp is actively trying to get your chat metadata (usage, contacts, ...) agg
 Your WhatsApp profile is linked to your Facebook profile and network building is done as per Facebook.  
 Advertisements will be shown in contact statuses and business pages.
 
+#### 5. Trustworthy
+
+**Verdict**: very bad  
+Facebook has a known reputation of misusing sensitive data and profiling users for commercial benefit.
+
 ### Investigating Telegram
 
-**ironPeak score**: 6/8
+**ironPeak score**: 7/10
 
 #### 1. Cross-Platform
 
@@ -188,14 +193,20 @@ Metadata is not stored encrypted.
 
 #### 4. Privacy first
 
-**Verdict**: good
+**Verdict**: good  
 Telegram positions itself as an outlaw, frequently traveling between jurisdictions to evade censorship of its unencrypted contents.
 While they try to support open speech as much as possible, they do have [handed over](https://www.europol.europa.eu/newsroom/news/europol-and-telegram-take-terrorist-propaganda-online) limited data to Europol before.
 While they do their best, I'm marking this one as 'good' since they do keep some unencrypted metadata which is sensitive such as contacts, device information and people you often message.
 
+#### 5. Trustworthy
+
+**Verdict**: good  
+The founders seem to have the best intentions for providing a free and open IM solution.  
+They will need to do some commercial activities tough to fund their development, which is unclear how that evolve.
+
 ### Investigating Signal
 
-**ironPeak score**: 7/8
+**ironPeak score**: 9/10
 
 #### 1. Cross-Platform
 
@@ -223,11 +234,16 @@ Metadata is stored encrypted.
 
 **Verdict**: very good  
 Signal tries to keep as little as possible and encrypt the rest, including metadata. 
-This has proven itself to be a great privacy argument.  
+This has proven itself to be a great privacy argument. 
+
+#### 5. Trustworthy
+
+**Verdict**: very good  
+The Signal foundation provides a trustworthy way of supporting further development and operation of Signal.
 
 ### Investigating Wire
 
-**ironPeak score**: 3/8
+**ironPeak score**: 3/10
 
 #### 1. Cross-Platform
 
@@ -251,9 +267,14 @@ Metadata is not stored encrypted tough.
 **Verdict**: bad  
 Wire changed its privacy policy without noticing and potentially shares its lot of unencrypted data with 3th parties.
 
+#### 5. Trustworthy
+
+**Verdict**: bad
+Ever since the funding and takeover, Wire seems to have positioned itself more arrogantly.  
+
 ### Investigating Element
 
-**ironPeak score**: 5/8
+**ironPeak score**: 7/10
 
 #### 1. Cross-Platform
 
@@ -282,11 +303,16 @@ Metadata is encrypted
 Riot (and Element) focus on being a generic open source effort, making sure privacy is something not to worry about.  
 You are encouraged to run your own Matrix server.
 
+#### 5. Trustworthy
+
+**Verdict**: very good  
+The Matrix foundation proves a good supporter for further development around Matrix, although it's catching a bit slower than expected.
+
 ## Ending remarks
 
 In case you made it through the whole blog post without flinching, thank you for bearing with me.  
 You will have noticed that the comparison of instant messaging apps is very context-sensitive and requires a lot of technical mumbo-jumbo.  
-But when looking at the most basic points which are privacy & security, we have two clear contenders: **Signal** (7/8) and **Telegram** (6/8).
+But when looking at the most basic points which are privacy & security, we have two clear contenders: **Signal** (9/10), **Telegram** (7/ 10) and **Element**(7/10).
 
 But while Telegram provides a superior mobile & desktop experience, the nature of the company and protocol still provide some pitfalls which move Signal forward as a winner. The fact of just having E2E for all features & metadata without any fuzz and using an openly developed + audited protocol moves **Signal** over as my personal favorite. I am aware the UI experience and features on Signal are currently not on-par with Telegram, but the recent survey and hiring of user experience experts makes me believe the are aware of the issue and that I am confident it will eb away after a while.
 
