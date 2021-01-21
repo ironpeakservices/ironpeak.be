@@ -1,15 +1,25 @@
 ---
 title: "Message Away"
-date: 2021-01-18
+date: 2021-01-21
 layout: "blog"
 draft: false
 ---
 
-**In light of the WhatsApp privacy convercy, I've been tempted to dive deep into the clustered web that is instant messaging apps and their privacy and security. Message away!**
+**In light of the WhatsApp privacy controversy, I was tempted to dive deep into the clustered web that is privacy and security for instant messaging apps.**  
+**Let me guide you through the mess that is IM applications. Message away!**
+
+As always, skip to the [Ending Remarks](#ending-remarks) if you don't have time to read it all.
 
 ## Introduction
 
-WhatsApp recently anounced an update to their privacy policy which again emphasizes the fact that they were bought over by Facebook in 2014. The company used to bolster privacy & security for its users and this message was (strategically) kept even after the Facebook acquisition, but only now is Facebook coming forward with its plans to integrate WhatsApp deeply into its business platform & advertising network. Let's take you for a tour to show you how an ingenious startup slowly merged into the vast, sticky web that is Facebook.
+Since SMS (used to) be expensive and is still not secure at all, people longed for an instant way of chatting with their friends.
+This didn't go unnoticed by WhatsApp and it caught on rapidly, kicking of a new trend of using online services to chat with relatives and friends.
+
+But... WhatsApp recently anounced an update to their privacy policy which again emphasizes the fact that they were bought over by Facebook in 2014. The company used to bolster privacy & security for its users and this message was (strategically) kept even after the Facebook acquisition, but only now is Facebook coming forward with its plans to integrate WhatsApp deeply into its business platform & advertising network. Let's take you for a tour to show you how an ingenious startup slowly merged into the vast, sticky web that is Facebook.
+
+So what is the right end-to-end encrypted (E2E) instant messaging app I should use? It's not so trivial for a regular user to determine, which is why I'm going to outline the most important factors for you to consider to protect your privacy.
+Do note that apps that do not focus on E2E encryption (such as Slack, Teams, Skype, ...) are not mentioned here since the whole point is that your data belongs to the company administrating your account.
+For iMessage (or anything stored in iCloud) is encrypted with a symmetric key and this key can be retrieved by Apple, this is not really E2E encryption and not included in the comparison.
 
 ### IM, Que?
 
@@ -18,37 +28,38 @@ Later on, people started using voice calls, video calls, sending attachments and
 
 ### Requirements
 
-So first let's iterate over our list of what we would like to see in a  
+So first let's iterate over our list of what we would like to see in a secure and privacy-conscious instant messaging app:
 
-#### Cross-platform
+#### 1. Cross-platform
 
 Our ideal IM application should be able to work on our personal devices with the same featureset: desktop/web and mobile.
 To we need an application on iOS & Android for mobile and a native or web application for macOS and Windows.
 
-#### User friendly
+#### 2. User friendly
 
 We want an application that's preferably native on our mobile device to swiftly open up. We need to easily get an overview of our recent contacts, jump into a conversation and easily add-in new replies, attachments, GIFs and memes or stickers (if you must).
 Bonus points if the application sports a dark mode to save your eyes!
 
-#### Secure
+#### 3. Secure
 
 The application we are looking for should guarantee CIA *(Confidentiality, Integrity, Availibility)* of our personal data we provide to and store in the IM application.
 When talking about the messages themselves, we want them to be End-to-End Encrypted (E2E) so it's only readable on our verified device.
 Others should not be able to snoop into our messages, usage data or any other information that could disclose something about ourself such as usage patterns, contacts, etc...
 Our data should be stored securely at rest and we need a secure way to unlock the application for us to use.
+This also includes group chats, which is not always the case for every protocol.
 
-#### Privacy first
+#### 4. Privacy first
 
 The data we insert into our IM application is very sensitive.
 It describes us in a direct way (being the profile we create, our usage patterns or the way we use the app) and can be directly linked to us.
 Because of this it's paramount the security is top notch and we should have sufficient fate in the trustworthyness of the application, protocol and server it is residing on.
 The privacy policy of the IM application should at least describe what the entity is planning to do with our data and how it will protect it.
 
-#### Trustworthy
+#### 5. Trustworthy
 
 Because these apps are part of our daily lives (and could even be used to prosecute us in certain countries), the entity behind the IM application must have good intentions on how it is going to store, protect and process our data. Even if the entity is perfectly fine from a security or privacy perspective, it could still be lacking due to a bad monetization scheme resulting in them selling out to an evil corporate venture. Ring a bell?
 
-### Metadata
+### 6. Metadata
 
 You'll notice that all contenders here support both E2E encryption which encrypts the message you are sending.
 But to be able to send that unreadable encrypted data blob, it needs a whole lot of extra information to be included such as recipient, sender, time is was sent, potential logging, what server it's going to, etc...
@@ -57,6 +68,10 @@ But this metadata is *also* sensitive information, since it can disclose informa
 An example case; if we can see that a government employee is chatting with a reporter every morning at 9h00 and sending huge blobs of messages, the employee *can* get arrested for potential whistleblowing.
 
 ## The Contenders
+
+I've looked up the most promising contenders which mention end-to-end encryption as their main selling points.  
+But to completely get an app, you need to be aware of the backstory and the technical foundation.  
+Let's pick up those history books:
 
 ### About WhatsApp
 
@@ -96,19 +111,80 @@ Telegram has been under wide scrutiny since it is heavily used as a communicatio
 
 ## Game on
 
+So let's connect our question marks with the contenders:
+
 ### Investigating WhatsApp
+
+#### 1. Cross-Platform
+
+#### 2. User friendly
+
+#### 3. Secure
+
+#### 4. Privacy first
+
+#### 5. Metadata
 
 ### Investigating Telegram
 
+#### 1. Cross-Platform
+
+#### 2. User friendly
+
+#### 3. Secure
+
+#### 4. Privacy first
+
+#### 5. Metadata
+
 ### Investigating Signal
+
+#### 1. Cross-Platform
+
+#### 2. User friendly
+
+#### 3. Secure
+
+#### 4. Privacy first
+
+#### 5. Metadata
 
 ### Investigating Wire
 
+#### 1. Cross-Platform
+
+#### 2. User friendly
+
+#### 3. Secure
+
+#### 4. Privacy first
+
+#### 5. Metadata
+
 ### Investigating Matrix/Elements
+
+#### 1. Cross-Platform
+
+#### 2. User friendly
+
+#### 3. Secure
+
+#### 4. Privacy first
+
+#### 5. Metadata
 
 ## Ending remarks
 
-sdad
+In case you made it through the whole blog post without flinching, thank you for staying with me.  
+You will have noticed that the comparison of instant messaging apps is very context-sensitive and requires a lot of technical mumbo-jumbo.
+But when looking at the most important points which is privacy & security, we have two clear contenders: **Signal** and **Telegram**.
 
-**TL;DR: try to get your friends and familiy to switch from WhatsApp(/Facebook+Messenger+Instagram) and move to Signal or Telegram.
-If they use Facebook, Messanger or Instagram still try to convince them to chat over a separate IM application.**
+
+But while Telegram provides a superaior mobile & desktop experience, the nature of the company and protocol still provide some pitfalls which move Signal forward as a winner. The fact of just having E2E for all features & metaata without any fuzz and using an openly developed + audited protocol moves **Signal** over as my personal favourite. I am aware the UI experience and features on Signal are currently not on-par with Telegram, but the recent survey and hiring of user experience experts makes me believe the are aware of the issue and that it will eb away after a while.
+
+But does your grandma really need to switch? Yes. It is your responsibly to translate these semi-technical points to her in the form of advice.
+As always with security & privacy, awareness is key and I trust it onto you to bring forth the message.  
+As Edmund Burke put it so nicely: *"The only thing necessary for the triumph of evil is for good men to do nothing.”*
+
+**TL;DR :** try to get your friends and familiy to switch from WhatsApp and **move to Signal**.  
+Even if they still use Facebook/Messenger/Instagram, try to convince them to at least chat to you over a more responsible IM application.
