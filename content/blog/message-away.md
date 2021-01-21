@@ -5,7 +5,7 @@ layout: "blog"
 draft: false
 ---
 
-**In light of the WhatsApp privacy controversy, I was tempted to dive deep into the clustered web that is privacy and security for instant messaging apps. Let me guide you through the mess that is IM applications. Message away!**
+**In light of the WhatsApp privacy controversy, I was tempted to dive deep into the clustered web that is privacy and security for instant messaging apps. Let me guide you through the mess that is secure instant messaging. Message away!**
 
 As always, skip to the [Ending Remarks](#ending-remarks) if you don't have time to read it all.
 
@@ -151,6 +151,7 @@ Communication to WhatsApp/Facebook servers happen over TLS.
 Group messages, voice calls and video calls are all routed through the Signal protocol.  
 A 3th party security audit is not available for WhatsApp.
 WhatsApp does not have client nor server source code available.  
+WhatsApp sends unencrypted metadata to its servers which contains who you message with, how often, your location and other things.
 
 #### 4. Privacy first
 
@@ -158,11 +159,6 @@ WhatsApp does not have client nor server source code available.
 WhatsApp is actively trying to get your chat metadata (usage, contacts, ...) aggregated into Facebook operations.  
 Your WhatsApp profile is linked to your Facebook profile and network building is done as per Facebook.  
 Advertisements will be shown in contact statuses and business pages.
-
-#### 5. Metadata
-
-**Verdict**: bad  
-WhatsApp sends unencrypted metadata to its servers which contains who you message with, how often, your location and other things.
 
 ### Investigating Telegram
 
@@ -187,7 +183,8 @@ Although you can start secure 1-on-1 chats, this is not the case by default with
 Group chats are not E2E encrypted.
 Communication to Telegram servers happen over TLS.
 A 3th party audit is not available for Telegram.
-Client implementations are open source while the server one is not.
+Client implementations are open source while the server one is not.  
+Metadata is not stored encrypted.
 
 #### 4. Privacy first
 
@@ -220,6 +217,7 @@ Everything sent is E2E encrypted using the Signal protocol, including group mess
 Communication to Signal servers happen over TLS.  
 A 3th party security audit is available for the Signal protocol.  
 Client and server implementations are open source.
+Metadata is stored encrypted.
 
 #### 4. Privacy first
 
@@ -245,7 +243,8 @@ The Wire app seems like a conventional IM client, sporting all usual functionali
 #### 3. Security
 
 **Verdict**: good  
-Wire uses the Proteus protocol, which is loosely based on the Signal protocol.
+Wire uses the Proteus protocol, which is loosely based on the Signal protocol.  
+Metadata is not stored encrypted tough.
 
 #### 4. Privacy first
 
@@ -258,24 +257,24 @@ Wire changed its privacy policy without noticing and potentially shares its lot 
 
 #### 1. Cross-Platform
 
-**Verdict**: good
+**Verdict**: good  
 The hybrid Element client is available for iOS, Android, macOS, Windows and linux.
 
 #### 2. User friendly
 
-**Verdict**: bad
+**Verdict**: bad  
 The hybrid application of Element works fine on mobile applications, but you can notice that it's quite bare-bone and slower on the desktop version.  
 The feature-set is also rather limited for intensive IM usage.
 
 #### 3. Security
 
-**Verdict**: very good
-
+**Verdict**: very good  
 The matrix protocol has been thoroughly reviewed and audited and provides for a robust generic protocol.  
 E2E encryption is done for everything, including groups/channels.  
 Communication to the Matrix server happens over TLS.
 A recent 3th party audit is not available for Element.  
 Both the client and server implementation are open source.
+Metadata is encrypted
 
 #### 4. Privacy first
 
