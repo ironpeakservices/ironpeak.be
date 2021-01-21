@@ -264,7 +264,7 @@ a:focus {
   outline-offset: -2px;
 }
 
-img {
+img, valign-center {
   vertical-align: middle;
 }
 
@@ -1573,8 +1573,6 @@ code {
   }
 }
 
-@charset "UTF-8";
-
 *,body {
   font-family: montserrat-regular,sans-serif;
   transition: all .3s ease 0;
@@ -2045,37 +2043,37 @@ code {
   margin-right: 2px;
 }
 
-#pricing {
-  padding-top: 60px;
-  padding-bottom: 60px;
+#blog {
+  padding-top: 3%;
+  padding-bottom: 3%;
   background-color: #f1f6fc;
 }
 
-#pricing .row-title {
+#blog .row-title {
   text-align: center;
 }
 
-#pricing .row-title h4 {
+#blog .row-title h4 {
   font-family: montserrat-semibold,sans-serif;
   color: #697b91;
   font-size: 24px;
   margin-bottom: 10px;
 }
 
-#pricing .row-title h5 {
+#blog .row-title h5 {
   font-size: 15px;
   color: #aec0c7;
   margin-bottom: 90px;
 }
 
-#pricing .plan-box {
+#blog .plan-box {
   background-color: #fff;
   border-radius: 5px;
   margin-bottom: 20px;
   transform: scale(1);
 }
 
-#pricing .plan-box .plan-box-header {
+#blog .plan-box .plan-box-header {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   text-align: center;
@@ -2083,11 +2081,11 @@ code {
   padding-bottom: 20px;
 }
 
-#pricing .plan-box .plan-box-header:hover {
+#blog .plan-box .plan-box-header:hover {
   opacity: .9;
 }
 
-#pricing .plan-box .plan-box-header .plan-title {
+#blog .plan-box .plan-box-header .plan-title {
   font-family: montserrat-semibold,sans-serif;
   font-size: 11px;
   text-transform: uppercase;
@@ -2096,38 +2094,30 @@ code {
   opacity: .5;
 }
 
-#pricing .price-holder {
+#blog .blogpost-title {
   position: relative;
   display: inline-block;
-}
-
-#pricing .price-holder .number {
-  display: inline-block;
-}
-
-#pricing .price-holder .number .num-big {
-  display: inline-block;
   font-family: montserrat-bold,sans-serif;
-  font-size: 65px;
+  font-size: 22px;
   color: #fff;
+  padding: 2px;
 }
 
-#pricing .price-holder .num-small-holder {
+#blog .blogpost-title span {
+  font-family: montserrat-bold,sans-serif;
+  vertical-align: middle;
+}
+
+#blog .blogpost-title .num-small-holder {
   display: inline-block;
   margin-left: -5px;
 }
 
-#pricing .price-holder .number .num-small {
-  font-family: montserrat-bold,sans-serif;
-  font-size: 22px;
-  color: #fff;
-}
-
-#pricing .plan-box .plan-box-content {
+#blog .plan-box .plan-box-content {
   padding: 22px 20px;
 }
 
-#pricing .plan-box .plan-box-button a {
+#blog .plan-box .plan-box-button a {
   display: inline-block;
   width: 100%;
   border-radius: 5px;
@@ -2371,4 +2361,8 @@ pre code {
 
 .blogcontent.container h3 {
   margin-top: 30px;
+}
+
+.blogpost-title {
+  min-height: 8rem;
 }

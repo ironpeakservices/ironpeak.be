@@ -7,7 +7,7 @@
 
     {{ partial "navbar-blog.html" . }}
 
-    <div id="pricing" class="container-fluid">
+    <div id="blog" class="container-fluid">
         <div class="container">
             {{ range .Pages }}
             <a href="{{.Permalink}}">
@@ -18,14 +18,10 @@
                             {{ .Date.Format "2006-01-02" }}
                         </div>
                         
-                        <div class="price-holder">
-                            <div class="number">
-                                <div class="num-small-holder">
-                                <div class="num-small">
-                                    {{ .Title }}
-                                </div>
-                            </div>
-                            </div>
+                        <div class="blogpost-title v-align">
+                            <span>
+                                {{ .Title }}
+                            </span>
                         </div>
                     </div>
                     <div class="plan-box-content summary">
