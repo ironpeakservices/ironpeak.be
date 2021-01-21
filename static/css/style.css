@@ -1573,8 +1573,6 @@ code {
   }
 }
 
-@charset "UTF-8";
-
 *,body {
   font-family: montserrat-regular,sans-serif;
   transition: all .3s ease 0;
