@@ -1,6 +1,9 @@
 [blog]
 other = "Blog"
 
+[slides]
+other = "Slides"
+
 [contact]
 other = "Contacteer"
 

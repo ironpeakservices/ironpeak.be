@@ -28,7 +28,7 @@ Later on, people started using voice calls, video calls, sending attachments and
 ### Requirements
 
 So first let's iterate over our list of what we would like to see in a secure and privacy-conscious instant messaging app:  
-Altough I touch a couple of key points, there are a lot more factors you can consider. e.g. check out [securemessagingapps.com](https://www.securemessagingapps.com).
+Although I touch a couple of key points, there are a lot more factors you can consider. e.g. check out [securemessagingapps.com](https://www.securemessagingapps.com).
 
 #### 1. Cross-platform
 
