@@ -2235,9 +2235,11 @@ code {
     width: 100%;
   }
 
+  /*
   .rocket-animation {
     bottom: 450px;
   }
+  */
 
   #info {
     display: none;
