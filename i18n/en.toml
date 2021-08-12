@@ -64,9 +64,9 @@ other = "Cloud Services Provider"
 other = "Kubernetes & AWS security assessments, reference solution R&D."
 
 [main_helped_3]
-other = "Government Agency"
+other = "Cybersecurity Vendor"
 [main_helped_3_desc]
-other = "F5 BIG-IP LTM/ASM/APM implementation."
+other = "Cloud native security."
 
 [main_helped_4]
 other = "International Aviation Company"
