@@ -9,7 +9,7 @@ jobs:
     name: Scan public website
     steps:
       - name: ZAP Scan
-        uses: zaproxy/action-full-scan@v0.2.0
+        uses: zaproxy/action-full-scan@v0.3.0
         with:
           issue_title: Vulnerability Scan Results
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -23,7 +23,7 @@ jobs:
     name: Scan k8s cluster
     steps:
       - name: ZAP Scan
-        uses: zaproxy/action-full-scan@v0.2.0
+        uses: zaproxy/action-full-scan@v0.3.0
         with:
           issue_title: Vulnerability Scan Results
           token: ${{ secrets.GITHUB_TOKEN }}
