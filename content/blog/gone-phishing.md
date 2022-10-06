@@ -1,5 +1,5 @@
 
-# Gophish-evilginx2 trip
+# Gone Phishing
 
 Disclaimer
 
