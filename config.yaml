@@ -27,3 +27,8 @@ outputFormats:
 minificationOptions:
     KeepConditionalComments: true
     KeepEndTags: false
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
