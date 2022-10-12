@@ -83,12 +83,15 @@ To install evilnginx2, go to [https://github.com/kgretzky/evilnginx2/releases/la
 <img src="/img/img-phishing/copylinkevilginx2.png"/>
 
 Go to your VPS over SSH and past the link behind the **wget** command :
-```wget https://github.com/kgretzky/evilnginx2/releases/download/<newst.version>/evilginx-linux-amd64.tar.gz```
+`wget https://github.com/kgretzky/evilnginx2/releases/download/<newst.version>/evilginx-linux-amd64.tar.gz`.
 Now extract the file accordingly, for tar.gz files you should first extract them:
-```tar -xf <filename>```
+`tar -xf <filename>`
 and to start the engine:
-```chmod 700 ./evilnginx2```
-```sudo ./evilnginx2```
+
+```shell
+chmod 700 ./evilnginx2
+sudo ./evilnginx2
+```
 
 If something goes wrong check [the GitHub repo](https://github.com/kgretzky/evilnginx2) for further instructions.
 For the demo we will concentrate on Office 365 since it is such an easy and popular attack vector.
