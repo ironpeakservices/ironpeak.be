@@ -236,6 +236,12 @@ After saving the api key go to your gophish sending profile and fill it in the p
 
 <img src="/img/img-phishing/sendingacc.png" />
 
+Now all that is left to do is add victims email addresses in a list and launch your Gophish campaign at the "campaigns" entry in the navigation sidebar and send the phishing email to the victims.
+
+Look at your evilnginx2 tool to see when users are visiting your phishing link, check sessions in your tool to find the captured credentials and session cookies.
+
+Finally, profit.
+
 ### Mitigations
 
 One of the best ways to prevent all this is to only use authentication methods that cannot be intercepted.
