@@ -65,7 +65,7 @@ Explicitly stating that it comes from a whitelist of email servers on the intern
 It will depend on your DNS host how you need to configure your records, but just be sure to select the right type for your host and values.
 Double check if your own hostname is getting auto-filled or not because this can often lead to misconfigurations as seen below:
 
-<img align="middle" src="/img/img-phishing/SendGrid%20wrong%20.png" width="600" height="200"/> 
+<img align="middle" src="/img/img-phishing/sendgrid%20wrong%20.png" width="600" height="200"/> 
 
 Meanwhile while we are in the configuration panel of our DNS host we can also link the IP address of our VPS to our domain, which we will need later when setting up our proxy (evilnginx2).
 
@@ -80,7 +80,7 @@ We therefore fool the real application into thinking we are the real user succes
 
 To install evilnginx2, go to [https://github.com/kgretzky/evilnginx2/releases/latest](https://github.com/kgretzky/evilnginx2/releases/lates) and copy the link behind the precompiled package for your architecture, e.g (evilginx-linux-amd64.tar.gz)
 
-<img src="/img/img-phishing/copylinkevilnginx2.png"/>
+<img src="/img/img-phishing/copylinkevilginx2.png"/>
 
 Go to your VPS over SSH and past the link behind the **wget** command :
 ```wget https://github.com/kgretzky/evilnginx2/releases/download/<newst.version>/evilginx-linux-amd64.tar.gz```
@@ -155,6 +155,14 @@ Once in evilnginx2 type
 Copy the link and paste it in your browser.
 
 <img src="/img/img-phishing/linktophish.png" width="700" height="700" />
+
+When credentials are captured you can find them back in your evilnginx2 tool when typing ```sessions``` 
+
+<img src="/img/img-phishing/sessions.png">
+
+To get a more detailed view of the session just add the id number to the command and you will see the captured credentials along with the session cookie to bypass the 2-factor authentication protection.```sessions 46```
+
+<img src="/img/img-phishing/sessioncapture.png">
 
 To make sure that evilnginx2 stays up and running after disconnecting you SSH connection we can put the evilnginx2 session in [tmux](https://www.hamvocke.com/blog/a-quick-and-easy-guide-to-tmux/).
 To start up a new tmux session just type
