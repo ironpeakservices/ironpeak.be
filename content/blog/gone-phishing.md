@@ -267,6 +267,11 @@ This proves for a very effective MFA method since it's invisible to the user, bu
 4. **Risky login or user detection**
 Azure AD has a feature called "Risky sign-ins" and "Risky users". This is a runtime and adaptive check that they run on a couple of metrics during an Office365 login attempt.
 
+5. **Push-based MFA**
+In theory push-based MFA provides an unphisheable method since it uses a sideband channel to your Authenticator mobile application.
+However we've seen that spamming those or convincing the user to accept it also a very effective method.
+Partial mitigations would be enabing location, application name and number matching in your Azure Authenticator settings but this is not perfect.
+
 Identity protection detects risk of a set of types including:
 
 * Impossible travel
