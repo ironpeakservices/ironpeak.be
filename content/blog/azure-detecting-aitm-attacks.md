@@ -1,5 +1,5 @@
 +++
-date = "2024-01-01T09:16:31+02:00"
+date = "2024-01-10T09:16:31+02:00"
 title = "Detecting AiTM attacks in Azure"
 layout = "blog"
 draft = false
