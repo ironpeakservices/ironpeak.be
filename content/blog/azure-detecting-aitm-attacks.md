@@ -52,7 +52,7 @@ I'm just joking, we don't need all that. We can simply make use of a simple Azur
 This should have you end up with something like this:
 
 <br/>
-<img align="middle" title="Azure Logic App example" src="/img/blog/azure-detecting-aitm/aitm-logicapp.png" width="100%" height="auto"/>
+<img align="middle" title="Azure Logic App example" src="/img/azure-detecting-aitm/aitm-logicapp.png" width="100%" height="auto"/>
 <br/>
 
 ### Building the canary payload
@@ -257,7 +257,7 @@ Again, this is not a 'secure' solution in its own sense but is just to ward off 
 Now head over to your [Azure Company Branding page](https://entra.microsoft.com/#view/Microsoft_AAD_UsersAndTenants/CompanyBrandingOverview.ReactView) and go through the Edit wizard. When it asks to upload a `Custom CSS` file, select your previously created canary CSS file. Now Save. Note that this requires *Global Administrator* permissions.
 
 <br/>
-<img align="middle" title="Custom CSS section" src="/img/blog/azure-detecting-aitm/customcss.png" width="100%" height="auto"/>
+<img align="middle" title="Custom CSS section" src="/img/azure-detecting-aitm/customcss.png" width="100%" height="auto"/>
 
 This usually takes around 10-20 minutes for the change to propagate across the Azure CDN. Make sure to disable browser caching when testing.
 
