@@ -4,25 +4,19 @@ baseURL: /
 
 DefaultContentLanguage: en
 languages:
-    en:
-        languageName: English
-        weight: 1
-    nl:
-        languageName: Nederlands
-        weight: 2
-
+  en:
+    languageName: English
+    weight: 1
+  nl:
+    languageName: Nederlands
+    weight: 2
 
 disableHugoGeneratorInject: true
-#disableLiveReload: true
 
 enableRobotsTXT: true
 
 permalinks:
   posts: /:year/:month/:title/
-
-outputFormats:
-    - html:
-        minify:true
 
 minificationOptions:
     KeepConditionalComments: true
