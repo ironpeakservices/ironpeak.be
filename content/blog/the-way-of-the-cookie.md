@@ -5,7 +5,7 @@ layout = "blog"
 draft = false
 +++
 
-**For everyone in the room that is somewhat of an IT administrator to one or more Azure (including Office365) tenants, please raise your hand if you've been bestowed with the gift (or curse) of permanent administrative permissions. Cue nervous laughter. Sounds a bit risky, right?  Imagine the chaos if that account ever fell into the wrong hands. But how could one ever fix this at all if you need those to do your job? Let me show you the way of the cookie, a vastly underutilized feature of Azure. So grab a cookie and let's crunch through this together.**
+**For everyone in the room who is somewhat of an IT administrator to one or more Azure (including Office365) tenants, please raise your hand if you've been bestowed with the gift (or curse) of permanent administrative permissions. Cue nervous laughter. Sounds a bit risky, right?  Imagine the chaos if that account ever fell into the wrong hands. But how could one ever fix this at all if you need those to do your job? Let me show you the way of the cookie, a vastly underutilized feature of Azure. So grab a cookie and let's crunch through this together.**
 
 ### Problem statement
 
