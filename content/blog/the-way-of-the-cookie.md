@@ -68,7 +68,7 @@ SigninLogs
 | where UserPrincipalName has_any (accounts)
 | extend deviceDetails = parse_json(DeviceDetail)
 | project TimeGenerated, Account = UserPrincipalName, Country = Location, Application = AppDisplayName, IP = IPAddress,
-    CompliantDevice = deviceDetails['isCompliant'], ManagedDevice = deviceDetails['isManaged'], OS = deviceDetails['operatingSystem'], IsInteractive
+	CompliantDevice = deviceDetails['isCompliant'], ManagedDevice = deviceDetails['isManaged'], OS = deviceDetails['operatingSystem'], IsInteractive
 ; 
 ```
 
@@ -131,7 +131,7 @@ A nice workaround, is that you can actually use *AuditLogs* to filter for any PI
 AuditLogs
 | where tolower(OperationName) contains "approval requested (pim activation)"
 | project TimeGenerated, Identity, Reason = ResultReason, TargetResources[0].displayName, TargetResources,
-    CorrelationId = tostring(parse_json(TargetResources[0]).id)
+	CorrelationId = tostring(parse_json(TargetResources[0]).id)
 | extend DeviceDetails = toscalar(SigninLogs| where isnotempty(CorrelationId) and CorrelationId == CorrelationId | project DeviceDetail)
 | project-away CorrelationId
 ;
@@ -213,15 +213,15 @@ The tailscale ACL for such a setup could look something like this:
 				"production-network:*"
 			]
 		},
-        // Allow access to non-production by default
-        {
-            "action": "accept",
-            "src":    ["group:developers@company.com"],
-            "dst": [
-                "tag:nonproduction:*",
+		// Allow access to non-production by default
+		{
+			"action": "accept",
+			"src":    ["group:developers@company.com"],
+			"dst": [
+				"tag:nonproduction:*",
 				"nonproduction-network:*"
-            ]
-        }
+			]
+		}
 	]
 }
 ```
