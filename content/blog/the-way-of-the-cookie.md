@@ -17,26 +17,26 @@ But here's the kicker: you need those permissions to get stuff done, right?
 It's the ultimate dilemma: damned if you do, doomed if you don't.
 But let's delve deeper into the trenches of Azure's landscape to understand why this dilemma is more than just a mere inconvenience.
 
-Permissions in Azure are structured in a way that's building upon their concept of *Management Groups*, *Subscriptions* and *Resource Groups*.
+Permissions in Azure are structured in a way that builds upon their concept of *Management Groups*, *Subscriptions* and *Resource Groups*.
 You typically have one (others might have more, e.g. MSPs or enterprises) Management Group+Subscription which contains all your Azure-related assets such as Entra ID (previously named Azure AD). Another example is *Conditional Access*, for which you'd typically want the *Security Administrator* role.
 Within this Subscription, you are able to group Azure resources into Resource Groups.
 Now, sadly you currently aren't able to nest Resource Groups but that's a whole different discussion, back to the topic. Resource Groups contain your actual Azure objects such as Virtual Machines, Databases, Logic Apps, Storage Accounts and more.
 A small note is that users cannot exist within Resource Groups but do heavily interact with them, which makes sense if you think about it.
 
-Every level of access abstraction has their own IAM assignments, which means you can nicely assign granular permissions up to object-level.
+Every level of access abstraction has its own IAM assignments, which means you can nicely assign granular permissions up to the object level.
 The only downside is that since you're often touching objects across multiple RGs and products, new users are often faced with permission issues.
-And, as we're only human (for now) and wanting to get work done, people quickly resort to granting very permissive roles to their Entra accounts: Application Administrator, Security Administrator, Privileged Role Administrator, or worse: Contributor and Global Administrator.
+And, as we're only human (for now) and want to get actual work done, people quickly resort to granting very permissive roles to their Entra accounts: Application Administrator, Security Administrator, Privileged Role Administrator, or worse: Contributor and Global Administrator.
 
-I often do assessments for customers where I receive readonly access to their Azure tenant for audit or incident purposes.
+I often do assessments for customers where I receive read-only access to their Azure tenant for audit or incident purposes.
 And you'd be surprised how often those tenants contain permanent Global Administrator users, hopefully with at least an insecure method of MFA enabled.
-One factor that shouldn't be forgotten aswel is the fact that these things often grow *organically*, which is my favourite way of describing how things get borked over time if there's nobody present to keep applying *risk pressure* on environment changes.
+One factor that shouldn't be forgotten as well is the fact that these things often grow *organically*, which is my favorite way of describing how things get borked over time if there's nobody present to keep applying *risk pressure* on system changes.
 
 But, [as we've written already](/blog/gone-phishing/), identity is still a booming risk factor and growing.
-Account compromise for one of those accounts is a very good threat vector for attackers to get foothold and ransom your tenant whilst exfiltrating data
-This sounds a far-from-by-bed show, but it's actually really simple if you use an authentication method that is not phishing-resistant, such as password/(T)OTP, etc... and just get phished after a quick LinkedIn search and email lookup. (Which, ironically, is also how other people have been pestering my phone non-stop to sell their services.)
-But even when using state of the art authentication mechanisms such as PassKey/FIDO2, we've seen cases where attackers use more elaborate ways to just steal your session token *after* authenticating via malware. Luckily, Token Protection in Conditional Access is able to cryptographically bind user tokens to Entra-registered Windows systems but that's currently limited to a select amount of applications and I have yet to see this implemented in the wild.
+Account compromise for one of those accounts is a very good threat vector for attackers to get a foothold and ransom your tenant whilst exfiltrating data
+This sounds like a far-from-by-bed show, but it's actually really simple if you use an authentication method that is not phishing-resistant, such as password/(T)OTP, etc... and just get phished after a quick LinkedIn search and email lookup. (Which, ironically, is also how other people have been pestering my phone non-stop to sell their services.)
+But even when using state-of-the-art authentication mechanisms such as PassKey/FIDO2, we've seen cases where attackers use more elaborate ways to just steal your session token *after* authenticating via malware. Luckily, Token Protection in Conditional Access is able to cryptographically bind user tokens to Entra-registered Windows systems but that's currently limited to a select amount of applications and I have yet to see this implemented in the wild.
 
-So, we're stuck in a situation where people are a likely to be targeted and their permissions
+So, we're stuck in a situation where people are likely to be targeted and their permissions
 But luckily, there's a way to survive.
 
 Say hello to **JIT** via **PIM**.
@@ -45,20 +45,22 @@ Say hello to **JIT** via **PIM**.
 
 Just-in-Time (JIT) ACL management is the art of only providing access when it's needed, and falling back to a least-permissive model when not.
 The idea is that, in case of compromise, the attacker can't pivot using those permissions.
-JIT access request should be requested under strict security requirements and subject to peer approval.
-By requiring a set of security principles to be true for a JIT request to be granted, attackers will find it hard to request (since the session will e.g. need to be protected by a set of credentials which was not possible to steal) and get their request approved without the proper justification, such as an internal IT ticket. 
+JIT access requests should be requested under strict security requirements and subject to peer approval.
+By requiring a set of security principles to be true for a JIT request to be granted, attackers will find it hard to request (since the session will e.g. need to be protected by a set of credentials that was not possible to be sniffed) and get their request approved without the proper justification, such as an internal IT ticket. 
 
 Within Azure ID Governance, this is possible with [Privileged Identity Management](https://learn.microsoft.com/en-us/entra/id-governance/privileged-identity-management/pim-configure) or PIM for short.
-A fun fact is that PIM could also reference to [a famous cookie](https://duckduckgo.com/?q=pim+cookie&iax=images&ia=images), which led to the cookie being universally adopted with colleagues as the icon for PIM access requests.
+A fun fact is that PIM could also reference [a famous cookie](https://duckduckgo.com/?q=pim+cookie&iax=images&ia=images), which led to the cookie being universally adopted by colleagues as the icon for PIM access requests.
 
-Once the details have been ironed out, create quick bookmarks to the PIM page so people can request their access nice and easy.
+Let's go over the seven principles of JIT via PIM. (*Doesn't that roll of the tongue?*)
+Once the details have been ironed out, don't forget to create bookmarks referencing the PIM dashboard so people can request their access nicely and easily.
+It's all about UX and *paved ways* so users are encouraged to do the right thing.
 
 **1. Break glass in case of emergencies**
 
-Using fancy Just-in-Time access is fun and all, but you should have a fallback mechanism if your identity management system fails. And it can.
-I typically recommend to create a permanent *Global Administrator* account on Subscription-level, which uses a physical security key such as a Yubikey.<br/>
+Using fancy Just-in-Time access is fun and all, but you should have a fallback mechanism if your JIT management system fails. And it can.
+I typically recommend creating a permanent *Global Administrator* account on the Subscription level, which uses a physical security key such as a Yubikey.<br/>
 If you are using a device management solution such as Intune, also requires the use of a previously-known, compliant device.
-This account is -not- supposed to be used and for emergency situations only. Any usage of this account should trigger a High severity incident to the team.
+This account is -not- supposed to be used for emergency situations only. Any usage of this account should trigger a High severity incident to the team.
 
 I would recommend, if you're a Microsoft Sentinel or any other SIEM user, to create an alert rule akin to;
 
@@ -72,18 +74,18 @@ SigninLogs
 ; 
 ```
 
-Ensure this rule fires as soon as possible (called *NRT* in Sentinel). You'll notice that this doesn't filter for *successfull* authentication attempts.
-Since the email address is supposed to be interal, any attempts will be good to know about.
+Ensure this rule fires as soon as possible (called *NRT* in Sentinel). You'll notice that this doesn't filter for *successful* authentication attempts.
+Since the email address is supposed to be internal, any attempts will be good to know about.
 
 **2. Read-only by default**
 
-The default role for any user within your IT team, including security (*Sure, fire me for this*), should be readonly.
+The default role for most users within your IT team, including security (*Sure, fire me for this*), should be read-only.
 This is for a couple of reasons:
 
 1. Openness to your internal team. By still providing visibility in your tenant and not locking down all access, you stimulate people to get familiar with your systems.
 This might be an issue if you would have locked down everything and only gave people access to the one dashboard you think they should need.
 2. An awful lot of your time is spent figuring out and clicking around compared to making changes. So you're not impacting people on the first phase of their workflow at all.
-2. Foster prepared work. Since users have readonly access, they are still able to deduce a problem from your Azure tenant and come with a hypothesis. (We think X is the issue or we need to implement Y to resolve the current ticket.)
+2. Foster prepared work. Since users have read-only access, they are still able to deduce a problem from your Azure tenant and come up with a hypothesis. (We think X is the issue or we need to implement Y to resolve the current ticket.)
 With this hypothesis, they know now what permissions are required and can then request only these least privileged ones.
 
 **3. Scoping is king**
@@ -96,36 +98,36 @@ Don't go about adding eligible Global Administrator permissions to everyone.
 
 **4. Require the right context**
 
-Using [Authentication Context](https://learn.microsoft.com/en-us/entra/identity-platform/developer-guide-conditional-access-authentication-context) in Conditional Access, you are able to require the requestors session to be according to a set of requirements.
+Using [Authentication Context](https://learn.microsoft.com/en-us/entra/identity-platform/developer-guide-conditional-access-authentication-context) in Conditional Access, you are able to require the requestor's session to be according to a set of requirements.
 How it works is that in a Conditional Access you can require a set of requirements and only then *Grant* that authentication context.
 Examples could be: *FIDO2 Auth Context*, *Compliant Device Context*, *Limit session lifetime*, etc...
 Since we want to secure our administrative actions, you'll want a strong authentication context to be set. Create this, which is merely an empty context.
-Now create a CAP to require device-bound FIDO2 authentication and a compliant device which sets this authentication context.
+Now create a CAP to require device-bound FIDO2 authentication and a compliant device that sets this authentication context.
 You can now change your PIM assignments to require this authentication context to be set.
 
 PS: I don't think it's currently possible to require this for the approver.
 
 **5. Ticky ticky ticky**
 
-In the world of cloud infrastructure, we talk about the anti-pattern *ClickOps*. And this expands to your Azure environment as wel.
+In the world of cloud infrastructure, we talk about the anti-pattern *ClickOps*. And this expands to your Azure environment as well.
 You're highly likely performing actions using the web interface or PowerShell, which means it's impossible to track in *git* or *Terraform*.
 Because of this, it's very important to do change tracking in tickets. By requiring a ticket in every PIM request, you force the requestor to document their plans and also make it much easier for the approver to decide if it's actually a good idea to do. 
 
 **6. Automated reviews**
 
-Ok, so you've setup this awesome system. But this sounds awfully complicated to keep track of manually.
+Ok, so you've set up this awesome system. But this sounds awfully complicated to keep track of manually.
 A nice thing when you have the right license(s) within your tenant, is [Azure Access Reviews](https://learn.microsoft.com/en-us/entra/id-governance/access-reviews-overview).
 This neat little solution can actually trigger automated access reviews for all your PIM roles and groups.
-I typically recommend to setup quarterly or bi-yearly access reviews for your PIM role assignments and approval groups.
-This ensures that any eliglible or active role assignment is re-evaluated and (automagically) removed if no longer needed or used.
+I typically recommend setting up quarterly or bi-yearly access reviews for your PIM role assignments and approval groups.
+This ensures that any eligible or active role assignment is re-evaluated and (automagically) removed if no longer needed or used.
 Once these reviews are done, the reports with actions taken are nicely presented back to you.
 
-I also recommend to just expand this to any group within your Azure tenant, including dynamic ones which means you can do fancy stuff such as triggering reviews for inactive user accounts, guests, disabled user accounts with licenses assigned, users with insecure MFA or none at all, etc.
+I also recommend expanding this to any group within your Azure tenant, including dynamic ones which means you can do fancy stuff such as triggering reviews for inactive user accounts, guests, disabled user accounts with licenses assigned, users with insecure MFA or none at all, etc.
 
 **7. Alerting**
 
-PIM allows you to send emails once an approval has been requested, approved and assigned. This works but is very noisy and can get lost in the storm, leading to people anxiously waiting for their PIM request to get approved.
-A nice workaround, is that you can actually use *AuditLogs* to filter for any PIM requests and then send a nudge to a Slack IT channel.
+PIM allows you to send emails once approval has been requested, approved and assigned. This works but is very noisy and can get lost in the storm, leading to people anxiously waiting for their PIM request to get approved.
+A nice workaround; you can actually use *AuditLogs* to filter for any PIM requests and then send a nudge to a Slack IT channel.
 
 ```kql
 AuditLogs
@@ -137,7 +139,7 @@ AuditLogs
 ;
 ```
 
-You'll probably also want to montior for PIM rejections, if you should care about PIM request flooding:
+You'll probably also want to monitor for PIM rejections, if you should care about PIM request flooding:
 
 ```kql
 AuditLogs
@@ -161,23 +163,23 @@ AuditLogs
 ;
 ```
 
-### Implementation for Azure resources
+### Implementation of Azure resources
 
 PIM can be used for Entra roles *and* Azure roles, you just need to be aware of the quirky way it's hidden in the web interface. (PIM > Manage > Azure Resources)
 Once you click on that [link](https://portal.azure.com/#view/Microsoft_Azure_PIMCommon/CommonMenuBlade/~/azurerbacbrowse), you are able to select your *Management Group*.
 Once this is selected, you are able to click `Manage resource` at the bottom to get to your specific PIM panel for that abstraction group.
-You're ofcourse encouraged to also select a *Subscription*, *Resource Group* and possibly even *Resource* to scope PIM down as much as possible to reduce blast radius.
+You're of course encouraged to also select a *Subscription*, *Resource Group* and possibly even *Resource* to scope PIM down as much as possible to reduce blast radius.
 
-An example could be that you don't want to give your senior developers permanent access to your production database, but audit access instead and give them the possibility to escalate to the *Database Administrator* role on that specific object incase of an incident, upgrades etc.
+An example could be that you don't want to give your senior developers permanent access to your production database, but audit access instead and give them the possibility to escalate to the *Database Administrator* role on that specific object in case of an incident, upgrades etc.
 
 Assign your Breakglass account from earlier as permanent owner to your Azure *Subscription*, so you can move the actual users with permissive roles over to PIM.
 
 ### The power of PIM group membership
 
-So this is cool and all, but ofcourse only has benefits within the Azure realm. Or does it?
-An often forgotten but immensely powerful detail is that PIM actually kickstarts [SCIM](https://learn.microsoft.com/en-us/entra/architecture/sync-scim) synchronisation!
-A little primer for the initiates: SCIM allows you to synchronise members, member state, groups and group memberships to other software.
-So would you setup SCIM between Entra ID and Slack, any enabled Entra user account would popup as a Slack member automagically (and be disabled vice-versa).
+So this is cool and all, but of course only has benefits within the Azure realm. Or does it?
+An often-forgotten but immensely powerful detail is that PIM actually kickstarts [SCIM](https://learn.microsoft.com/en-us/entra/architecture/sync-scim) synchronization!
+A little primer for the initiates: SCIM allows you to synchronize members, member states, groups and group memberships to other software.
+So would you set up SCIM between Entra ID and Slack, any enabled Entra user account would pop up as a Slack member automagically (and be disabled vice-versa).
 If your SaaS software supports SCIM, you can now re-use the same groups that exist within Entra and have peace of mind that their state is reflected on both systems.
 
 But this suffers from the same permanent permissive role problem. Or... do you see where I'm going with this?
@@ -185,7 +187,7 @@ The nice part is: if the PIM requester is part of a SCIM-managed group, Entra wi
 So this means that by default your users don't have to be part of an administrative group in your SaaS application, but *can* be via PIM!
 
 And let's take this a step further, and expand this to a zTNA (VPN) provider with a broad permissions system such as [tailscale](https://tailscale.com/).
-You can now even restrict web and network access to production by default, but allow developers to securely request -and approve- access.
+You can now even restrict web and network access to production by default, and allow developers to securely request -and approve- access.
 I've tested this and had a network connection to a system within a minute of the PIM request being approved. Now who can object to those numbers?
 
 The tailscale ACL for such a setup could look something like this:
