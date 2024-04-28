@@ -20,10 +20,6 @@ enableRobotsTXT: true
 permalinks:
   posts: /:year/:month/:title/
 
-outputFormats:
-    - html:
-        minify:true
-
 minificationOptions:
     KeepConditionalComments: true
     KeepEndTags: false
