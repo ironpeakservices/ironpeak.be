@@ -60,7 +60,7 @@ It's all about UX and *paved ways* so users are encouraged to do the right thing
 Using fancy Just-in-Time access is fun and all, but you should have a fallback mechanism if your JIT management system fails. And it can.
 I typically recommend creating a permanent *Global Administrator* account on the Subscription level, which uses a physical security key such as a Yubikey.<br/>
 If you are using a device management solution such as Intune, also requires the use of a previously-known, compliant device.
-This account is -not- supposed to be used for emergency situations only. Any usage of this account should trigger a High severity incident to the team.
+This account is -not- supposed to be used and for emergency situations only. Any usage of this account should trigger a High severity incident to the team.
 
 I would recommend, if you're a Microsoft Sentinel or any other SIEM user, to create an alert rule akin to;
 
