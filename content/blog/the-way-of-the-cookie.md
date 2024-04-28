@@ -190,7 +190,7 @@ I've tested this and had a network connection to a system within a minute of the
 
 The tailscale ACL for such a setup could look something like this:
 
-```json
+```
 {
 	"postures": {
 		// a recently updated macOS system
@@ -204,13 +204,13 @@ The tailscale ACL for such a setup could look something like this:
 		"posture:protectedMacOS"
 	],
 	"acls": [
-		// Only allow access to the production network and nodes for people in the Production Access group
+		// Only allow access to the production network for SCIM-ed users
 		{
 			"action": "accept",
 			"src":    ["group:oncall@company.com"],
 			"dst": [
 				"tag:production:*",
-                "production-network:*"
+				"production-network:*"
 			]
 		},
         // Allow access to non-production by default
@@ -219,7 +219,7 @@ The tailscale ACL for such a setup could look something like this:
             "src":    ["group:developers@company.com"],
             "dst": [
                 "tag:nonproduction:*",
-                "nonproduction-network:*"
+				"nonproduction-network:*"
             ]
         }
 	]
