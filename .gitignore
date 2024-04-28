@@ -2,3 +2,4 @@ generated/
 .git/
 .DS_Store
 resources/
+.vscode/
