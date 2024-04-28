@@ -28,7 +28,7 @@ jobs:
       uses: peaceiris/actions-hugo@v3
     -
       name: hugo build
-      run: hugo --minify --gc --config=config.yml
+      run: hugo --minify --gc --config=config.yaml
     -
       name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3
