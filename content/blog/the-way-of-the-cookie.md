@@ -231,3 +231,6 @@ The tailscale ACL for such a setup could look something like this:
 	]
 }
 ```
+
+And the nice part is that this reaches out to other important infrastructure providers as well, think **AWS** or **GCP**.
+You could, by default, give them only readonly access to your cloud production accounts for monitoring purposes and allow them to switch to *incident* mode with write permissions after escalation, and all in a secure context. Fancy!
