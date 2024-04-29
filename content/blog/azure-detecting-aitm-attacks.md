@@ -1,6 +1,8 @@
 +++
 date = "2024-01-10T09:16:31+02:00"
 title = "Detecting AiTM attacks in Azure"
+tags = ["mitm","phishing","detection","mitm","aitm","office","canary","login","proxy"]
+description = "How to detect Adversary-in-the-Middle attacks in Office365 logon pages using hidden canaries."
 layout = "blog"
 draft = false
 +++

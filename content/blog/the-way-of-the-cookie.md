@@ -1,8 +1,8 @@
 +++
 date = "2024-04-28T09:16:31+02:00"
 title = "The way of the Cookie"
-tags = ["mitm","phishing","detection","mitm","aitm","office","canary","login","proxy"]
-description = "How to detect Adversary-in-the-Middle attacks in Office365 logon pages using hidden canaries."
+tags = ["jit","pim","privileged","identity","management","azure","network","tailscale","production","jit","just in time"]
+description = "How to provide secure temporary production access to Azure objects, production networks and cloud infrastructure using Azure Privileged Identity Management."
 layout = "blog"
 draft = false
 +++
