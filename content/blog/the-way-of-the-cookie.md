@@ -167,6 +167,37 @@ AuditLogs
 ;
 ```
 
+### Rollout Plan
+
+Rolling this out to your tenant will require some work and coordination, but nothing you can't handle.
+
+1. **Get a license**<br/>
+Ensure you have at least one [P2](https://learn.microsoft.com/en-us/entra/id-governance/licensing-fundamentals) license in your Azure tenant to be able to use PIM.
+
+2. **Build an IAM overview**<br/>
+Try to build an overview of the current (permanent) IAM role assignments in Entra ID, *Root*, *Subscription*, *RG* and *Object* -level.<br/>
+Navigate to the resource/resource group/subscription in the portal -> Access control (IAM) -> Role assignments
+
+3. **Add the role assignments in PIM**<br/>
+This will for now live next to their regular role assignments. Also don't forget;
+
+	a. Assign to the right Entra group(s), and avoid assigning to specific users. This will facilitate access reviews.<br/>
+	b. Don't forget to set the assignment to Eligible and not Active.<br/>
+	c. Set their max assignment period, e.g. 1 year so you'll need to re-assign those. Or keep them permanent and use Azure Access Reviews.<br/>
+	d. Set the necessary authentication context to require a compliant device and FIDO2 authentication.<br/>
+	e. Set the right approver groups<br/>
+	f. Lighten the notification emails<br/>
+
+4. **Implement alerting**<br/>
+Add the necessary reporting, reviews and incident detection workflows in place such as SIEM alert rules.
+
+5. **Raise awareness**<br/>
+Document and explain internally how to use PIM and what it does.
+Explain that this will be the way to work very shortly and ensure everyone is aware of the seven principles.
+
+6. **Remove permanent assignments**<br/>
+Start removing permanent assignments and swapping people to Read-only assignments.
+
 ### Implementation of Azure resources
 
 PIM can be used for Entra roles *and* Azure roles, you just need to be aware of the quirky way it's hidden in the web interface. (PIM > Manage > Azure Resources)
@@ -231,3 +262,6 @@ The tailscale ACL for such a setup could look something like this:
 	]
 }
 ```
+
+And the nice part is that this reaches out to other important infrastructure providers as well, think **AWS** or **GCP**.
+You could, by default, give them only read-only access to your cloud production accounts for monitoring purposes and allow them to switch to *incident* mode with write permissions after escalation, all in a secure context. Fancy!
