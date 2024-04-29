@@ -19,7 +19,7 @@ But let's delve deeper into the trenches of Azure's landscape to understand why 
 
 Permissions in Azure are structured in a way that builds upon their concept of *Management Groups*, *Subscriptions* and *Resource Groups*.
 You typically have one (others might have more, e.g. MSPs or enterprises) Management Group+Subscription which contains all your Azure-related assets such as Entra ID (previously named Azure AD). Another example is *Conditional Access*, for which you'd typically want the *Security Administrator* role.
-Within this Subscription, you are able to group Azure resources into Resource Groups.
+Within this Subscription, you can group Azure resources into Resource Groups.
 Now, sadly you currently aren't able to nest Resource Groups but that's a whole different discussion, back to the topic. Resource Groups contain your actual Azure objects such as Virtual Machines, Databases, Logic Apps, Storage Accounts and more.
 A small note is that users cannot exist within Resource Groups but do heavily interact with them, which makes sense if you think about it.
 
@@ -95,6 +95,10 @@ Don't go about adding eligible Global Administrator permissions to everyone.
 1. Scope the roles. Restrict the most permissive roles to your senior IT administrators. The use of these should be discouraged and should warrant review.
 2. Scope it to Subscriptions and RGs. One team shouldn't be able to request a role on an RG that they don't use.
 3. Scope the users. Keep the requestors and approvers to a minimum.
+
+So you typically try apply PIM as much as possible where possible.
+But do take a small note that you're not going to require PIM elevations for continuous tasks, e.g. SIEM work.
+However, do ask yourself if some of those tasks can be automated in e.g. Logic Apps or Power Automate?
 
 **4. Require the right context**
 
