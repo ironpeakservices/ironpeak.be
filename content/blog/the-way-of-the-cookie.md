@@ -38,7 +38,7 @@ Account compromise for one of those accounts is a very good threat vector for at
 This sounds like a far-from-by-bed show, but it's actually really simple if you use an authentication method that is not phishing-resistant, such as password/(T)OTP, etc... and just get phished after a quick LinkedIn search and email lookup. (Which, ironically, is also how other people have been pestering my phone non-stop to sell their services.)
 But even when using state-of-the-art authentication mechanisms such as PassKey/FIDO2, we've seen cases where attackers use more elaborate ways to just steal your session token *after* authenticating via malware. Luckily, Token Protection in Conditional Access is able to cryptographically bind user tokens to Entra-registered Windows systems but that's currently limited to a select amount of applications and I have yet to see this implemented in the wild.
 
-So, we're stuck in a situation where people are likely to be targeted and their permissions
+So, we're stuck in a situation where people are likely to be targeted and their permissions vast.
 But luckily, there's a way to survive.
 
 Say hello to **JIT** via **PIM**.
