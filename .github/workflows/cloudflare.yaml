@@ -2,11 +2,11 @@ name: Cloudflare
 
 on:
   push:
-    branches:
-      - master
+    branches: [master,main]
       
 jobs:
-  cloudflareclearcache:
+
+  cfclearcache:
     name: Clear cloudflare cache
     runs-on: ubuntu-latest
     steps:
@@ -18,9 +18,8 @@ jobs:
         CLOUDFLARE_TOKEN: ${{ secrets.CLOUDFLARE_TOKEN }}
         
     -
-        name: Purge cache for ironpeak.services
+      name: Purge cache for ironpeak.services
       uses: jakejarvis/cloudflare-purge-action@v0.3.0
       env:
         CLOUDFLARE_ZONE: '81314d32814812bcba7b800f8f07a590'
         CLOUDFLARE_TOKEN: ${{ secrets.CLOUDFLARE_TOKEN }}
-   
