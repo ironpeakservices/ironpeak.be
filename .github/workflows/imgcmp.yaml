@@ -16,5 +16,5 @@ jobs:
     steps:
     -
       uses: 9sako6/imgcmp@v2.0.4
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
