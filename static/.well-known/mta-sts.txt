@@ -1,5 +1,5 @@
 version: STSv1
-mode: testing
+mode: enforce
 mx: alt4.aspmx.l.google.com
 mx: alt3.aspmx.l.google.com
 mx: alt1.aspmx.l.google.com
