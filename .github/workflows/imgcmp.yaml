@@ -8,10 +8,13 @@ jobs:
   build:
     name: Optimize images
     runs-on: ubuntu-latest
+    
     permissions:
       contents: write
+      pull-requests: write
+    
     steps:
     -
-      uses: 9sako6/imgcmp@master
+      uses: 9sako6/imgcmp@v2.0.4
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
