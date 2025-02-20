@@ -1,15 +1,11 @@
 +++
-date = "2025-02-19"
+date = "2025-02-19T11:55:54+02:00"
 title = "Caldera Blog Task"
 tags = ["mitre","simulation","attack","training"]
 description = "A introduction to what and how Caldera operates/could be used for"
 layout = "blog"
-draft = true
+draft = false
 +++
-
-**If you also think FIDO2 and Passkeys rhyme with PITA, try this neat little detection trick to start alerting on Office365 account compromise on Azure right now.**
-
-
 
 
 # MITRE Caldera: Automating Adversary Emulation for Enhanced Security
@@ -196,10 +192,16 @@ We launch the operation and now we have the exfiltration happening and the resul
 
 ![image](https://github.com/user-attachments/assets/7ac2b900-a4a6-4a87-897c-0a4be478a9a6)
 
-
-
+---
 
 ## Conclusion
 MITRE Caldera is a powerful tool for adversary emulation and security automation. This blog gave an insight of the in's and outs of the tool and how a company (mostly Security Engineers and CSIRT people) could use this to create new rules for their SIEM. For advanced users, integrating Caldera with red teaming and threat intelligence workflows can significantly enhance security assessments.
 
 The whole environment is made to be able to go as far as needed to mirror attacks for deeper observation. It can be used when discovered a new vulnerability, Zero Day, Threat intelligence etc. This is definetly going to be usefull for most major companies and Cybersecurity actors.
+
+
+## Opinion
+Setup Caldera was a very tedious process because of the tons of compatability issues that I personnaly faced. But if we go past it forced to admit that this was an interesting topic to talk about because of all the extensive possibilities it offers. We are able to make any kind of attack (premade or custom) in a matter of minutes and test it out on a test target without alot of configuration. Caldera's agents are also deployable on multiple operating systems (even Darwin). A tool with that many ways of using is a must have for any company that has a Blue and/or Red team in house. 
+
+The most interesting part to talk about is the way the tool lets you customize any aspect of the attack crafting. Plugins, Abilities, adversaries you name it we can modify/add/create one from nothing adding our own scripts. That means that if there is a Zero-Day but MITRE didn't document it yet, you can still test it out on your system if it is vulnerable on that system and make an incident response procedure. Caldera is also open source which makes it that for any Cyber enthousiast this is a great tool to learn about attack patterns and how to make them/how to analyse and stop them. I would personnaly utilize Caldera in my future projects because of the vast customization options.
+
