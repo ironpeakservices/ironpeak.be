@@ -27,11 +27,21 @@ Caldera's modular design supports a variety of plugins that extend its core func
 - **Stockpile**: A repository of Tactics, Techniques, and Procedures (TTPs) aligned with the MITRE ATT&CK framework.
 - **Manx**: A remote access tool that facilitates command-and-control operations.
 
-## Recent Developments
-MITRE has introduced several enhancements to Caldera:
 
-- **Bounty Hunter Plugin**: Enables intelligent cyber adversary emulation by automating the discovery and exploitation of vulnerabilities.
-- **Caldera for Operational Technology (OT)**: Emulates adversary behaviors in OT environments, aiding in the protection of critical infrastructure.
+## The concept behind Caldera
+
+The concept behind this project was to give more tools to the Blue side of the cybersecurity landscape to independently investigate, test, observe, and analyze attacks that could impact their environment. The Red side (attackers) will also benefit from this tool by testing some attacks on a controlled test environment to investigate how they could introduce themselves inside the company network.
+
+Every company is vulnerable to attacks because modern businesses depend on multiple third-party service providers to function (unless they made every single tool in-house, but that's rare). Each of these tools runs on software versions that are regularly updated by vendors (firewalls, servers, software, laptops, printers, etc.).
+
+With each update, new security flaws may emerge, and older versions may retain unpatched vulnerabilities. For instance, vulnerability databases (e.g., CVE, MITRE ATT&CK) collect known exploits, but they can't provide real-time solutions for newly discovered threats. Relying solely on AVs and EDRs is also not sufficient, as they react to threats rather than proactively preventing them. Instead of reacting, companies need proactive security measures to identify weaknesses before an attack occurs.
+
+This is where Caldera comes in. While Caldera does not actively stop attacks, it enhances an organization’s ability to prepare for and respond to them. It provides a way to simulate real-world attacks under the same conditions they would occur in production environments, making it easier to test defenses, analyze security gaps, and strengthen response strategies.
+
+If a Zero-Day exploit emerges and one of the company’s tools is vulnerable, but no patch is available, what options are left? With Caldera, security teams can replicate the attack with the same parameters, context, tools, and speed. For example, a CSIRT (Computer Security Incident Response Team) member who detects a Zero-Day vulnerability with no immediate fix could use Caldera to simulate the attack, analyze its behavior, and create an incident response plan to mitigate risks until a vendor patch is available.
+
+Even after an attack has occurred, Caldera helps security teams retrace the attack’s steps. SOC analysts, security engineers, and IR team members can replay the incident, understand how the attacker moved through the network, and use the findings to improve playbooks for AVs, EDRs, and IDS/IPS systems. By integrating attack replication into security workflows, teams can build stronger defenses, refine incident response plans, and proactively mitigate future threats.
+
 
 ---
 
