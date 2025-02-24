@@ -1,5 +1,5 @@
 +++
-date = "2025-02-19T11:55:54+02:00"
+date = "2025-02-24T11:55:54+02:00"
 title = "Caldera Blog Task"
 tags = ["mitre","simulation","attack","training"]
 description = "A introduction to what and how Caldera operates/could be used for"
