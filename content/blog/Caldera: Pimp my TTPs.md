@@ -59,6 +59,7 @@ The platform offers comprehensive documentation covering installation, configura
 
 ![image](https://github.com/user-attachments/assets/b24a841f-5581-429c-8121-a1ecf23a14bc)
 
+
 **After connecting to the Caldera server on the login page here is the main login page:**
 
 ![image](https://github.com/user-attachments/assets/8141089f-c788-47ce-9f0f-590c727e35c6)
@@ -67,7 +68,9 @@ The platform offers comprehensive documentation covering installation, configura
 
 **we see on the left side that we have a column. Lets concentrate mainly on the "campaings" section:**
 
-![image](https://github.com/user-attachments/assets/1f60ff0e-7043-485d-9809-c4612f3eca26)
+![image](https://github.com/user-attachments/assets/737596e2-d155-4bef-be0e-8f4c5fb40443) ![image](https://github.com/user-attachments/assets/ad72911b-dce0-4918-a8b0-1e1ca2a49f70)
+
+
 
 It is composed of 5 parts: agents, abilities, adversaries, operations and schedules
 
@@ -75,7 +78,7 @@ It is composed of 5 parts: agents, abilities, adversaries, operations and schedu
 
 But to be able to do this we need to install said agent on the victim PC via a script
 
-![image](https://github.com/user-attachments/assets/ad72911b-dce0-4918-a8b0-1e1ca2a49f70)
+
 ![image](https://github.com/user-attachments/assets/ed15ed18-0854-426d-8096-b84b8db3ddfa)
 
 The script we need is going to be generated when we select the agent and the platform we want to implement it on as seen above.
@@ -214,3 +217,4 @@ The whole environment is made to be able to go as far as needed to mirror attack
 Setup Caldera was a very tedious process because of the tons of compatability issues that I personnaly faced. But if we go past it forced to admit that this was an interesting topic to talk about because of all the extensive possibilities it offers. We are able to make any kind of attack (premade or custom) in a matter of minutes and test it out on a test target without alot of configuration. Caldera's agents are also deployable on multiple operating systems (even Darwin). A tool with that many ways of using is a must have for any company that has a Blue and/or Red team in house.
 
 The most interesting part to talk about is the way the tool lets you customize any aspect of the attack crafting. Plugins, Abilities, adversaries you name it we can modify/add/create one from nothing adding our own scripts. That means that if there is a Zero-Day but MITRE didn't document it yet, you can still test it out on your system if it is vulnerable on that system and make an incident response procedure. Caldera is also open source which makes it that for any Cyber enthousiast this is a great tool to learn about attack patterns and how to make them/how to analyse and stop them. I would personnaly utilize Caldera in my future projects because of the vast customization options.
+
