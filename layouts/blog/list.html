@@ -25,10 +25,10 @@
                         </div>
                     </div>
                     <div class="plan-box-content summary">
-                        {{ if gt (len .Summary) 200 }}
-                        {{ slicestr .Summary 0 200 | htmlUnescape }}...
+                        {{ if gt (len .Summary) 320 }}
+                        {{ slicestr .Summary 0 320 | plainify }}...
                         {{ else }}
-                        {{ .Summary | htmlUnescape }}
+                        {{ .Summary | plainify }}
                         {{ end }}
                     </div>
                 </div>

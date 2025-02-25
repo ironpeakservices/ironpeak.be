@@ -1,34 +1,39 @@
 +++
 date = "2025-02-24T11:55:54+02:00"
-title = "Caldera Blog Task"
-tags = ["mitre","simulation","attack","training"]
+title = "Caldera Automation"
+tags = ["mitre","simulation","attack","training","caldera"]
 description = "A introduction to what and how Caldera operates/could be used for"
 layout = "blog"
 draft = false
 +++
 
+# MITRE Caldera: Automating Adversary Emulation
 
-# MITRE Caldera: Automating Adversary Emulation for Enhanced Security
+*This is a guest blog post written by Roger.*
 
-## What is MITRE Caldera?
+## What?
+
 Caldera is a cybersecurity framework developed by MITRE to assist security professionals in automating adversary emulation, thereby reducing the time, cost, and effort associated with manual security assessments. Built upon the **MITRE ATT&CK** framework, Caldera enables users to simulate real-world cyber threats, test defenses, and train blue teams effectively.
 
-## Key Features of Caldera
+## Key Features
+
 ### 1. Autonomous Adversary Emulation
+
 Caldera allows security teams to create specific threat profiles and deploy them within their networks. This simulation helps identify vulnerabilities and assess the effectiveness of existing security measures.
 
 ### 2. Automated Security Assessments
+
 By automating routine testing, Caldera frees up valuable resources, enabling security teams to focus on more complex challenges.
 
 ### 3. Plugin Architecture
+
 Caldera's modular design supports a variety of plugins that extend its core functionalities. Notable plugins include:
 
 - **Sandcat**: An extensible agent for executing adversary techniques on target systems.
 - **Stockpile**: A repository of Tactics, Techniques, and Procedures (TTPs) aligned with the MITRE ATT&CK framework.
 - **Manx**: A remote access tool that facilitates command-and-control operations.
 
-
-## The concept behind Caldera
+## The concept behind
 
 The concept behind this project was to give more tools to the Blue side of the cybersecurity landscape to independently investigate, test, observe, and analyze attacks that could impact their environment. The Red side (attackers) will also benefit from this tool by testing some attacks on a controlled test environment to investigate how they could introduce themselves inside the company network.
 
@@ -42,35 +47,33 @@ If a Zero-Day exploit emerges and one of the company’s tools is vulnerable, bu
 
 Even after an attack has occurred, Caldera helps security teams retrace the attack’s steps. SOC analysts, security engineers, and IR team members can replay the incident, understand how the attacker moved through the network, and use the findings to improve playbooks for AVs, EDRs, and IDS/IPS systems. By integrating attack replication into security workflows, teams can build stronger defenses, refine incident response plans, and proactively mitigate future threats.
 
-
 ---
 
 ## Getting Started with Caldera
-The platform offers comprehensive documentation covering installation, configuration, and usage guidelines. You can access the source code on [GitHub](https://github.com/mitre/caldera).
 
+The platform offers comprehensive documentation covering installation, configuration, and usage guidelines. You can access the source code on [GitHub](https://github.com/mitre/caldera).
 
 ## Showcases of examples for TA imitation
 
-#### Here we have the initial launch of the Caldera server on our attacking server
+**Here we have the initial launch of the Caldera server on our attacking server:**
 
 ![image](https://github.com/user-attachments/assets/b24a841f-5581-429c-8121-a1ecf23a14bc)
 
-#### After connecting to the Caldera server on the login page here is the main login page:
+**After connecting to the Caldera server on the login page here is the main login page:**
 
 ![image](https://github.com/user-attachments/assets/8141089f-c788-47ce-9f0f-590c727e35c6)
 
-
 ***""!!! FYI There are 2 accounts (RED and BLUE) when testing attack methods on victim pc's, only one account is going to show the attack. Also the default credentials could not work. That is normal because instead of generating a default page as asked in the instructions we need the local.yml file to be able to login into the Caldera server !!!  ""***
 
-#### we see on the left side that we have a column. Lets concentrate mainly on the "campaings" section
+**we see on the left side that we have a column. Lets concentrate mainly on the "campaings" section:**
 
 ![image](https://github.com/user-attachments/assets/1f60ff0e-7043-485d-9809-c4612f3eca26)
 
 It is composed of 5 parts: agents, abilities, adversaries, operations and schedules
 
-#### Agents are the programs that do specific TA behavior task on the victim pc. (command execution, data exfiltration PT, etc.)
+**Agents are the programs that do specific TA behavior task on the victim PC. (command execution, data exfiltration PT, etc.):**
 
-But to be able to do this we need to install said agent on the victim pc via a script
+But to be able to do this we need to install said agent on the victim PC via a script
 
 ![image](https://github.com/user-attachments/assets/ad72911b-dce0-4918-a8b0-1e1ca2a49f70)
 ![image](https://github.com/user-attachments/assets/ed15ed18-0854-426d-8096-b84b8db3ddfa)
@@ -78,9 +81,9 @@ But to be able to do this we need to install said agent on the victim pc via a s
 The script we need is going to be generated when we select the agent and the platform we want to implement it on as seen above.
 After the script has been succesfully launched we get a prompt on the agents page where we see what host, platform and status of said connection.
 
-#### Abilities 
+### Abilities 
 
-is the part where we see the tactics/techniques that can be executed on the running agents.
+This is the part where we see the tactics/techniques that can be executed on the running agents.
 
 It sounds similar to the agents but the agents are the components that make it possible to use different tools (abilities) on the victim pc. Here we have a enormous amount of prefabricated tactics to customize an attack that all come from MITRE's website. on the left we can make a selection of Tasks, Techniques, Plugins and platform we want to perform the attack on. TL;DR it shows all the possible combinations of settings to make an attack possible.
 
@@ -93,19 +96,18 @@ You can also edit preexisting abilities:
 
 
 
-##### *Tactics
+#### *Tactics
 
 All the known plans for an attacker to recon, enumerate, attack, pivot and maintain persistence
 
 ![image](https://github.com/user-attachments/assets/2c0a9fdc-5a6a-4785-ba37-619ac14ec5a2)
 
-##### *Technique
+#### *Technique
 
 All the known Techniques that have been use referenced in the database of MITRE
 ![image](https://github.com/user-attachments/assets/55a45829-418a-4f27-a80f-1d01a5d2ab15)
 
-
-##### *Plugins 
+#### *Plugins 
 
 They are the extensions that add more possibilities to the attack on the system. Generally they add new features, attack capabilities, automate tasks, etc. ex: Coordinated Access Trojan or CAT
 
@@ -113,14 +115,13 @@ They are the extensions that add more possibilities to the attack on the system.
 
 You can also modifiy or create your own plugins by modifying the plugin.yml file. After modification don't forget to restart the Caldera server.
 
-#### *Platform
+### *Platform
 
 The target OS you want your attack to go to
 
 ![image](https://github.com/user-attachments/assets/afcf626a-8dc8-4ae3-bbe5-192cd1c0a244)
 
-
-#### Adversaries
+### Adversaries
 
 This has predefined ATT&CK mappings to use or you can customise attack sequences and paterns for your specific needs. Here we see first of all the Check part. That is the name of the adversary for this example. Check already has an attack sequence premade for us to use on the victim pc. We see on the bottom part of the page a list of things the adversary is going to recon. We have the names of what he is going to investigate, what category of tactic that is and the techniques used to do so. There's also a small part above where we can add abilities and even add other adversaries into the mix. Which is going to make the attack even more complex if needed with all these sequences beeing automated.
 
@@ -142,11 +143,9 @@ After clicking start we get this screen.
 
 ![image](https://github.com/user-attachments/assets/f3c7c751-22f5-4334-8018-2cb5f574d8a0)
 
-
 Link command is what we are going to use to input manually commands (even if we have a premade sequence going on we can still add commands as seen on left side under the black kali screen). Link output is the result of that command. Ability name supposedly gives the name of the ability (in this instance it was just a manual command) and status is if the command/action was succesfull, in queue, failed or refreshed. The stop play and pause buttons are for when we want to stop or continue the ongoing attack chain.
 
-
-## Now that we had an explanation of what each tab is used for lets show a concrete example:
+**Now that we had an explanation of what each tab is used for lets show a concrete example:**
 
 We are going to do a Discovery adversary that is going to recon the whole host for information.
 
@@ -198,20 +197,20 @@ Then we make a new operation and select said Adversary which has the same name a
 
 ![image](https://github.com/user-attachments/assets/52781d42-1e6f-4dda-890c-4ca230300d72)
 
-We launch the operation and now we have the exfiltration happening and the result at the Link Output 
+We launch the operation and now we have the exfiltration happening and the result at the Link Output:
 
 ![image](https://github.com/user-attachments/assets/7ac2b900-a4a6-4a87-897c-0a4be478a9a6)
 
 ---
 
 ## Conclusion
+
 MITRE Caldera is a powerful tool for adversary emulation and security automation. This blog gave an insight of the in's and outs of the tool and how a company (mostly Security Engineers and CSIRT people) could use this to create new rules for their SIEM. For advanced users, integrating Caldera with red teaming and threat intelligence workflows can significantly enhance security assessments.
 
 The whole environment is made to be able to go as far as needed to mirror attacks for deeper observation. It can be used when discovered a new vulnerability, Zero Day, Threat intelligence etc. This is definetly going to be usefull for most major companies and Cybersecurity actors.
 
-
 ## Opinion
-Setup Caldera was a very tedious process because of the tons of compatability issues that I personnaly faced. But if we go past it forced to admit that this was an interesting topic to talk about because of all the extensive possibilities it offers. We are able to make any kind of attack (premade or custom) in a matter of minutes and test it out on a test target without alot of configuration. Caldera's agents are also deployable on multiple operating systems (even Darwin). A tool with that many ways of using is a must have for any company that has a Blue and/or Red team in house. 
+
+Setup Caldera was a very tedious process because of the tons of compatability issues that I personnaly faced. But if we go past it forced to admit that this was an interesting topic to talk about because of all the extensive possibilities it offers. We are able to make any kind of attack (premade or custom) in a matter of minutes and test it out on a test target without alot of configuration. Caldera's agents are also deployable on multiple operating systems (even Darwin). A tool with that many ways of using is a must have for any company that has a Blue and/or Red team in house.
 
 The most interesting part to talk about is the way the tool lets you customize any aspect of the attack crafting. Plugins, Abilities, adversaries you name it we can modify/add/create one from nothing adding our own scripts. That means that if there is a Zero-Day but MITRE didn't document it yet, you can still test it out on your system if it is vulnerable on that system and make an incident response procedure. Caldera is also open source which makes it that for any Cyber enthousiast this is a great tool to learn about attack patterns and how to make them/how to analyse and stop them. I would personnaly utilize Caldera in my future projects because of the vast customization options.
-

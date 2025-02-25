@@ -2115,6 +2115,7 @@ code {
 
 #blog .plan-box .plan-box-content {
   padding: 22px 20px;
+  min-height: 190px;
 }
 
 #blog .plan-box .plan-box-button a {
