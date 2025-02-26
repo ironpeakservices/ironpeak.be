@@ -7,7 +7,7 @@ layout = "blog"
 draft = false
 +++
 
-# MITRE Caldera: Automating Adversary Emulation
+## MITRE Caldera : Automating Adversary Emulation
 
 *This is a guest blog post written by Roger.*
 
@@ -57,20 +57,13 @@ The platform offers comprehensive documentation covering installation, configura
 
 **Here we have the initial launch of the Caldera server on our attacking server:**
 
-![image](https://github.com/user-attachments/assets/b24a841f-5581-429c-8121-a1ecf23a14bc)
-
-
-**After connecting to the Caldera server on the login page here is the main login page:**
-
-![image](https://github.com/user-attachments/assets/8141089f-c788-47ce-9f0f-590c727e35c6)
+![Image3](https://github.com/user-attachments/assets/ff243ae9-92e0-4e26-82fe-94a26ca07e9b)
 
 ***""!!! FYI There are 2 accounts (RED and BLUE) when testing attack methods on victim pc's, only one account is going to show the attack. Also the default credentials could not work. That is normal because instead of generating a default page as asked in the instructions we need the local.yml file to be able to login into the Caldera server !!!  ""***
 
 **we see on the left side that we have a column. Lets concentrate mainly on the "campaings" section:**
 
-![image](https://github.com/user-attachments/assets/737596e2-d155-4bef-be0e-8f4c5fb40443) ![image](https://github.com/user-attachments/assets/ad72911b-dce0-4918-a8b0-1e1ca2a49f70)
-
-
+![image](https://github.com/user-attachments/assets/737596e2-d155-4bef-be0e-8f4c5fb40443) ![image](https://github.com/user-attachments/assets/60b34c37-37b4-4604-bb58-db2f0ea4653f)
 
 It is composed of 5 parts: agents, abilities, adversaries, operations and schedules
 
@@ -78,43 +71,40 @@ It is composed of 5 parts: agents, abilities, adversaries, operations and schedu
 
 But to be able to do this we need to install said agent on the victim PC via a script
 
-
-![image](https://github.com/user-attachments/assets/ed15ed18-0854-426d-8096-b84b8db3ddfa)
+![image_12X](https://github.com/user-attachments/assets/60789b2a-e013-4eee-ba67-544c33f66d97)
 
 The script we need is going to be generated when we select the agent and the platform we want to implement it on as seen above.
 After the script has been succesfully launched we get a prompt on the agents page where we see what host, platform and status of said connection.
 
-### Abilities 
+### Abilities
 
 This is the part where we see the tactics/techniques that can be executed on the running agents.
 
 It sounds similar to the agents but the agents are the components that make it possible to use different tools (abilities) on the victim pc. Here we have a enormous amount of prefabricated tactics to customize an attack that all come from MITRE's website. on the left we can make a selection of Tasks, Techniques, Plugins and platform we want to perform the attack on. TL;DR it shows all the possible combinations of settings to make an attack possible.
 
-![image](https://github.com/user-attachments/assets/123aef82-60ba-40ec-86cf-b534e58a8aac)
+![5Ubuntu  En fonction  - Oracle VM VirtualBox](https://github.com/user-attachments/assets/7ac7cffb-13b9-42ff-be21-4f0967d4845d)
 
 You can also edit preexisting abilities:
 
-![image](https://github.com/user-attachments/assets/57cd12e7-9d57-42ab-9c95-6e6c842315f5)
-
-
-
+![Image13](https://github.com/user-attachments/assets/e093a868-6c1c-45ed-9aaa-e7a8d2c61bc6)
 
 #### *Tactics
 
 All the known plans for an attacker to recon, enumerate, attack, pivot and maintain persistence
 
-![image](https://github.com/user-attachments/assets/2c0a9fdc-5a6a-4785-ba37-619ac14ec5a2)
+![1Ubuntu  En fonction  - Oracle VM VirtualBox](https://github.com/user-attachments/assets/e938e8d4-55f2-4169-a291-eca415b8d25a)
 
 #### *Technique
 
 All the known Techniques that have been use referenced in the database of MITRE
-![image](https://github.com/user-attachments/assets/55a45829-418a-4f27-a80f-1d01a5d2ab15)
 
-#### *Plugins 
+![image](https://github.com/user-attachments/assets/a81d4a17-684d-4424-9f02-cde75f41ebe6)
+
+#### *Plugins
 
 They are the extensions that add more possibilities to the attack on the system. Generally they add new features, attack capabilities, automate tasks, etc. ex: Coordinated Access Trojan or CAT
 
-![image](https://github.com/user-attachments/assets/fe2b2be9-77af-4c25-88f3-92d68d649fd7)
+![3Ubuntu  En fonction  - Oracle VM VirtualBox](https://github.com/user-attachments/assets/ff6a7b30-cc77-4132-8705-7cd7a332ddbd)
 
 You can also modifiy or create your own plugins by modifying the plugin.yml file. After modification don't forget to restart the Caldera server.
 
@@ -122,13 +112,13 @@ You can also modifiy or create your own plugins by modifying the plugin.yml file
 
 The target OS you want your attack to go to
 
-![image](https://github.com/user-attachments/assets/afcf626a-8dc8-4ae3-bbe5-192cd1c0a244)
+![4Ubuntu  En fonction  - Oracle VM VirtualBox](https://github.com/user-attachments/assets/46e88848-c37f-4d01-807a-34b5696cc2a8)
 
 ### Adversaries
 
 This has predefined ATT&CK mappings to use or you can customise attack sequences and paterns for your specific needs. Here we see first of all the Check part. That is the name of the adversary for this example. Check already has an attack sequence premade for us to use on the victim pc. We see on the bottom part of the page a list of things the adversary is going to recon. We have the names of what he is going to investigate, what category of tactic that is and the techniques used to do so. There's also a small part above where we can add abilities and even add other adversaries into the mix. Which is going to make the attack even more complex if needed with all these sequences beeing automated.
 
-![image](https://github.com/user-attachments/assets/57ca8596-dde6-48c7-8876-8678c0762770)
+![image](https://github.com/user-attachments/assets/a07cf6b7-fe37-41f2-8355-d6bca5c8d7ad)
 
 Of course you can also create new adversaries with different techniques and tactics. The beauty of this tool is also the fact that the whole chain attack can be customized when you create a new adversary.
 
@@ -136,15 +126,15 @@ Of course you can also create new adversaries with different techniques and tact
 
 Here we have all the things we talked about applied in this. Operations is the part of Caldera that lets use use all we know to attack a victim pc. To start we have to first click on the New operation. After clicking we get this screen.
 
-![image](https://github.com/user-attachments/assets/96256eee-a13e-450d-ab45-2dac9473f69a)
+![Image14](https://github.com/user-attachments/assets/a2345195-1e98-4ca7-9d16-42e4811f621e)
 
 (FYI: Fact source is used to preload environmental details and help make smarter decisions ex.: usernames, hostname, ip's, etc. ""by definition"")
 
-Here we can select the adversary which group (red or blue) it belongs to, if the content has to have some kind of obfuscation and multiple behavior tweeking to streamline the process. 
+Here we can select the adversary which group (red or blue) it belongs to, if the content has to have some kind of obfuscation and multiple behavior tweeking to streamline the process.
 
 After clicking start we get this screen.
 
-![image](https://github.com/user-attachments/assets/f3c7c751-22f5-4334-8018-2cb5f574d8a0)
+![image](https://github.com/user-attachments/assets/677cd949-81da-4893-afa0-fd4fac48667c)
 
 Link command is what we are going to use to input manually commands (even if we have a premade sequence going on we can still add commands as seen on left side under the black kali screen). Link output is the result of that command. Ability name supposedly gives the name of the ability (in this instance it was just a manual command) and status is if the command/action was succesfull, in queue, failed or refreshed. The stop play and pause buttons are for when we want to stop or continue the ongoing attack chain.
 
@@ -154,39 +144,39 @@ We are going to do a Discovery adversary that is going to recon the whole host f
 
 We go to the Operations tab to create a new operation
 
-![image](https://github.com/user-attachments/assets/94f38d2d-2972-40db-a8e5-2362ada1f5ba)
+![image](https://github.com/user-attachments/assets/035fdd49-1d0e-46ad-924f-7ea62727a55c)
 
 We give this operation a name what type of adversary (or custom) we want to use, do we want to obfuscate our actions or not etc. then we click start.
 
 There is alot going on and that is because we launched a chain attack to discover and enumerate as many things as possible about the target. That is what this Adversary (Discovery) was programmed to do. We can see if the commands were successful, the ability used, tactic the command and result in link command/link output.
 
-![image](https://github.com/user-attachments/assets/69101cc4-9c18-408a-9aa6-30a7ee5dec56)
+![image](https://github.com/user-attachments/assets/f17f003d-709e-49ad-a783-c46d106c4d40)
 
 I tried to enter a command in the attack chain to see what would be the result
 
-![image](https://github.com/user-attachments/assets/226cd173-60f4-4ac0-9af9-73c48613dddd)
+![image](https://github.com/user-attachments/assets/7273d5cf-c9bf-42be-bbc5-89811a8b0f50)
 
 As we can see here we have no problem with this command who was supposed to read the passwd file with cat
 
-![image](https://github.com/user-attachments/assets/97c5a69b-adcc-40e6-9b40-8c24c6ef77f5)
+![image](https://github.com/user-attachments/assets/04bbe22f-db73-4fd6-a7f3-684c7307515f)
 
 Here is another command that was used in the command chain that searches the filesystem for files with the name: .pem, .key, and passwords.txt
 
-![image](https://github.com/user-attachments/assets/57fafea9-487d-4b8a-b502-2da054f8abe4)
+![image](https://github.com/user-attachments/assets/cbc8bfca-3fd4-4f59-8514-d437f3d332a9)
 
 Here we see that it worked and we got results
 
-![image](https://github.com/user-attachments/assets/8a2df16e-f39c-47c8-9e27-708cae66cc68)
+![image](https://github.com/user-attachments/assets/e2ee6edb-eef5-4aa7-a86a-0423cfe386cb)
 
 **We tried to do a Discovery type attack, now let's go a step further and go for exfiltration:**
 
 We choose a new profile for the adversary because we are going to make a custom one but before that we need a new ability:
 
-![image](https://github.com/user-attachments/assets/6a67b0e8-0445-4441-96d1-481d65860319)
+![image](https://github.com/user-attachments/assets/620576fe-0a67-4321-9c05-b2fe713c63c5)
 
 An Exfiltrate ability with repeatable sequence and deletes the payload at the end. Added the commands that are supposed to be used in the exfiltration:
 
-![image](https://github.com/user-attachments/assets/3ad91be2-c73e-4baf-bbb6-09b475a93fd0)
+![Image26](https://github.com/user-attachments/assets/18f8e305-61cb-4ff5-8708-3e5e6d79d9d5)
 
 ***FYI The "Payloads" option in the "Create Ability" section is used to specify additional files or scripts that the ability will use during execution.***
 
@@ -194,15 +184,15 @@ The first command is going to search for types of files that typically have sens
 
 That ability is giong to be used to create a new adversary which we are going to add the new "exfiltrate via ssh" ability
 
-![image](https://github.com/user-attachments/assets/485b9851-5a11-4fda-a19b-35bee57a1b34)
+![image](https://github.com/user-attachments/assets/692995a2-3cd6-4863-8be2-b55011b97de7)
 
 Then we make a new operation and select said Adversary which has the same name as the ability
 
-![image](https://github.com/user-attachments/assets/52781d42-1e6f-4dda-890c-4ca230300d72)
+![image](https://github.com/user-attachments/assets/500d9e4c-66fa-43df-9263-bc083afd8007)
 
 We launch the operation and now we have the exfiltration happening and the result at the Link Output:
 
-![image](https://github.com/user-attachments/assets/7ac2b900-a4a6-4a87-897c-0a4be478a9a6)
+![image](https://github.com/user-attachments/assets/6e602a2f-f701-4bec-8595-8a92c9146a61)
 
 ---
 
@@ -217,4 +207,3 @@ The whole environment is made to be able to go as far as needed to mirror attack
 Setup Caldera was a very tedious process because of the tons of compatability issues that I personnaly faced. But if we go past it forced to admit that this was an interesting topic to talk about because of all the extensive possibilities it offers. We are able to make any kind of attack (premade or custom) in a matter of minutes and test it out on a test target without alot of configuration. Caldera's agents are also deployable on multiple operating systems (even Darwin). A tool with that many ways of using is a must have for any company that has a Blue and/or Red team in house.
 
 The most interesting part to talk about is the way the tool lets you customize any aspect of the attack crafting. Plugins, Abilities, adversaries you name it we can modify/add/create one from nothing adding our own scripts. That means that if there is a Zero-Day but MITRE didn't document it yet, you can still test it out on your system if it is vulnerable on that system and make an incident response procedure. Caldera is also open source which makes it that for any Cyber enthousiast this is a great tool to learn about attack patterns and how to make them/how to analyse and stop them. I would personnaly utilize Caldera in my future projects because of the vast customization options.
-
