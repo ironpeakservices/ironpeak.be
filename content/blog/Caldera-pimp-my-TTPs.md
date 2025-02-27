@@ -1,6 +1,6 @@
 +++
 date = "2025-02-24T11:55:54+02:00"
-title = "Caldera Automation"
+title = "Caldera-pimp-my-TTPs"
 tags = ["mitre","simulation","attack","training","caldera"]
 description = "A introduction to what and how Caldera operates/could be used for"
 layout = "blog"
