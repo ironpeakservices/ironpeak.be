@@ -57,13 +57,13 @@ The platform offers comprehensive documentation covering installation, configura
 
 **Here we have the initial launch of the Caldera server on our attacking server:**
 
-![Image3](https://github.com/user-attachments/assets/ff243ae9-92e0-4e26-82fe-94a26ca07e9b)
+![Caldera Agent Connected](/static/img/Caldera-blog-images/417091827-ff243ae9-92e0-4e26-82fe-94a26ca07e9b.png)
 
 ***""!!! FYI There are 2 accounts (RED and BLUE) when testing attack methods on victim pc's, only one account is going to show the attack. Also the default credentials could not work. That is normal because instead of generating a default page as asked in the instructions we need the local.yml file to be able to login into the Caldera server !!!  ""***
 
 **we see on the left side that we have a column. Lets concentrate mainly on the "campaings" section:**
 
-![image](https://github.com/user-attachments/assets/737596e2-d155-4bef-be0e-8f4c5fb40443) ![image](https://github.com/user-attachments/assets/60b34c37-37b4-4604-bb58-db2f0ea4653f)
+![Caldera Agent Connected](/static/img/Caldera-blog-images/737596e2-d155-4bef-be0e-8f4c5fb40443.png) ![image](https://github.com/user-attachments/assets/60b34c37-37b4-4604-bb58-db2f0ea4653f)
 
 It is composed of 5 parts: agents, abilities, adversaries, operations and schedules
 
