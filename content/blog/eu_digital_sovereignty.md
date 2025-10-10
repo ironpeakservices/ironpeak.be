@@ -1,3 +1,12 @@
++++ 
+date = "2025-10-10T16:30:00+01:00" 
+title = "The Myth of Digital Sovereignty" 
+tags = ["EU","digital sovereignty","AWS","Google","Cloud","azure","cloud act","aws nitro","gaia","OVH","Rhea-1"] 
+description = "The situation of the digital sovereignty in the European Union, it's reasons and the path forward." 
+layout = "blog" 
+draft = false 
++++
+
 # EU Digital Sovereignty at Risk
 
 ## Introduction
@@ -62,11 +71,15 @@ A recent study by KU Leuven and the University of Birmingham has shown a critica
 
 These findings demonstrate that technical sovereignty can be as fragile as legal sovereignty. If the underlying hardware designed by non-European manufacturers contains fatal flaws, then even data hosted in European data centers by European companies can be at risk.
 
+Some U.S. cloud providers have introduced confidential computing technologies like AWS Nitro Enclaves, which create isolated execution environments where even the cloud provider cannot access the data. However, these technologies don't solve the fundamental jurisdiction problem. While AWS cannot technically access data inside a Nitro Enclave, the CLOUD Act requires legal compliance, not technical impossibility. If the U.S. government demands access, AWS would be legally obligated to provide whatever access it can, including shutting down the enclave or providing encryption keys if they exist.
+
 In other words, we can't simply push for European data centers to be built and European companies to run them. We also need to push for the manufacturing of CPUs and GPUs made in Europe, for Europe to hold the complete supply chain.
 
 ## The Dilemma and Path Forward
 
 Europe faces a double dilemma. It relies on foreign infrastructure on one side and foreign hardware on the other, both of which undermine Europe's ambition to be fully digitally sovereign.
+
+The technological advancement gap between Silicon Valley and Europe compounds this problem. While Silicon Valley thrives on a culture of rapid innovation, risk-taking, and massive venture capital investment, Europe's approach remains more cautious and fragmented. In 2023, the U.S. invested approximately €62.5 billion in artificial intelligence alone, while Europe attracted only around €9 billion. This disparity isn't just about money, it reflects fundamentally different attitudes toward innovation, failure, and scaling.
 
 Some initiatives are emerging, like the supercomputer chip Rhea-1 developed in France by SiPearl, OVHCloud Sovereign Solution, and NumSpot, another European cloud provider. Yet these initiatives can't yet compete with the giants like Google, Microsoft, or Amazon. Another problem is how slowly European companies are trying to create competitors. This change is coming too slowly to become a real alternative to U.S. tech.
 
@@ -83,3 +96,16 @@ European digital sovereignty is being challenged at every level. The legal reach
 If Europe wants to really become digitally independent from the U.S. and China, it should invest in building a truly independent digital foundation.
 
 Without such an effort, Europe will continue to entrust its most sensitive data to foreign powers, exposing itself to geopolitical risks and the erosion of trust that comes with dependency.
+
+## Sources
+
+- https://datanews.levif.be/actualite/securite/failles/des-chercheurs-de-la-ku-leuven-piratent-la-securite-cloud-avancee-dintel-et-damd/
+- https://www.oracle.com/a/ocom/docs/cloud/oracle-eu-sovereign-cloud-for-fusion-apps-datasheet.pdf
+- https://www.forbes.com/sites/emmawoollacott/2025/07/22/microsoft-cant-keep-eu-data-safe-from-us-authorities/
+- https://www.theregister.com/2025/08/04/when_hyperscalers_cant_safeguard_one/
+- https://news.microsoft.com/source/emea/2025/04/nouveaux-engagements-europe-cybersecurite-microsoft/?lang=fr
+- https://www.lebigdata.fr/confidential-computing-2
+- https://learn.microsoft.com/fr-fr/azure/confidential-computing/overview
+- https://www.politico.eu/article/data-tech-google-taxes-buying-habits-produce-eu-uk-us-microsoft/
+- https://www.lesnumeriques.com/cpu-processeur/rhea-1-ce-processeur-europeen-concu-en-france-relance-la-bataille-des-puces-face-aux-etats-unis-et-a-la-chine-n239589.html
+- https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html
