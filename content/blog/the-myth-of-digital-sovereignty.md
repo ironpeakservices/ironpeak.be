@@ -72,8 +72,6 @@ The sovereignty problem doesn't stop at "Who has access to my data?", It also re
 
 These findings demonstrate that technical sovereignty can be as fragile as legal sovereignty. If the underlying hardware designed by non-European manufacturers contains fatal flaws, then even data hosted in European data centers by European companies can be at risk. Or what if there are flaws in there, left on purpose.
 
-<TODO: Add piece about confidential compute, what it solves, how it does this, and why it's important>
-
 Some U.S. cloud providers have introduced confidential computing technologies, for example AWS Nitro Enclaves. These create isolated execution environments where even the cloud provider cannot access the data. However, these technologies don't solve the fundamental jurisdiction problem. While AWS cannot technically access data inside a Nitro Enclave or Nitro hypervisor, the CLOUD Act requires legal compliance, not technical impossibility. If the U.S. government demands access, AWS would be legally obligated to provide whatever access it can, including shutting down the enclave or providing local access.
 
 A recent study by KU Leuven and the University of Birmingham has shown a critical flaw in Intel's and AMD's processor chips, allowing anyone with physical access to the server to steal data in an almost invisible way.
