@@ -1,5 +1,5 @@
 +++ 
-date = "2025-10-10T16:30:00+01:00" 
+date = "2025-10-13T08:00:00+02:00" 
 title = "The Myth of Digital Sovereignty" 
 tags = ["EU","digital sovereignty","AWS","Google","Cloud","azure","cloud act","aws nitro","gaia","OVH","Rhea-1"] 
 description = "The situation of the digital sovereignty in the European Union, it's reasons and the path forward." 
