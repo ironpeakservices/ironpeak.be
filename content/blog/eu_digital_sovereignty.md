@@ -1,10 +1,10 @@
-+++ 
-date = "2025-10-13T08:00:00+02:00" 
-title = "The Myth of Digital Sovereignty" 
-tags = ["EU","digital sovereignty","AWS","Google","Cloud","azure","cloud act","aws nitro","gaia","OVH","Rhea-1"] 
-description = "The situation of the digital sovereignty in the European Union, it's reasons and the path forward." 
-layout = "blog" 
-draft = false 
++++
+date = "2025-10-13T08:00:00+02:00"
+title = "The Myth of Digital Sovereignty"
+tags = ["EU","digital sovereignty","AWS","Google","Cloud","azure","cloud act","aws nitro","gaia","OVH","Rhea-1"]
+description = "The situation of the digital sovereignty in the European Union, it's reasons and the path forward."
+layout = "blog"
+draft = false
 +++
 
 # EU Digital Sovereignty at Risk
@@ -13,7 +13,9 @@ draft = false
 
 Data sovereignty refers to the principle that data is subject to the laws of the country in which it resides.
 
-For individuals, this subject might be trivial. After all, everyone shares data online at their own discretion. The stakes increase drastically when we refer to data collected by governments or public institutions. This includes medical records, financial information, and government communications.
+For individuals, this subject might seem trivial—after all, everyone shares data online at their own discretion. However, the stakes increase drastically when we consider data collected by governments or public institutions. This includes medical records, financial information, and government communications.
+
+The reality is stark: the US government can extract your Google Drive files, Apple iCloud data (without advanced data protection), OneDrive content, emails, and virtually any data stored on US-based cloud services. This isn't theoretical—it's happening today under the CLOUD Act.
 
 Data sovereignty directly affects national security, privacy, and democratic independence. If a foreign government can access the digital data from another state, privacy becomes little more than a slogan.
 
@@ -31,11 +33,11 @@ The disparity in venture capital allocation tells the story in stark terms: U.S.
 
 ## What Are U.S. Companies Putting in Place to Reassure Europe of Their Sovereignty
 
-The biggest U.S. companies providing cloud services in Europe have come forward with their own "sovereign" solutions to try and reassure Europeans that their data is safe and they own it.
+The biggest U.S. companies providing cloud services in Europe have come forward with their own "sovereign" solutions to try and reassure Europeans that their data is safe and remains under their control.
 
 ### Microsoft
 
-Microsoft has launched sovereign solutions which will ensure that all European data stays in Europe and is controlled by Microsoft employees in Europe. It will also include an encryption controller managed by the customer, meaning the cloud provider will not have the decryption key.
+Microsoft has launched sovereign solutions for Azure and Office365 which will ensure that all European data stays in Europe and is controlled by Microsoft employees in Europe. It will also include an encryption controller managed by the customer, meaning the cloud provider will not have the decryption key.
 
 The architecture of the Microsoft Sovereign Solution involves data residency commitments, where data is stored exclusively in European data centers, and access controls that limit which Microsoft personnel can interact with the data.
 
