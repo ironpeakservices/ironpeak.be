@@ -2049,6 +2049,10 @@ code {
   background-color: #f1f6fc;
 }
 
+#blog .container > .col-md-4:nth-child(3n+1) {
+  clear: left;
+}
+
 #blog .row-title {
   text-align: center;
 }
@@ -2100,7 +2104,7 @@ code {
   font-family: montserrat-bold,sans-serif;
   font-size: 22px;
   color: #fff;
-  padding: 2px;
+  padding: 10px;
 }
 
 #blog .blogpost-title span {

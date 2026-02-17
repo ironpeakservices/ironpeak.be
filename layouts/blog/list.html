@@ -10,14 +10,14 @@
     <div id="blog" class="container-fluid">
         <div class="container">
             {{ range .Pages }}
-            <a href="{{.Permalink}}">
-                <div class="col-md-4 pt-30">
+            <div class="col-md-4 pt-30">
+                <a href="{{.Permalink}}">
                 <div class="plan-box">
                     <div class="plan-box-header color-bg1">
                         <div class="plan-title">
                             {{ .Date.Format "2006-01-02" }}
                         </div>
-                        
+
                         <div class="blogpost-title v-align">
                             <span>
                                 {{ .Title }}
@@ -32,8 +32,8 @@
                         {{ end }}
                     </div>
                 </div>
-                </div>  
-            </a>
+                </a>
+            </div>
             {{ end }}
         </div>
 
