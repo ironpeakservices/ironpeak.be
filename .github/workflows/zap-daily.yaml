@@ -12,7 +12,7 @@ jobs:
     steps:
     -
       name: ZAP Scan
-      uses: zaproxy/action-full-scan@v0.10.0
+      uses: zaproxy/action-full-scan@v0.13.0
       with:
         issue_title: Vulnerability Scan Results
         token: ${{ secrets.GITHUB_TOKEN }}
