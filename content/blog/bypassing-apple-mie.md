@@ -7,7 +7,7 @@ layout = "blog"
 draft = false
 +++
 
-**Apple's Memory Integrity Enforcement is no joke. Five years of design, brand-new M5 silicon, hardware memory tagging on the kernel heap, hardware-locked read-only zones for the kernel's crown jewels, and a privileged monitor sitting above the kernel that refuses every unauthorised page-table change. It's the most serious kernel memory-safety stack any consumer OS has shipped. And it still got bypassed. A three-person shop with an AI sidekick walked through it in five days, with two bugs and a clever idea. Here's my rundown of how they achieved it, no PhD required.**
+**Apple's Memory Integrity Enforcement is no joke. Five years of design, brand-new M5 silicon, hardware memory tagging on the kernel heap, hardware-locked read-only zones for the kernel's crown jewels, and a privileged monitor sitting above the kernel that refuses every unauthorised page-table change. It's the most serious kernel memory-safety stack any consumer OS has shipped. And it still got bypassed. A three-person shop with an AI sidekick walked through it in five days, with two bugs and a clever idea. Apple has shipped one related fix already, CVE-2026-28952, a clean integer overflow in the trusted RO-zone writer. Here's my read of that fix, no PhD required.**
 
 Skip ahead if you want:
 
@@ -54,6 +54,8 @@ On **11 May 2026** Apple shipped macOS Tahoe 26.5. Buried in [the security notes
 
 "Unexpected system termination" sounds like a crash bug. It is not. Three days later Calif published [their disclosure](https://blog.calif.io/p/first-public-kernel-memory-corruption): the first public macOS kernel exploit on an M5 with MIE enabled. Unprivileged local user, only public syscalls, root shell. Five days from "no bugs in hand" to working exploit. They used Anthropic's restricted Mythos Preview model throughout.
 
+One note up front: this post is about CVE-2026-28952, the bug Apple credited Calif for and patched in 26.5. The bugs in the actual MIE-bypass chain are different ones, still embargoed until Calif's 55-page report.
+
 Apple's patch is **two instructions long**. Two. Those two instructions tell the whole story. Let me show you.
 
 If you read arm64 assembly, here's the whole fix at a glance. We'll unpack it properly below.
@@ -62,11 +64,14 @@ If you read arm64 assembly, here's the whole fix at a glance. We'll unpack it pr
 --- com.apple.kernel @ macOS 26.4.1   :: _zalloc_ro_mut, bounds check
 +++ com.apple.kernel @ macOS 26.5     :: _zalloc_ro_mut, bounds check
 @@ argument validation @@
--    cmp   x8, x29              ; stack-frame sanity check (useless)
+-    cmp   x8, x29              ; stack-area filter, comparing tagged_target to fp
 -    b.lo  skip_stack_check
--    ; 6 instructions of alignment-mask arithmetic
--    adds  x9, x8, x4           ; target + len, runs LATE
--    b.hs  range_check
+-    ; alignment mask producing aligned_fp
+-    add   x10, x8, x4          ; UNCHECKED target + len  ← the bug
+-    cmp   x10, x9              ; compare against aligned_fp
+-    b.lo  write                ; wrapped end < aligned_fp → straight to writer
+-    adds  x9, x8, x4           ; overflow detection, runs LATE
+-    b.hs  fallback
 +    mrs   x10, TPIDR_EL1       ; per-CPU pointer
 +    adds  x9, x8, x4           ; target + len, runs FIRST
 +    b.hs  per_cpu_check
@@ -78,7 +83,7 @@ If you read arm64 assembly, here's the whole fix at a glance. We'll unpack it pr
 +    b.ls  panic
 ```
 
-Three differences: a useless stack-overlap check is gone, the overflow check moved earlier, and a brand-new per-CPU bound was added. If that already makes sense to you, skim the rest. If not, read on.
+Three differences: the buggy stack-area check is gone, the overflow check moved earlier, and a brand-new per-CPU bound was added. If that already makes sense to you, skim the rest. If not, read on.
 
 ### The bug, in 60 seconds
 
@@ -92,23 +97,32 @@ void _zalloc_ro_mut(zone_id_t zone,    // which RO zone
                     size_t    len);    // how many bytes
 ```
 
-Translation: "find this slot in this RO zone, and copy `len` bytes from `src` into `target + offset`". Before doing anything, it has to bounds-check that the destination plus the copy size doesn't run off the end of what's allocated. The 26.4.1 check looked like this in pseudocode (I'm dropping the `offset` parameter for clarity; the real code adds it to `target` upfront):
+Translation: "find this slot in this RO zone, and copy `len` bytes from `src` into `target + offset`". Before doing anything, the function bounds-checks the destination against the RO zone. Reading the 26.4.1 binary, the relevant sequence looks like this (I'm dropping the `offset` parameter for clarity; the real code adds it to `target` upfront, and OR's in some high-bit tags too):
 
-```c
-// pre-patch (26.4.1)
-uint64_t end = target + len;     // wait for it...
-if (end < target) {              // overflow detection
-    // wrap-handling path, uses `end` (already wrapped!)
-    if (target >= ro_zone_lo && end <= ro_zone_hi)
-        goto write_ok;           // 🤡
-}
+```
+; pre-patch (26.4.1), _zalloc_ro_mut bounds-check sequence
+tagged_target = target | high_tag_bits
+if tagged_target < frame_pointer:
+    goto primary_range_check          ; tagged target sits below the stack, skip the next check
+
+; "stack-area" filter: meant to refuse writes that overlap kernel-stack pages
+aligned_fp = round_up(frame_pointer + page, page)
+end = tagged_target + len             ; ⚠ unchecked add, no overflow detection
+if end < aligned_fp:
+    goto write                        ; 🤡  the bug lives here
+
+primary_range_check:
+    end = tagged_target + len         ; THIS adds DOES set the carry flag
+    if overflowed: goto fallback      ; fallback eventually panics
+    if not (ro_zone_lo <= tagged_target && end <= ro_zone_hi):
+        goto fallback
 ```
 
-Spotted it? If `len` is huge enough that `target + len` wraps past `2^64`, then `end` becomes a tiny number. The wrap-handling path *still* compares this tiny `end` against the RO zone range. A tiny number is comfortably below `ro_zone_hi`, so the check passes. The function happily calls `memcpy(target, src, len)` with the *real* `len`, which writes way past the validated slot into whatever lives next door.
+Spotted it? The stack-area filter computes `tagged_target + len` with an unchecked add and compares the result against `aligned_fp` (the page-aligned address just above the current kernel stack frame) using an unsigned less-than. The intent looks reasonable: writes that stay below the stack page are fine, writes that span up into it are not. The implementation has a hole. Pick `len` huge enough that `tagged_target + len` wraps past 2^64 to a tiny number. The tiny number is comfortably below `aligned_fp`, the comparison passes, and the function branches straight to the writer. The writer then runs with the *real* `len`, which is huge, and bytes flow out of the validated slot into whatever lives next door.
 
 What lives next door in the RO zone? **Other `ucred` structures.** Other `task_t` blocks. AMFI state. Codesigning flags. The exact stuff MIE was built to protect.
 
-That's CVE-2026-28952. Integer overflow in a bounds check. Apple's CVE wording, "*addressed with improved input validation*", finally makes sense.
+That's CVE-2026-28952. Integer overflow in a defensive check that was meant to keep us safe and instead waved attacker bytes through. Apple's CVE wording, "*addressed with improved input validation*", makes sense.
 
 ### Memory layout, because pictures help
 
@@ -219,18 +233,25 @@ I pulled both the 26.4.1 and 26.5 kernelcaches off my research box and diffed `_
 
 2. **A per-CPU bound was added** via the `TPIDR_EL1` register (ARM64's per-core thread pointer). Pre-patch, the bounds check used the *global* RO-zone range. Post-patch, the destination must also fit inside the *current CPU's* RO sub-zone. The kernel maintains separate read-only sub-zones per core for performance, and the old code didn't enforce that boundary.
 
-3. **A useless stack-overlap check was removed.** Vestigial code that compared the destination against the frame pointer. Mostly never fired. Gone.
+3. **The stack-area check was removed entirely.** This was the bug. The check did an unchecked `add x10, x8, x4` of `tagged_target + len` before comparing against `aligned_fp` with `b.lo`. An overflowed `len` produced a wrapped (tiny) end value that passed the comparison and branched straight to the writer. Apple removed the whole filter rather than fix it; redundant with the per-CPU bound plus the range check.
 
 Here's the actual diff. Pre-patch arm64e:
 
 ```asm
 ; macOS 26.4.1, _zalloc_ro_mut at 0xfffffe000b4e3560
-cmp   x8, x29              ; stack-frame sanity check (useless)
+cmp   x8, x29              ; tagged_target vs frame pointer
 b.lo  skip_stack_check
-; ... 6 instructions of alignment-mask arithmetic ...
-adds  x9, x8, x4           ; HERE, late: target+len
-b.hs  range_check
-; overflow falls through into range check with x9 wrapped
+ldr   x9, [...]            ; page-size constant
+add   x10, x29, x9
+sub   x10, x10, #0x1
+neg   x9, x9
+and   x9, x10, x9          ; x9 = aligned_fp (page boundary above current frame)
+add   x10, x8, x4          ; ⚠ unchecked target+len
+cmp   x10, x9
+b.lo  write                ; (wrapped end) < aligned_fp → straight to write
+adds  x9, x8, x4           ; overflow detection runs too late
+b.hs  fallback             ; on overflow → fallback (which panics)
+; primary range check follows
 ```
 
 Post-patch:
@@ -268,11 +289,9 @@ Every protection performs *exactly as designed*. The bug is upstream of all of t
 
 This is what *data-only* exploitation looks like in 2026. MIE was built to stop pointer corruption: forged pointers, torn pointers, dangling pointers. It doesn't have an opinion about an authorised writer choosing the wrong slot. The more memory tagging covers, the more exploit research will pile up on top of these trusted writers, because they're the only door left.
 
-### How the chain actually works
+### How an integer-overflow chain *could* work
 
-Calif say "two vulnerabilities and several techniques." Only CVE-2026-28952 is publicly attributed to them; the rest stays embargoed until their 55-page report drops. But the constraints they published are narrow enough to reconstruct the shape with reasonable confidence. Unprivileged user. Public syscalls only. Ends in root shell.
-
-Here's how I'd build it, given the patch and the constraints.
+The constraints any plausible CVE-2026-28952 exploit faces are narrow: unprivileged user, public syscalls only, ends in root shell. Here's the shape I'd build, given the patch.
 
 #### Reaching `_zalloc_ro_mut` from userland
 
@@ -312,7 +331,7 @@ So the chain plausibly looks like:
 5. The spill overwrites a neighbouring `ucred`'s `cr_uid` with `0`.
 6. The attacker becomes that process (their own child, by setup) and runs the shell as root.
 
-Informed speculation, to be clear. Calif may have used a different reach (Mach IPC, IOKit, sockets) or a different leak. But the *shape* of the chain is constrained by what they published, and this shape fits. We'll know for sure when the 55-page report ships.
+Speculation, to be clear. The chain above is one shape an exploit could take, nothing more.
 
 ### Cross-platform reach
 
@@ -385,9 +404,9 @@ None of this is revolutionary. All of it follows from "the trusted writer is now
 
 ### Takeaways
 
-MIE is a real improvement. EMTE stops most pointer corruption, the RO zone keeps the crown jewels behind a hardware gate, and the Secure Page Table Monitor enforces that only one function can open it. All of that did its job. None of it caught Calif.
+MIE is a real improvement. EMTE stops most pointer corruption, the RO zone keeps the crown jewels behind a hardware gate, and the Secure Page Table Monitor enforces that only one function can open it. All of that did its job. And it didn't catch this one.
 
-The bug was in the one place MIE *can't* protect: the argument validation of the trusted writer itself. An integer overflow in `_zalloc_ro_mut` let attacker bytes spill across slot boundaries inside the RO zone. The bytes landed on a `ucred`. The `cr_uid` flipped to zero. Root shell. The pointer was never bad, the page table was never wrong, the tag was always correct.
+The bug was in the one place MIE *can't* protect: the argument validation of the trusted writer itself. An integer overflow in `_zalloc_ro_mut`'s stack-area filter let attacker bytes spill across slot boundaries inside the RO zone. The bytes landed on a `ucred`. The `cr_uid` flipped to zero. Root shell. The pointer was never bad, the page table was never wrong, the tag was always correct.
 
 Two lessons.
 
@@ -395,7 +414,7 @@ The first is for Apple, and they already learned it: the trusted writer is now t
 
 The second is for the rest of us. Every protection layer relies on the assumption that the layer below it has been validated. Once you start stacking defences, the gaps move *between* them, into the validation glue. As Apple keeps tightening memory tagging on the platform, expect more of these bugs, not fewer. They'll all look like this one: small, defensive code that was meant to keep us safe, doing its arithmetic in the wrong order.
 
-Patch your stuff. Watch for the 55-page report. And the next time someone tells you a memory-safety mitigation is "unbypassable", remember it took three people and an AI five days to walk through this one. Score on the board: bug hunters 1, five years of silicon 0. For now.
+Patch your stuff. Watch for the 55-page report. And the next time someone tells you a memory-safety mitigation is "unbypassable", remember it took three people and an AI five days to walk through five years of silicon. Score on the board: bug hunters 1, MIE 0. For now.
 
 ### Sources and further reading
 
@@ -409,6 +428,6 @@ The reverse-engineering work in this post is mine, off pre-patch and post-patch 
 - [GBHackers writeup of CVE-2025-24118](https://gbhackers.com/apples-macos-vulnerability/): background on the same function's *previous* CVE in January 2025 (a race condition rather than this overflow).
 - XNU source for `ucred` and related structures: [apple-oss-distributions/xnu](https://github.com/apple-oss-distributions/xnu) on GitHub.
 
-The 55-page report will, when it lands, give you the second vulnerability, the heap-shaping technique, and the exact path through normal syscalls. Everything above is my reconstruction from the patch and public disclosures. The report will be ground truth.
+The 55-page report will, when it lands, give you the heap-shaping technique and the exact path through normal syscalls. Everything above is my read of the patch. The report will be ground truth.
 
 Now go install your update, fool. ;-)
