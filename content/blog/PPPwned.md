@@ -4,7 +4,7 @@ tags = ["ps4","exploit","kernel","ppp","rce","jailbreak","goldhen","cve-2006-430
 description = "A cited deep dive into the PS4 FW 11.00 PPP-based kernel exploit: why PlayStation jailbreaking exists, how PS4's FreeBSD-based OS works, the real CVE-2006-4304 advisory and patch, and what it means for PS5."
 layout = "blog"
 draft = false
-title = "PPPwned: The Bug That Outlived Dial-Up"
+title = "The Bug That Outlived Dial-Up"
 +++
 
 ## Introduction
