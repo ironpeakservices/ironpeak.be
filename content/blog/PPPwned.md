@@ -4,9 +4,16 @@ tags = ["ps4","exploit","kernel","ppp","rce","jailbreak","goldhen","cve-2006-430
 description = "A cited deep dive into the PS4 FW 11.00 PPP-based kernel exploit: why PlayStation jailbreaking exists, how PS4's FreeBSD-based OS works, the real CVE-2006-4304 advisory and patch, and what it means for PS5."
 layout = "blog"
 draft = false
+title = "PPPwned: The Bug That Outlived Dial-Up"
 +++
 
-# PPPwned: The Bug That Outlived Dial-Up
+## Introduction
+
+For years, PlayStation 4 exploitation followed a predictable formula: gain code execution through the browser, escape the sandbox, then use a kernel vulnerability to take full control. Firmware 9.00 marked the last major milestone in that lineage.
+
+Firmware 11.00 broke that pattern. Not because the system got meaningfully more secure, but because the entry point moved somewhere far less obvious: the network stack.
+
+This post is a cited walkthrough of the PPP-based kernel exploit publicly released as **PPPwn** by Andy Nguyen (theflow0), <cite index="5-1">a kernel remote code execution exploit for PlayStation 4 up to firmware 11.00</cite>. Every technical claim about the underlying bug traces back to the original FreeBSD security advisory, FreeBSD's actual 2006 patch, and Sony's own HackerOne disclosure of the rediscovery. It doesn't reconstruct the console-specific weaponization: the heap grooming, KASLR defeat, and ROP chain TheFlow built on top of the bug and covered in his TyphoonCon talk. Those specifics aren't public, so they aren't guessed at here.
 
 ## Jailbreaking a PlayStation: the why and the how
 
@@ -17,14 +24,6 @@ draft = false
 **How a jailbreak chain usually works.** PS4 exploitation historically followed a layered formula. A browser exploit (the console ships a WebKit-based browser) gets you unprivileged code execution in a sandboxed process. A second bug escapes that sandbox. A kernel vulnerability chains on top to escalate from userland into ring-0, where the console's code-signing checks, syscall restrictions, and general "jail" can finally be turned off. Firmware 9.00 was the last major milestone built on that browser-first formula.
 
 PPPwn skips the first two stages entirely. Instead of going in through a user-facing entry point like the browser, it goes straight for the kernel over the network, through a legacy protocol implementation that was never hardened against a determined attacker. That's the "different kind of entry point" this whole post is about.
-
-## Introduction
-
-For years, PlayStation 4 exploitation followed a predictable formula: gain code execution through the browser, escape the sandbox, then use a kernel vulnerability to take full control. Firmware 9.00 marked the last major milestone in that lineage.
-
-Firmware 11.00 broke that pattern. Not because the system got meaningfully more secure, but because the entry point moved somewhere far less obvious: the network stack.
-
-This post is a cited walkthrough of the PPP-based kernel exploit publicly released as **PPPwn** by Andy Nguyen (theflow0), <cite index="5-1">a kernel remote code execution exploit for PlayStation 4 up to firmware 11.00</cite>. Every technical claim about the underlying bug traces back to the original FreeBSD security advisory, FreeBSD's actual 2006 patch, and Sony's own HackerOne disclosure of the rediscovery. It doesn't reconstruct the console-specific weaponization: the heap grooming, KASLR defeat, and ROP chain TheFlow built on top of the bug and covered in his TyphoonCon talk. Those specifics aren't public, so they aren't guessed at here.
 
 ---
 
