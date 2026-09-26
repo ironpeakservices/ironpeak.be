@@ -39,8 +39,6 @@ EXR is a high-dynamic-range image format from the visual-effects world. It store
 
 ### The bug in 60 seconds
 
-Here is the whole bug up front.
-
 Apple's EXR decoder allocates a destination buffer sized for a three-channel RGB image. Twelve bytes per pixel: red, green, blue, each a 32-bit float, four bytes each. Reasonable, the file said RGB, no alpha.
 
 Then it calls an interleave routine to fill that buffer, and the interleave routine writes *four* channels per pixel. Sixteen bytes: red, green, blue, and a hardcoded alpha of `1.0`. Every pixel it writes is four bytes bigger than the space that was reserved for it.
@@ -63,7 +61,7 @@ The rest of this post is how I went from "a fuzzer emitted a weird crash" to "I 
 
 ### It started with a fuzzer that did not know what EXR was
 
-I did not sit down one morning and decide to audit the EXR decoder. Nobody does. Well, unless you're me, apparently. You get there sideways.
+I did not sit down one morning and decide to audit the EXR decoder. Nobody does. Well, unless you're me, apparently.
 
 My hunting setup leans hard on LLM-guided fuzzing. The short version is that instead of throwing random bytes at a parser and praying, I have models read the disassembly of a target leaf, describe which fields it trusts, and propose mutations that keep the file *structurally valid* while poking exactly the counts, sizes, and type tags the code branches on. Random fuzzing of a format like EXR gets you nowhere, because the decoder rejects malformed files in the first hundred bytes and you never reach the interesting code. Structure-preserving, disassembly-anchored fuzzing gets you deep.
 
@@ -111,8 +109,6 @@ The fault address in the crash report sat exactly one byte past the end of a map
 One fact, though, is a party trick. I needed to know two things before this was worth anyone's time. Could I *control* where those bytes landed and what they were? And could I reach this decoder without a human politely double-clicking my file? For the first question, I needed to stop crashing and start experimenting, which meant I needed to run this hundreds of times without going insane.
 
 ### A test rig made of AppleScript and stubbornness
-
-Here is the unglamorous middle of every exploit story.
 
 To learn how a heap overflow behaves you have to trigger it over and over, under slightly different conditions each time, and observe what changed. Different image dimensions push the overflow different distances. Different pixel values change the bytes written. Different allocation patterns beforehand change what is sitting next door to get clobbered. You are running a science experiment where the lab equipment keeps segfaulting on purpose.
 
@@ -163,8 +159,6 @@ Now for the last and best question. What is the least the victim can do and stil
 
 ### Zero clicks
 
-Here is the chain that removes the human entirely.
-
 When an iMessage arrives with an attachment, a whole assembly line springs into motion before you have decided whether to even look at the conversation. The message is received and its attachment written to disk. The system indexes it so it will show up in search. Part of that indexing hands the content to the photo subsystem, which wants to catalogue and prepare any media it sees, including generating thumbnails and derivative images so the photo library stays fast and searchable.
 
 That thumbnail-generation step is the trap. Deep in the photo library's background sanitation worker, the code that prepares derivatives for incoming syndicated content builds its image-decode request with the standard-dynamic-range option hardcoded on. Not conditionally. Unconditionally. The exact option that flips the EXR decoder into the four-channel-writing, buffer-overrunning path. So the sequence is:
@@ -188,7 +182,7 @@ And this is not a macOS-only story. `libAppleEXR` and ImageIO are the same code 
 
 ### How bad is it, honestly
 
-Now the honest part. Inflated severity is how you lose the trust of the people you report to, and how you lose your own bearings.
+Now the honest part; inflated severity is how you lose the trust of the people you report to, and especially triage.
 
 What I have, provably, is a **controlled heap overflow that fires zero-click inside a privileged daemon**. Deterministic landing, three-quarters attacker-controlled bytes, reachable over iMessage with no interaction. That is a serious primitive on its own. It defeats the "you have to trick the user" assumption entirely.
 
@@ -243,12 +237,11 @@ Memory-safety mitigations are real and they are getting better. Pointer Authenti
 
 Start from the file. Follow it to the parser. Then, and this is the part that separates a crash from a compromise, follow the parser back to everyone who feeds it without asking. That last step is where the zero-clicks live.
 
-Fair winds. Watch your attachments.
+Fair winds, fellow pirates. Watch your attachments.
 
 ### Sources and further reading
 
 - [OpenEXR file format](https://openexr.com/): the format specification, for the channel and compression model this bug lives in.
 - [Apple ImageIO / CGImageSource](https://developer.apple.com/documentation/imageio): the decode funnel every image on the platform passes through, EXR included.
-- [Google Project Zero](https://googleprojectzero.blogspot.com/): the canonical body of work on 0-click mobile bugs and why parsers-on-arriving-content are the crown-jewel surface.
 - [Pardon MIE?](/blog/bypassing-apple-mie/): my earlier write-up on Apple's Memory Integrity Enforcement, for the memory-tagging and PAC context referenced above.
 - [Crouching T2, Hidden Danger](/blog/crouching-t2-hidden-danger/): older Apple hardware-security work from the same family of "trust a little too much" bugs.
