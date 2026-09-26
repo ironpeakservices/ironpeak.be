@@ -7,7 +7,7 @@ layout = "blog"
 draft = false
 +++
 
-**Every serious Apple device compromise of the last decade has a boring secret at the bottom of it: a parser read a file and trusted it a little too much. Not a phishing link, not a stolen password. A daemon you never launched, decoding a file you never opened, one byte past the end of a buffer. This is that story. It starts late one evening with a fuzzer that did not know what an EXR file was, and ends with a heap overflow that fires inside a privileged Apple daemon the instant an iMessage lands evading BlastDoor's, before the little notification banner even finishes sliding in. No tap required. Zero clicks. Grab a mug, this one is my first 0-click voyage.**
+**Every serious Apple device compromise of the last decade has boring person at the bottom of it: a parser read a file and trusted it a little too much. Not a phishing link, nor a stolen password, but a daemon you never launched, decoding a file you never opened, one byte past the end of a buffer. This is that story. It starts late one evening with a fuzzer that did not know what an EXR file was, and ends with a heap overflow that fires inside a privileged Apple daemon the instant an iMessage lands evading BlastDoor's, before the little notification banner even finishes sliding in. No tap required. Zero clicks. Grab a mug, this one is my first 0-click voyage.**
     
 TL;DR:
 
